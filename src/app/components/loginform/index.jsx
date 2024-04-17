@@ -4,8 +4,7 @@ import { useFormState, useFormStatus } from "react-dom";
 import localFont from "next/font/local";
 
 // Load local fonts using the new Next.js font optimization feature
-const druk = localFont({ src: "../../../fonts/druk.wide.ttf" });
-const calibri = localFont({ src: "../../../fonts/calibri-regular.ttf" });
+
 
 const authenticate = async (_e, data) => {
     try {
@@ -55,10 +54,10 @@ export default function LoginForm() {
         e.preventDefault(); // Prevent the default form submission
         action(e);
       }}
-      className={`mb-3 ${calibri.className}`} // Apply font style
+      className={`mb-3`} // Apply font style
     >
       <div className="p-4 bg-light rounded">
-        <h1 className={`${druk.className} mb-3 h2`}>Please log in to continue.</h1>
+        <h1 className={`mb-3 h2`}>Please log in to continue.</h1>
         {code}
         <div className="container-fluid">
           <div className="mb-4">

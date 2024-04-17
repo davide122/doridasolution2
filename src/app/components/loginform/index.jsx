@@ -1,3 +1,4 @@
+"use client";
 import React from 'react';
 import { useFormState, useFormStatus } from "react-dom";
 import localFont from "next/font/local";

@@ -1,4 +1,3 @@
-import "../../../public/globals.css";
 
 export const metadata = {
   title: "Login",

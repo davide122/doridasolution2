@@ -1,6 +1,6 @@
+import NextAuth from "next-auth";
 import { NextResponse } from "next/server";
 import { authConfig } from "./auth.config";
-import NextAuth from "next-auth";
 
 export function middleware(req) {
     if (
@@ -8,6 +8,7 @@ export function middleware(req) {
       req.nextUrl.pathname === "/login"
     ) {
       return NextAuth(authConfig).auth(req);
+      
     }
     return NextResponse.next();
   }

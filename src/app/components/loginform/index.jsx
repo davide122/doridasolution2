@@ -5,27 +5,35 @@ import localFont from "next/font/local";
 
 // Load local fonts using the new Next.js font optimization feature
 
-
 const authenticate = async (_e, data) => {
-    try {
-      const res = await fetch(
-        "/api/user/authenticate",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(data),
-        }
-      );
-      const user = await res.json();
-      return user;
-    } catch (error) {
-      console.error("Error authenticating:", error);
-      throw error;
-    }
-//   const users = await fetch(
+  console.log(data);
+  console.log(JSON.stringify({email:data.target[0].value, password:data.target[1].value}));
+  try {
+    const res = await fetch(
+      "/api/user/authenticate/",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({email:data.target[0].value, password:data.target[1].value},),
+        
+      }
+    );
+      if (res) {
+        console.log(res)
+        const user = await res.json();
+          return user;
 
+      } else {
+        return null;
+      }
+    } catch (error) {
+        console.error("Error authenticating:", error);
+        throw error;
+      }
+      //   const users = await fetch(
+        
 //     "/user/authenticate/",
 //     {
 //       method: "POST",

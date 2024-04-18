@@ -1,7 +1,9 @@
 import { authenticate } from "@/actions";
 
 export const POST = async (req, res) => {
-  const users = await authenticate(null, JSON.parse(req.body));
+  const body = await req.json();
+  const users = await authenticate(null, body);
+
   if (users) {
     return res.status(200).json(users);
   }

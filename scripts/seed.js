@@ -3,7 +3,7 @@ const {
   
   users,
 
-} = require("../src/lib/placeholder-data.ts");
+} = require("./utils/placeholderdata");
 const bcrypt = require("bcrypt");
 
 async function seedUsers(client) {

@@ -1,0 +1,69 @@
+/* Stili di base per la navbar */
+.navbar {
+    background-color: #000;/* Sostituisci con un gradiente o un colore solido se preferisci */
+    
+    padding: 1rem 0; /* Aumenta il padding verticale per un aspetto più "aerato" */
+    transition: all 0.3s ease-in-out; /* Transizione morbida per gli effetti di hover e focus */
+    padding: 0px 10px 10px 10px;
+}
+
+/* Logo e branding */
+.navbar-brand img {
+    height: auto;
+    width: 60px; /* Adatta la dimensione del logo alle tue necessità */
+    transition: transform 0.3s ease-in-out; /* Effetto zoom al passaggio del mouse */
+}
+
+.navbar-brand:hover img {
+    transform: scale(1.1);
+}
+
+/* Collegamenti della navbar */
+.nav-link {
+    color: #fff;
+    margin-right: 15px; /* Distanza tra i link */
+    transition: color 0.3s ease-in-out; /* Transizione morbida per cambiamenti di colore */
+}
+
+.nav-link:hover, .nav-link:focus {
+    color: #e0e0e0; /* Cambia il colore al passaggio del mouse */
+    text-decoration: none; /* Rimuove il sottolineamento */
+}
+
+/* Icona del profilo nel navbar */
+.fa-user-circle {
+    font-size: 24px; /* Dimensione dell'icona del profilo */
+    cursor: pointer; /* Rende l'icona cliccabile con effetto cursore */
+}
+
+/* Pulsante di toggle per dispositivi mobili */
+.navbar-toggler {
+    border: none; /* Rimuove il bordo del pulsante */
+    outline: none; /* Rimuove l'outline al focus */
+}
+
+/* Navbar collapse */
+.collapse.show {
+    display: flex;
+    justify-content: flex-end; /* Allinea i link a destra quando il menu è aperto */
+}
+
+/* Responsive design per le icone del menu a comparsa */
+@media (max-width: 991px) {
+    .navbar-collapse {
+        background-color: #000; /* Sfondo per il menu a tendina su dispositivi mobili */
+        margin-top: 0.5rem;
+    }
+}
+
+/* Sfondo gradiente (opzionale) */
+
+
+.Offcanvas{
+    background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgb(8, 8, 33) 35%, rgb(30, 15, 55) 80%) !important;
+}
+
+.gradient{
+    background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgb(8, 8, 33) 35%, rgb(30, 15, 55) 80%) !important;
+
+}

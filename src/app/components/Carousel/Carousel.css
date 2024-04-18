@@ -1,0 +1,60 @@
+.carousel2 {
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    background-color: #000; /* Sfondo nero per il carosello */
+    padding: 2rem 0; /* Spazio verticale per 'respirare' */
+  
+  }
+  
+  .scrolling-container {
+    display: flex;
+    will-change: transform;
+    animation: scroll-left 40s linear infinite;
+  }
+  
+  .service-box {
+    min-width: 300px; /* Larghezza minima di ogni servizio per evitare sovrapposizioni */
+    max-width: 220px;
+    height: auto; /* Altezza in base al contenuto */
+    margin: 0 1rem; /* Distanza tra i servizi */
+    padding: 1rem; /* Imbottitura per il contenuto interno */
+    color: #E6E6FA; /* Testo azzurrino per leggibilità */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative; /* Necessario per il posizionamento della linea decorativa */
+    white-space: nowrap; /* Evita a capo nel testo */
+    transition: transform 0.3s, scale 0.3s;
+    cursor: pointer;
+    font-size: 1rem; /* Adatta la dimensione del font se necessario */
+  }
+  
+  .service-box:before {
+  
+    
+  }
+  
+  .service-box:hover {
+    transform: scale(1.05);
+  
+    backdrop-filter: blur(5px); /* Sfocatura per il background al hover */
+  }
+  
+  @media (max-width: 768px) {
+    .service-box {
+      min-width: 60%; /* Più spazio per ogni servizio su dispositivi mobili */
+    }
+  }
+  
+  @keyframes scroll-left {
+    0% {
+      transform: translateX(0%);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
+  }
+  
+  

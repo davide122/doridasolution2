@@ -28,7 +28,7 @@ const HeroSection = () => {
             <div>
               <Spline scene="https://prod.spline.design/fG63sTT4o138JOix/scene.splinecode" className='vh-100 d-none d-md-block d-md' />
               <div className="d-block d-md-none vh-100 mx-0">
-                <Image src={imageHumanSrc} alt="Mobile" className="imgHuman" layout='fill' objectFit='cover' />
+                <Image src={imageHumanSrc} alt="Mobile" className="imgHuman"/>
               </div>
             </div>
           ) : (

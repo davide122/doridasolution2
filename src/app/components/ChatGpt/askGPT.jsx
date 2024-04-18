@@ -1,22 +1,18 @@
-
-
-const openAIKey = process.env.REACT_APP_OPENAI_KEY;
-console.log(openAIKey);
 const askGPT = async (question) => {
-  const response = await axios.post(
-    'https://api.openai.com/v1/chat/completions',
-    {
-      model: 'gpt-4',
-      messages: [{ role: "user", content: question }],
-      max_tokens: 400,
-    },
-    {
+    const response = await fetch("/api/askGPT", {
+      method: 'POST',
       headers: {
-        'Authorization': `Bearer ${openAIKey}`,
-      }
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ question }),
+    });
+  
+    if (!response.ok) {
+      throw new Error('Failed to fetch from API');
     }
-  );
-  return response.data.choices[0].message.content.slice(0,200);
-};
-
-export { askGPT };
+  
+    const data = await response.json();
+    return data.message;};
+  
+  export { askGPT };
+  

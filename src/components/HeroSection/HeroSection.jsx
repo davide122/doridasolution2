@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import Spline from '@splinetool/react-spline';
 import Image from 'next/image';
-import imageHumanSrc from "../../public/image/Screenshot 2024-03-26 alle 12.03.30.png"; // Assicurati di spostare l'immagine nella cartella public
+import imageHumanSrc from "../../../public/image/Screenshot 2024-03-26 alle 12.03.30.png"; // Assicurati di spostare l'immagine nella cartella public
 
 import ChatWithGPT from '../ChatGpt/ChatWithGpt'; // Aggiorna il percorso se necessario
 import { BsChatDots, BsRobot } from 'react-icons/bs';

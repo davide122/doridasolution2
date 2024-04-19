@@ -1,0 +1,111 @@
+
+/* Aggiungi questo nel tuo CSS globale o specifico del componente */
+.modal-open-custom .modal-backdrop.show {
+    opacity: 0.95 !important; /* Sfumatura più scura */
+    background-color: #000000 !important; /* Cambia il colore di sfondo se necessario */
+  }
+
+.modal-content {
+    background: linear-gradient(145deg, #3b3b3b, #222);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+   
+    overflow: hidden;
+    height: 80%;
+    width: 100%;
+   
+  }
+  
+  .modal-header {
+    background: black !important;
+    border-bottom: 1px solid #000000 !important;
+    color: #8787ca;
+    text-shadow: 1px 1px 1px #000;
+  }
+  
+  .modal-title {
+    font-weight: bold;
+    color: #a2a2d8;
+    text-transform: uppercase;
+  }
+  
+  .modal-body {
+    background-color: black !important;
+    color: #000000 !important;
+    margin: 0;
+    font-size: 1.05em; /* Slightly larger font size for better readability */
+  }
+  
+  .Blu{
+    border: 3px solid #01b8fb !important ;
+  
+  }
+  
+  .Lilla{
+  
+    border: 3px solid #EC6AFF !important ;
+  
+  }
+  .modal-footer {
+    background: #000000 !important;
+    border-top: 1px solid #1f1f1f;
+  }
+  
+  .modal-footer button {
+    background-color: #4a4ae6;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    text-transform: uppercase;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 2px 2px #000;
+  }
+  
+  .modal-footer button:hover {
+    background-color: #5656ee;
+    cursor: pointer;
+  }
+  
+  /* Animation for modal appearance */
+  @keyframes modalEntry {
+    from {
+        transform: scale(0.5);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+  }
+  
+  .modal-content {
+    animation-name: modalEntry;
+    animation-duration: 0.5s;
+  }
+  
+  /* Optional: Animate modal backdrop */
+  .modal-backdrop.show {
+    opacity: 0.7 !important; /* Override default Bootstrap styles */
+  }
+  
+  /* Inserisci eventuali ulteriori stili che desideri personalizzare */
+  
+  
+  @keyframes modal3DEntry {
+    from {
+        transform: scale(0) rotateX(70deg);
+        opacity: 0;
+        transform-origin: bottom;
+    }
+    to {
+        transform: scale(1) rotateX(0deg);
+        opacity: 1;
+        transform-origin: bottom;
+    }
+  }
+  
+  .modal-content {
+    animation-name: modal3DEntry;
+    animation-duration: 0.5s;
+  }
+  

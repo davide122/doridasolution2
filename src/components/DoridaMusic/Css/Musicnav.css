@@ -1,0 +1,15 @@
+.user-icon {
+    font-size: 23px; /* Regola la dimensione secondo le tue preferenze */
+    cursor: pointer;
+  }
+
+  .navi{
+    border-bottom: 1px solid rgb(48, 46, 46) !important;
+    height: 70px !important;
+    padding: 7px 7px 7px 7px !important; 
+    background-color: black !important;
+  }
+
+
+
+ 

@@ -1,0 +1,96 @@
+.carousel-container {
+    position: relative;
+    overflow: hidden;
+    padding: 10px 0;
+    top: -10px;
+  }
+  
+  .carousel {
+    display: flex;
+    align-items: center;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    padding: 0 5px;
+  }
+  
+  .playlist-card {
+    flex: 0 0 auto;
+    width: 240px; /* Adjust width to control card size */
+    margin-right: 15px; /* Space between cards */
+    scroll-snap-align: start;
+    border-radius: 10px; /* Optional: rounded corners */
+    color:white;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.15); /* Optional: adds shadow for better focus */
+  }
+  
+  .playlist-card img {
+    width: 100%;
+    height: 240px; /* Set a fixed height for images */
+    object-fit: cover; /* Ensures the image covers the area without distorting */
+ border-radius: 7px 7px 7px 7px;
+  }
+
+
+
+  .playlist-card {
+    flex: 0 0 auto;
+    width: 240px; /* Adjust width to control card size */
+    margin-right: 15px; /* Space between cards */
+    scroll-snap-align: start;
+    border-radius: 10px; /* Optional: rounded corners */
+    color:white;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.15); /* Optional: adds shadow for better focus */
+  }
+  
+  .playlist-card img:hover {
+    transform: 1.1;
+    cursor: pointer;
+  }
+  
+  
+  
+  /* Hide scrollbar aesthetically */
+  .carousel::-webkit-scrollbar {
+    display: none;
+  }
+  
+  /* Buttons for scroll (if needed) */
+  .carousel-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    border: none;
+    color: white;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 50%;
+  }
+  
+  .left {
+    left: 10px;
+  }
+  
+  .right {
+    right: 10px;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 576px) {
+    .playlist-card {
+      width: 140px; /* Smaller cards on smaller screens */
+      height: 150px;
+    }
+  
+    .playlist-card img {
+      height: 150px;
+    }
+    .carousel-container {
+      position: relative;
+      overflow: hidden;
+      padding: 10px 0;
+      top: -100px;
+    }
+  }
+  

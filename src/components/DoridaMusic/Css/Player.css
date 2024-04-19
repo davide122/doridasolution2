@@ -1,0 +1,61 @@
+.player-bar {
+    color: white;
+    background-color: #000000 !important; /* o qualsiasi altro colore tu preferisca */
+    font-family: Arial, sans-serif; /* o il tuo font preferito */
+  padding: 10px 0px;
+  }
+  
+  .cover {
+    width: 50px; /* o la dimensione che preferisci */
+    height: auto;
+    margin-right: 15px;
+  }
+  
+  .track-info {
+    font-size: 5px !important;
+  }
+  
+  .track-title {
+    font-weight: bold;
+    font-size: 14px;
+  }
+  
+  .track-artist {
+    font-size: 10px !important;
+    font-weight: 100;
+  }
+  
+  .control-icon {
+    font-size: 1.5rem; /* dimensione delle icone dei controlli */
+    margin: 0 10px;
+    cursor: pointer;
+  }
+  
+  .volume-slider {
+    width: 200px !important; /* lunghezza dello slider del volume */
+    align-items: center;
+  }
+  
+  /* Media query per desktop */
+  @media (min-width: 992px) {
+    .track-info {
+      display: block;
+    }
+  
+    .player-bar {
+      padding: 15px 0;
+    }
+  
+    .cover {
+      width: 80px; /* dimensione più grande per desktop */
+    }
+  
+    .control-icon {
+      font-size: 2rem; /* icone più grandi per desktop */
+    }
+  
+    .volume-slider {
+      width: 150px; /* slider del volume più lungo per desktop */
+    }
+  }
+  

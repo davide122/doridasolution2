@@ -1,0 +1,144 @@
+.image-music {
+    position: relative;
+    width: 100%;
+    height: 50vh; /* o 100vh come desideri */
+    overflow: hidden;
+  }
+  
+  .blurra {
+    filter: blur(89px) opacity(0.7);
+    width: 100%;
+    height: 60vh; /* o 100vh come desideri */
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: opacity 1s ease-in-out;
+    z-index: 0;
+    background-position: center;
+  }
+  
+  .img-sovra {
+    width: 33%; /* Su desktop */
+    position: absolute;
+    right: 2%;
+    height: 100%;
+    object-fit: cover;
+    transition: opacity 1s ease-in-out;
+    z-index: 0;
+  }
+  
+  /* Responsive styles for mobile devices */
+  @media (max-width: 576px) {
+    .blurra {
+      filter: blur(0px) opacity(1);
+      width: 100%;
+      height: 70vh; /* o 100vh come desideri */
+      position: absolute;
+      top: 0;
+      left: 0;
+      transition: opacity 1s ease-in-out;
+      height: 60vh;
+      object-fit: cover;
+      z-index: 0;
+    }
+    .fw{
+      font-weight: 900 !important;
+      font-size: 40px !important;
+    }
+    .img-sovra {
+      width: 100%; /* Su dispositivi mobili l'immagine nitida occuperà tutta la larghezza */
+      height: 0vh; /* L'altezza sarà il 100% dell'altezza della viewport */
+      right: 0;
+      object-fit: cover;
+      margin: 0;
+      bottom: 0;
+      position: relative;
+   display: none;
+      z-index: 0;
+      transition: opacity 2s ease-in-out;
+    }
+   
+    .image-music {
+      height: 70vh; /* o puoi mantenere 330px se vuoi una altezza fissa */
+      z-index: 0;
+      position: relative;
+    }
+    .text-overlay{
+      position:absolute;
+      top: 270px;
+    left: -34px;
+      z-index: 1000;
+      font-weight: 800; 
+
+    }
+
+    
+    
+.videochange{
+ 
+width: 100%;
+height: 50vh !important;
+
+}
+    #callnone{
+      display: none;
+    }
+
+  }
+  
+  .text-overlay{
+    position:relative;
+    bottom: -40%;
+    margin-left: 50px;
+    z-index: 10;
+    max-width: 50%;
+    font-weight: 800;
+  }
+
+  .container-md{
+  
+    width: 100%;
+    padding: 0 0 0 0 ;
+}
+
+.fw{
+  font-weight: 900 !important;
+  font-size: 80px;
+}
+
+.rotondo{
+  border-radius: 100%;
+  width: 50px;
+  height: 50px;
+  text-align: center;
+  font-size: 17;
+  position: absolute;
+  top: 64%;
+  right: -60%;
+}
+
+.pos{
+  position: absolute;
+  
+}
+
+.image-music {
+  position: relative;
+  width: 100%;
+}
+
+.shadow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgb(0, 0, 0)), /* Primo gradiente */
+  linear-gradient(to top, rgba(0, 0, 0, 0.708), transparent); /* Secondo gradiente */
+background-position: top, bottom; /* Posizionamento dei gradienti */
+  z-index: 2; /* Assicurati che sia sopra le immagini ma sotto il contenuto testuale se presente */
+}
+
+.blurra, .img-sovra {
+  transition: opacity 1s ease-in-out;
+}

@@ -4,6 +4,23 @@ const {
 } = require("./utils/placeholderdata");
 const bcrypt = require("bcrypt");
 
+
+async function createtableform(client) {
+  try {
+    await client.sql`
+    CREATE TABLE IF NOT EXISTS createtableform (
+      id SERIAL PRIMARY KEY,
+      email VARCHAR(255) UNIQUE NOT NULL,
+      phone VARCHAR(20),
+      info TEXT
+    );
+    `;
+    console.log('Table createtableform created successfully');
+  } catch (error) {
+    console.error('Error creating table createtableform:', error);
+  }
+}
+
 async function seedUsers(client) {
   try {
     await client.sql`CREATE EXTENSION IF NOT EXISTS "uuid-ossp"`;
@@ -20,6 +37,8 @@ async function seedUsers(client) {
 
     console.log(`Created "users" table`);
 
+
+    
     // Insert data into the "users" table
     const insertedUsers = await Promise.all(
       users.map(async (user) => {
@@ -32,6 +51,8 @@ async function seedUsers(client) {
       })
     );
 
+
+    
     console.log(`Seeded ${insertedUsers.length} users`);
 
     return {
@@ -89,10 +110,14 @@ async function seedCustomers(client) {
 
 async function main() {
   const client = await db.connect();
+  client&&console.log("Connected to database");
   client.sql`DROP table IF EXISTS users CASCADE`;
   client.sql`DROP table IF EXISTS customers CASCADE`;
-  await seedUsers(client);
-  await seedCustomers(client);
+ client.sql`DROP TABLE IF EXISTS createtableform CASCADE`;
+
+  await createtableform(client);
+
+  
   await client.end();
 }
 

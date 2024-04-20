@@ -1,0 +1,41 @@
+.mainContainer {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #000000; /* sfondo lilla */
+    width: 100%;
+    color: #ffffff;
+    font-family: 'Arial', sans-serif;
+
+  }
+  
+  .errorCode {
+    font-size: 10rem; /* testo più grande */
+    color: #957DAD; /* tonalità più scura di lilla */
+    animation: pulse 1.5s infinite;
+    font-family: 600;
+  }
+  
+  .errorMessage {
+    font-size: 3rem; /* testo più grande */
+    color: #d27fb6; /* lilla chiaro */
+  }
+  
+  .description {
+    font-size: 1.5rem; /* testo più grande */
+    margin-top: 30px;
+    opacity: 1;
+  }
+  
+  @keyframes pulse {
+    0%, 100% {
+      transform: scale(1.2);
+      opacity: 1;
+    }
+    50% {
+      transform: scale(1.1); /* leggermente più grande */
+      opacity: 0.8;
+    }
+  }
+  

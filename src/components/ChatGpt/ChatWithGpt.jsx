@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react';
+"use client"
+import React, { useState, useRef, useEffect } from 'react';
 import { BsMic, BsMicFill } from "react-icons/bs";
 import useSpeechToTextResponse from './useSpeechTextResponse';
 import "./chat.css"
@@ -6,51 +7,62 @@ import "./chat.css"
 const ChatWithGPT = () => {
   const [isListening, setIsListening] = useState(false);
   const [responseText, setResponseText] = useState('');
+  const recognitionRef = useRef(null);
   
   const { handleSpeechToTextResult, isLoading, error } = useSpeechToTextResponse();
 
-  // Funzione per iniziare ad ascoltare l'input vocale
+  // Funzione per gestire l'ascolto e la logica di stop/riavvio
+  const toggleListening = () => {
+    if (isListening) {
+      recognitionRef.current && recognitionRef.current.stop();
+      setIsListening(false);
+    } else {
+      startListening();
+    }
+  };
+
   const startListening = () => {
-    if (typeof window !== "undefined" && window.webkitSpeechRecognition) {
-      setIsListening(true);
-      setResponseText('');
-      const recognition = new window.webkitSpeechRecognition();
+    setResponseText('');
+    const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+    if (SpeechRecognition) {
+      const recognition = new SpeechRecognition();
       recognition.lang = 'it-IT';
+      recognitionRef.current = recognition;
       recognition.start();
 
       recognition.onresult = async (event) => {
         const speechToText = event.results[0][0].transcript;
         const response = await handleSpeechToTextResult(speechToText);
         setResponseText(response);
+        toggleListening(); // Stop after processing and require a new click to start
       };
 
       recognition.onend = () => {
         setIsListening(false);
-        console.log('onResponseEnd called, trying to restart listening...');
-        startListening(); // Riascolta automaticamente al termine
       };
 
       recognition.onerror = (event) => {
         console.error('Speech recognition error', event.error);
         setIsListening(false);
       };
+
+      setIsListening(true);
     } else {
       console.error("Speech recognition not supported.");
     }
   };
 
   useEffect(() => {
-    // Assicurati di non avviare il riconoscimento vocale fino a quando il componente non è montato nel DOM
     return () => {
-      if (isListening) {
-        recognition && recognition.stop();
+      if (recognitionRef.current) {
+        recognitionRef.current.abort();
       }
     };
-  }, [isListening]);
+  }, []);
 
   return (
     <div>
-      <button onClick={startListening} disabled={isListening || isLoading} className='Call-Button'>
+      <button onClick={toggleListening} disabled={isLoading} className='Call-Button'>
         {isListening ? <BsMicFill /> : <BsMic />}
       </button>
       <div className='Chat'>

@@ -1,4 +1,4 @@
-
+import { Analytics } from "@vercel/analytics/react"
 export const metadata = {
     title: "Dorida Music - Promuovendo l'Arte Musicale",
     description: "Scopri i nostri eventi, rilasci musicali e talenti emergenti. Dorida Music porta l'innovazione nel mondo della musica.",
@@ -15,7 +15,9 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="it">
+      <Analytics/>
       <body>{children}</body>
+
     </html>
   )
 };

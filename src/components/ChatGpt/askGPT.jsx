@@ -1,5 +1,5 @@
 const askGPT = async (question) => {
-    const response = await fetch("/api/askGPT", {
+    const response = await fetch("/api/chatgpt", {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

@@ -48,3 +48,39 @@ export async function GET(request) {
         return new NextResponse(JSON.stringify({ message: 'Errore durante il recupero dei dati', error: error.message }), { status: 500 });
     }
 }
+
+
+
+export async function PUT(request) {
+    if (request.method !== 'PUT') {
+        return new NextResponse(null, { status: 405 });
+    }
+
+    try {
+        const { id, song_name, artist_name, mp3_file, blurred_image, original_image } = await request.json();
+        if (!id) {
+            return new NextResponse(JSON.stringify({ message: 'ID is required for update' }), { status: 400 });
+        }
+
+        // Costruire la query dinamicamente in base ai campi forniti
+        let fieldsToUpdate = [];
+        if (song_name) fieldsToUpdate.push(`song_name = '${song_name}'`);
+        if (artist_name) fieldsToUpdate.push(`artist_name = '${artist_name}'`);
+        if (mp3_file) fieldsToUpdate.push(`mp3_file = '${mp3_file}'`);
+        if (blurred_image) fieldsToUpdate.push(`blurred_image = '${blurred_image}'`);
+        if (original_image) fieldsToUpdate.push(`original_image = '${original_image}'`);
+
+        const queryText = `UPDATE songs SET ${fieldsToUpdate.join(', ')} WHERE id = $1 RETURNING *;`;
+        const queryParams = [id];
+        const { rows } = await pool.query(queryText, queryParams);
+
+        if (rows.length === 0) {
+            return new NextResponse(JSON.stringify({ message: 'No song found with the provided ID' }), { status: 404 });
+        }
+
+        return new NextResponse(JSON.stringify(rows[0]), { status: 200 });
+    } catch (error) {
+        console.error('Error during database operation:', error);
+        return new NextResponse(JSON.stringify({ message: 'Error updating the song', error: error.message }), { status: 500 });
+    }
+}

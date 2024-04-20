@@ -1,33 +1,50 @@
 "use client"
-import React from "react";
-import "./Css/playlist.css"
-const playlists = [
-  { id: 1, name: "Rap", image: "https://doridasolutionbucket.s3.eu-north-1.amazonaws.com/MusicianCreator/Hip+hop+(2).png" },
-  { id: 1, name: "Rap", image: "https://doridasolutionbucket.s3.eu-north-1.amazonaws.com/MusicianCreator/Hip+hop+(2).png" },
-  { id: 1, name: "Rap", image: "https://doridasolutionbucket.s3.eu-north-1.amazonaws.com/MusicianCreator/Hip+hop+(2).png" },
-  { id: 1, name: "Rap", image: "https://doridasolutionbucket.s3.eu-north-1.amazonaws.com/MusicianCreator/Hip+hop+(2).png" },
-
-];
+import React, { useState, useEffect } from "react";
+import "./Css/playlist.css";
+import Image from "next/image";
 
 const Playlist = () => {
+  const [playlists, setPlaylists] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState('');
+
+  useEffect(() => {
+    const fetchPlaylists = async () => {
+      try {
+        const response = await fetch('/api/songs');
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        const data = await response.json();
+        setPlaylists(data); // Assumi che il JSON ritornato sia un array di playlist
+        setError('');
+      } catch (error) {
+        setError('Failed to fetch playlists: ' + error.message);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchPlaylists();
+  }, []);
+
+  if (loading) return <div>Loading...</div>;
+  if (error) return <div>Error: {error}</div>;
+
   return (
+    
     <div>
       <div className="carousel-container mt-2 mb-5">
-      <h3 className="text-white  ms-md-4 ms-3 text-start  ">Scopri le nostre Playlist</h3>
+        <h3 className="text-white ms-md-4 ms-3 text-start">Scopri le nostre Playlist</h3>
         <div className="carousel ms-3 shadow2 ">
           {playlists.map((playlist) => (
+            console.log(playlist.blurred_image),
             <div key={playlist.id} className="playlist-card">
-              <img src={playlist.image} alt="" className="img-fluid" />
-            </div>
-          ))}
-        </div>
-      </div>
-      <div className="carousel-container">
-      <h3 className="text-white  ms-md-4 ms-3 text-start  ">Scopri le nostre Playlist</h3>
-        <div className="carousel ms-3 shadow2 ">
-          {playlists.map((playlist) => (
-            <div key={playlist.id} className="playlist-card">
-              <img src={playlist.image} alt="" className="img-fluid" />
+              {playlist.blurred_image ? (
+      <img src={playlist.blurred_image.trim()} alt={playlist.artist_name} className="img-fluid" />
+    ) : null}
+
+              {console.log(playlist.originalImage)}
             </div>
           ))}
         </div>
@@ -37,3 +54,9 @@ const Playlist = () => {
 };
 
 export default Playlist;
+
+// song_name: songName,
+// artist_name: artistName,
+// mp3_file: mp3File,
+// blurred_image: blurredImage,
+// original_image: originalImage

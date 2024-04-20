@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: www.doridasolution.com
+
+# Sitemaps
+Sitemap: www.doridasolution.com/sitemap.xml

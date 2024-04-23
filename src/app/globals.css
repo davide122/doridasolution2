@@ -637,13 +637,6 @@ opacity: 0.1;
 .slick-track {
   align-items: center; 
 }
-
-
-
-
-
-
-
 .why-us{
   padding: 20px 20px 20px 20px;
   background-color: rgb(236, 68, 217);
@@ -748,3 +741,98 @@ object-fit: fill;
 
 
 
+.center-vertical {
+  height: 100vh; /* Utilizza l'intera altezza della viewport */
+  display: flex;
+  align-items: center; /* Allinea verticalmente */
+}
+
+.gradient{
+  background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgb(8, 8, 33) 35%, rgb(30, 15, 55) 80%) !important;
+
+}
+
+
+
+
+/* Aggiungi questa classe al file CSS globale */
+.form-container {
+  width: 100%;
+  
+  background-color: #fff;
+  padding: 3rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.form-control {
+  background: #f7f7f7;
+  border: none;
+  margin-bottom: 1rem;
+  box-shadow: none;
+  padding: 13px 13px 13px 13px;
+  border-radius: 15px 15px 15px 15px;
+}
+
+.form-control::placeholder {
+  color: #bbb;
+}
+
+/* Override stili di Bootstrap per il bottone se necessario */
+.btn-primary {
+  background-color: #e83e8c;
+  border: none;
+}
+
+.btn-primary:hover {
+  background-color: #dc357d;
+}
+
+/* Stili per il pannello di benvenuto */
+.bg-primary {
+  background-color: #ff6b6b !important; /* Usa il colore del tuo design */
+}
+
+.text-white {
+  color: #fff !important;
+}
+
+/* Per Link di Next.js */
+a {
+  color: #fff !important; /* Cambia il colore del testo se necessario */
+}
+
+
+
+
+.login-button{
+  background-color: transparent;
+  border: 1px solid #ff00ae;
+  outline: none;
+padding: 1rem;
+border-radius: 20px 20px 20px 20px;
+text-align: center;
+
+}
+
+.svglogin{
+  width: 100%;
+  height: 100vh;
+position: relative;
+object-fit: cover;
+bottom: 0;
+right: 12px;
+}
+
+.fill{
+  object-fit: cover;
+}
+
+.svglogin2{
+  width: 100%;
+  height: 100vh;
+position: relative;
+object-fit: cover;
+bottom: 0;
+left: 13px;
+}

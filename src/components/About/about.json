@@ -1,0 +1,21 @@
+[
+    {
+      "id": 1,
+      "title": "Dorin ciofalo - Digital Marketing",
+      "description": "Dorida Solution è all'avanguardia nelle strategie di digital marketing, puntando su innovazione e personalizzazione per raggiungere il pubblico target.",
+      "image": "https://doridasolutionbucket.s3.eu-north-1.amazonaws.com/FotoNostre/dorin.png"
+    },
+    {
+      "id": 2,
+      "title": "Davide Marchica - Full stack Web Developer",
+      "description": "Specialisti nello sviluppo di soluzioni web full-stack, creiamo esperienze digitali coinvolgenti e performanti, adattate alle esigenze di ogni cliente.",
+      "image": "https://doridasolutionbucket.s3.eu-north-1.amazonaws.com/FotoNostre/davide.png"
+    },
+    {
+      "id": 3,
+      "title": "Rino Ciofalo - Song writer",
+      "description": "Esploriamo costantemente nuovi orizzonti nell'AI per offrire servizi che trasformano le operazioni aziendali e forniscono insight senza precedenti.",
+      "image": "https://doridasolutionbucket.s3.eu-north-1.amazonaws.com/FotoNostre/rino.png"
+    }
+  ]
+  

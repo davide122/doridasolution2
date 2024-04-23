@@ -11,7 +11,7 @@ const Playlist = () => {
   useEffect(() => {
     const fetchPlaylists = async () => {
       try {
-        const response = await fetch('/api/songs');
+        const response = await fetch('/api/songs/normal');
         if (!response.ok) {
           throw new Error('Network response was not ok');
         }

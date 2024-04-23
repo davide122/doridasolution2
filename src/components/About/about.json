@@ -1,21 +1,27 @@
 [
     {
       "id": 1,
-      "title": "Dorin ciofalo - Digital Marketing",
-      "description": "Dorida Solution è all'avanguardia nelle strategie di digital marketing, puntando su innovazione e personalizzazione per raggiungere il pubblico target.",
-      "image": "https://doridasolutionbucket.s3.eu-north-1.amazonaws.com/FotoNostre/dorin.png"
+      "title": "Dorin ciofalo",
+      "work":"Digital Marketing Expert",
+      "description": "Con un occhio sempre rivolto alle ultime tendenze, Dorin guida le strategie di digital marketing di Dorida Solution, enfatizzando l'innovazione e la personalizzazione per captare e coinvolgere efficacemente il target di riferimento.",
+      "image": "https://doridasolutionbucket.s3.eu-north-1.amazonaws.com/about/Progetto+senza+titolo+(2).png",
+      "color":"#A78FB5"
     },
     {
       "id": 2,
-      "title": "Davide Marchica - Full stack Web Developer",
-      "description": "Specialisti nello sviluppo di soluzioni web full-stack, creiamo esperienze digitali coinvolgenti e performanti, adattate alle esigenze di ogni cliente.",
-      "image": "https://doridasolutionbucket.s3.eu-north-1.amazonaws.com/FotoNostre/davide.png"
+      "title": "Davide Marchica",
+      "work":"Full stack web developer",
+      "description": "Davide è il cuore tecnologico di Dorida Solution, specializzato nello sviluppo di soluzioni web full-stack. La sua abilità nel creare esperienze digitali coinvolgenti e ad alte prestazioni personalizzate si adatta perfettamente alle esigenze di ogni cliente.",
+      "image": "https://doridasolutionbucket.s3.eu-north-1.amazonaws.com/about/davidus.png",
+      "color":"#222B47"
     },
     {
       "id": 3,
-      "title": "Rino Ciofalo - Song writer",
-      "description": "Esploriamo costantemente nuovi orizzonti nell'AI per offrire servizi che trasformano le operazioni aziendali e forniscono insight senza precedenti.",
-      "image": "https://doridasolutionbucket.s3.eu-north-1.amazonaws.com/FotoNostre/rino.png"
+      "title": "Rino Ciofalo",
+      "work":"Song writer, Musician , Digital Creator",
+      "description": "Rino è un vero innovatore, unendo il suo talento musicale con la passione per la tecnologia digitale. La sua capacità di esplorare nuovi orizzonti nell'AI e nella creazione di contenuti lo rende una forza trainante nell'innovazione dei servizi di Dorida Solution.",
+      "image": "https://doridasolutionbucket.s3.eu-north-1.amazonaws.com/about/rinorino.png",
+      "color":"#3B4A7A"
     }
   ]
   

@@ -27,7 +27,7 @@ const MyNavbar = ({ className }) => {
 
                 <div className="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
                     <div className="navbar-nav">
-                        <Link href="/home" passHref className='text-decoration-none'>
+                        <Link href="/" passHref className='text-decoration-none'>
                             <div className="nav-item nav-link d-flex align-items-center">
                                 <FaHome className="me-2" />Home
                             </div>
@@ -47,7 +47,7 @@ const MyNavbar = ({ className }) => {
                                 <FaPhone className="me-2" />Contatti
                             </div>
                         </Link>
-                        <Link href="/about" passHref className='text-decoration-none'>
+                        <Link href="/About" passHref className='text-decoration-none'>
                             <div className="nav-item nav-link d-flex align-items-center">
                                 <FaInfoCircle className="me-2" />Chi siamo
                             </div>
@@ -85,7 +85,7 @@ const MyNavbar = ({ className }) => {
                                     <FaPhone className="me-2" />Contatti
                                 </div>
                             </Link>
-                            <Link href="/about" passHref>
+                            <Link href="/About" passHref>
                                 <div className="nav-link" onClick={toggleOffcanvas}>
                                     <FaInfoCircle className="me-2" />Chi siamo
                                 </div>

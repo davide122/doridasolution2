@@ -752,8 +752,19 @@ object-fit: fill;
 
 }
 
+.AA78FB5{
+  background-color: #A78FB5;
+  
+}
 
+.A222B47{
+  background-color:#222B47 ;
+}
 
+.A3B4A7A{
+  background-color: #3B4A7A;
+
+}
 
 /* Aggiungi questa classe al file CSS globale */
 .form-container {
@@ -837,14 +848,48 @@ bottom: 0;
 left: 13px;
 }
 
+.person{
+  position: relative;
+z-index: 0;
+margin-bottom: 10%;
+  }
 
+
+
+  .over{
+    position: relative;
+    z-index: 0;
+  }
 
 @media (max-width: 768px) {
   .over{
     position: relative;
-    top: -100px;
     width: 100%;
- 
-  
+ bottom: 60px;
+ overflow-x: hidden; 
+ overflow-y: hidden; 
   }
+  .person{
+  position: relative;
+  z-index: 1;
+  margin-top: 10px;
+  left: 100px;
+z-index: 1 !important;
+
+  }
+  
+}
+
+
+.gradient-text {
+  background: -webkit-linear-gradient(45deg, #EC6AFF, #FFFFFF);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent; /* Fallback per i browser che non supportano background-clip:text */
+  display: inline; /* o 'inline-block', a seconda del contesto */
+}
+
+.stretch{
+  line-height: 28px;
 }

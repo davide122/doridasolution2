@@ -28,9 +28,4 @@ export async function POST(request) {
     }
 }
 
-// Ensure to handle methods other than POST
-export function middleware(request) {
-    if (request.method !== 'POST') {
-        return new NextResponse(null, { status: 405 });
-    }
-}
+

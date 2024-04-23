@@ -42,7 +42,7 @@ const Carouseltext = () => {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5, delay: (index % Services.length) * 0.2 }}
           >
-            <p className='fs-4 Title'>{service}</p>
+            <p className='fs-4'>{service}</p>
           </motion.div>
         ))}
       </div>

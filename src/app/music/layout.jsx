@@ -12,6 +12,7 @@ export const metadata = {
       image: 'https://doridasolutionbucket.s3.eu-north-1.amazonaws.com/doridaMeta/Dorida+music.png'  // Aggiorna l'URL con l'immagine appropriata
     }
   }
+  
 export default function RootLayout({ children }) {
   return (
     <html lang="it">

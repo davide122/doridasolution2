@@ -1,8 +1,11 @@
+import AboutPage from "@/components/About/AboutPage";
+import MyNavbar from "@/components/navbar/MyNavbar";
+
 const page = () => {
     return(
         <div>
-            <h1>Pagina di About</h1>
-            <p>Benvenuto nella pagina di About.</p>
+            <MyNavbar className={"gradient"}/>
+          <AboutPage/>
         </div>
     )
 }

@@ -23,6 +23,7 @@
     color: #fff;
     margin-right: 15px; /* Distanza tra i link */
     transition: color 0.3s ease-in-out; /* Transizione morbida per cambiamenti di colore */
+    text-decoration: none;
 }
 
 .nav-link:hover, .nav-link:focus {

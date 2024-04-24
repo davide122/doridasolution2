@@ -4,6 +4,8 @@ import { motion } from "framer-motion";
 import Image from 'next/image';
 import Link from "next/link"; // Importa Link da Next.js
 import logo from "../../../public/logo.png"; // Assicurati che il percorso sia corretto
+import { CgFacebook, CgInstagram } from "react-icons/cg";
+import { FaTiktok,FaLinkedinIn } from "react-icons/fa";
 
 function MyFooter() {
   const footerVariants = {
@@ -82,6 +84,15 @@ function MyFooter() {
             </ul>
           </div>
         </div>
+      </div>
+
+      <div className="container py-2 d-flex justify-content-around align-items-center">
+        <Link href="https://www.facebook.com/profile.php?id=61558973363975&locale=it_IT"><CgFacebook className="fs-3"/></Link>
+        <Link href="https://www.instagram.com/dorida_solution24?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="><CgInstagram className="fs-3"/></Link>
+        <Link href="https://www.tiktok.com/@dorida.solution?_t=8lnpH3NzBCa&_r=1"><FaTiktok className="fs-3"></FaTiktok></Link>
+        <Link href="https://www.linkedin.com/company/dorida-solution/"><FaLinkedinIn className="fs-3"></FaLinkedinIn></Link>
+
+
       </div>
       <hr />
       <div className="w-100 py-2">

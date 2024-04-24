@@ -55,43 +55,45 @@ const MyNavbar = ({ className }) => {
                     </div>
                 </div>
 
-                <Link href="/profile" passHref className='text-decoration-none'>
+                <Link href="/login" passHref className='text-decoration-none'>
                     <div className="d-none d-lg-block ms-3">
                         <FaUserCircle size={30} color="white" />
                     </div>
                 </Link>
 
                 <Offcanvas show={show} onHide={toggleOffcanvas} placement="end" className="gradient fs-2 text-center d-flex justify-content-center align-items-center">
-                    <Offcanvas.Header closeButton className='text-white'></Offcanvas.Header>
+                    <Offcanvas.Header closeButton className='text-white'>
+                    </Offcanvas.Header>
                     <Offcanvas.Body className='text-center'>
                         <ul className="navbar-nav text-center">
-                            <Link href="/" passHref>
+                            <Link href="/" passHref className='text-decoration-none'>
                                 <div className="nav-link" onClick={toggleOffcanvas}>
                                     <FaHome className="me-2" />Home
                                 </div>
                             </Link>
-                            <Link href="/music" passHref>
+                            <Link href="/music" passHref  className='text-decoration-none'>
                                 <div className="nav-link" onClick={toggleOffcanvas}>
                                     <FaMusic className="me-2" />Dorida Music
                                 </div>
                             </Link>
-                            <Link href="/services" passHref>
+                            <Link href="/services" passHref  className='text-decoration-none'>
                                 <div className="nav-link" onClick={toggleOffcanvas}>
                                     <FaBriefcase className="me-2" />Servizi
                                 </div>
                             </Link>
-                            <Link href="/contact" passHref>
+                            <Link href="/contact" passHref  className='text-decoration-none'>
                                 <div className="nav-link" onClick={toggleOffcanvas}>
                                     <FaPhone className="me-2" />Contatti
                                 </div>
                             </Link>
-                            <Link href="/About" passHref>
+                            <Link href="/About" passHref  className='text-decoration-none'>
                                 <div className="nav-link" onClick={toggleOffcanvas}>
                                     <FaInfoCircle className="me-2" />Chi siamo
                                 </div>
                             </Link>
                         </ul>
                     </Offcanvas.Body>
+               
                 </Offcanvas>
             </div>
         </nav>

@@ -1,13 +1,14 @@
 "use client";
 import { useState } from "react";
-import Router from "next/router";
+import { useRouter } from 'next/navigation';
 import Link from "next/link";
 function LoginPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
-
+const route = useRouter();
   const handleLogin = async (event) => {
+
     event.preventDefault();
     const response = await fetch("/api/user/login", {
       method: "POST",
@@ -17,17 +18,19 @@ function LoginPage() {
       body: JSON.stringify({ email, password }),
     });
 
+    
     const data = await response.json();
-    if (response.ok) {
-      // Salva il token JWT nel localStorage o in un cookie
-      localStorage.setItem("token", data.token);
-      // Reindirizza l'utente in base al tipo
-      Router.push(data.redirectUrl);
-    } else {
-      setError(data.message);
-    }
-  };
+        if (response.ok) {
+          localStorage.setItem('token', data.token);
+          // window.location.href = data.redirectUrl; // Imposta direttamente l'URL, causando un refresh completo della pagina.
+          route.push(data.redirectUrl); // Usa next/router per navigare senza refresh
+        } else {
+            setError(data.message);
+        }
+    };
 
+
+  
   return (
     <div className="container-fluid">
     <div className="row flex-row-reverse">
@@ -45,7 +48,7 @@ function LoginPage() {
         </div>
 
       </div>
-      <div className="col-12 col-md-6 vh-100 d-flex justify-content-center align-items-center bg-white">
+      <div className="col-12 col-md-6 vh-100 d-flex justify-content-center align-items-center ">
         <div className="w-md-75 ">
           <form onSubmit={handleLogin} className="form-container">
           <h2 className="text-start ms-2 mb-4">Login</h2>

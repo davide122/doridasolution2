@@ -3,6 +3,8 @@ import about from "./about.json";
 import useMultipleViewportVisibility from "../Hook/useMultipleViewportVisibility";
 import { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
+import AboutUs from "../Section/aboutsection/AboutUs";
+import Typewriter from "../Section/Typewriter";
 const AboutPage = () => {
   const [currentColor, setCurrentColor] = useState("#FFFFFF");  // Default color
   const observerOptions = {
@@ -66,45 +68,10 @@ const AboutPage = () => {
             />
           </div>
         </div>
-        <div className="container mt-4 ">
-          {about.map((person, index) => (
-            
-            <div
-            className={`row ${((index + 2) % 2 === 0) ? "flex-row-reverse" : ""}`}
-              key={person.id}
-              ref={sectionRefs.current[index]}
-            >
-              <div className="col-md-6 col-sm-12 vh-md-100 d-flex justify-content-center align-items-center">
-                <div>
-                  <cite className="text-white text-start">{person.work}</cite>
-                  <motion.h1
-                    variants={textVariants(person.color)}
-                    initial="hidden"
-                    animate={visibility[index] ? "visible" : "hidden"}
-                    className="Title text-white text-start w-100 "
-                    id=""
-                  >
-                    {person.title}
-                    
-                  </motion.h1>
+        {/* <Typewriter></Typewriter> */}
 
-                  <p className="fs-5 stretch">{person.description}</p>
-                  <button className={`text-white btn w-175 ${"A"+person.color.slice(1,1000)} text-start`}>Contatta {person.title}</button>
-                </div>
-              </div>
-              <div className="col-md-6 col-sm-12 vh-md-100 my-0 d-flex justify-content-center align-items-center over">
-                <motion.img
-                  src={person.image}
-                  alt={person.title}
-                  className="img-fluid person"
-                  variants={imageVariants}
-                  initial="hidden"
-                  animate={visibility[index] ? "visible" : "hidden"}
-                />
-              </div>
-            </div>
-          ))}
-        </div>
+       <AboutUs></AboutUs>
+       
       </div>
     </div>
   );

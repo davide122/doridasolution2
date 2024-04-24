@@ -1,5 +1,6 @@
 "use client"
 import React, { useEffect, useState } from 'react';
+import Typewriter from './Typewriter';
 
 const ChangeColor = () => {
   const [color, setColor] = useState('#DA70D6'); // Colore iniziale
@@ -12,10 +13,10 @@ const ChangeColor = () => {
       const scrollPosition = window.scrollY + window.innerHeight;
 
       if (scrollPosition >= section3Top) {
-        setColor('#EC6AFF'); // Cambia al colore della terza sezione
+        setColor('#222B47'); // Cambia al colore della terza sezione
         setTitle('Unica'); // Cambia al titolo della terza sezione
       } else if (scrollPosition >= section2Top) {
-        setColor('#0f0e3e'); // Cambia al colore della seconda sezione
+        setColor('#A78FB5'); // Cambia al colore della seconda sezione
         setTitle('Innovativa'); // Cambia al titolo della seconda sezione
       } else {
         setColor('#000000'); // Colore originale
@@ -36,6 +37,7 @@ const ChangeColor = () => {
 
       <div id="changeColor" className="section w-100" style={{backgroundColor: color}}>
         <h2 className='Title text-white ' id='title1'>{title}</h2>
+      
       </div>
       <div id="sectionBelow1" className="section">
         {/* Contenuto opzionale per la sezione 1 */}

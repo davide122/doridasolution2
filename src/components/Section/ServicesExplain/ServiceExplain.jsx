@@ -8,9 +8,9 @@ import "slick-carousel/slick/slick-theme.css";
 const ServicesExplain = () => {
     const Verticale = "https://doridasolutionbucket.s3.eu-north-1.amazonaws.com/Image/Graficheexplain/WhatsApp+Image+2024-04-12+at+12.55.04.jpeg"
     const Verticale2 = "https://doridasolutionbucket.s3.eu-north-1.amazonaws.com/Image/Graficheexplain/WhatsApp+Image+2024-04-12+at+12.55.04.jpeg"
-    const orizzontale = "https://doridasolutionbucket.s3.eu-north-1.amazonaws.com/Image/Graficheexplain/orizz.jpeg"
-    const orizzontale2 = "https://doridasolutionbucket.s3.eu-north-1.amazonaws.com/Image/Graficheexplain/oriz2.jpeg"
-    const orizzontale3 = "https://doridasolutionbucket.s3.eu-north-1.amazonaws.com/Image/Graficheexplain/WhatsApp+Image+2024-04-12+at+12.04.11.jpeg"
+    const orizzontale = "https://doridasolutionbucket.s3.eu-north-1.amazonaws.com/ExplainProject/WhatsApp+Image+2024-04-19+at+12.31.14+(1).jpeg"
+    const orizzontale2 = "https://doridasolutionbucket.s3.eu-north-1.amazonaws.com/ExplainProject/WhatsApp+Image+2024-04-19+at+12.31.14.jpeg"
+    const orizzontale3 = "https://doridasolutionbucket.s3.eu-north-1.amazonaws.com/ExplainProject/WhatsApp+Image+2024-04-19+at+12.41.40+(1).jpeg"
     const Orizzontale4 = "https://doridasolutionbucket.s3.eu-north-1.amazonaws.com/Image/Graficheexplain/WhatsApp+Image+2024-04-12+at+12.08.48.jpeg"
     const orizzontaledevelop2 = "https://doridasolutionbucket.s3.eu-north-1.amazonaws.com/Image/Graficheexplain/WhatsApp+Image+2024-04-12+at+12.08.48.jpeg"
     const [modalContent, setModalContent] = useState(null);

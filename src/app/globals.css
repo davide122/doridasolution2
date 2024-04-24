@@ -753,17 +753,22 @@ object-fit: fill;
 }
 
 .AA78FB5{
-  background-color: #A78FB5;
+  background-color: #A78FB5 !important;
+  position: relative;
+  z-index: 100;
   
 }
 
 .A222B47{
-  background-color:#222B47 ;
+  background-color:#222B47 !important ;
+  position: relative;
+  z-index: 100;
 }
 
 .A3B4A7A{
-  background-color: #3B4A7A;
-
+  background-color: #3B4A7A !important;
+  position: relative;
+  z-index: 100;
 }
 
 /* Aggiungi questa classe al file CSS globale */
@@ -893,3 +898,78 @@ z-index: 1 !important;
 .stretch{
   line-height: 28px;
 }
+
+.typewriter h1 {
+  color: white;
+  font-size: 4rem; /* Regola questa dimensione secondo le tue necessità */
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 0.15em solid white; /* Cursor */
+  max-width: fit-content; /* Limita la larghezza massima al contenuto del testo */
+  animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
+}
+
+/* Animazione di scrittura */
+@keyframes typing {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+/* Animazione del cursore */
+@keyframes blink-caret {
+  from, to { border-color: transparent; }
+  50% { border-color: white; }
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  background-color: #97c3f0; /* Sfondo leggero per contrasto */
+}
+
+thead-dark {
+  background-color: #0163c4; /* Colore scuro per l'intestazione */
+  color: white;
+}
+
+th, td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid #ddd; /* Linea sottile per separare le righe */
+}
+
+th {
+  background-color: #666; /* Colore scuro per le celle dell'intestazione */
+  color: white;
+}
+
+tr:hover {
+  background-color: #f1f1f1; /* Effetto hover per le righe */
+}
+
+.email-link {
+  color: #007bff !important; /* Colore tipico dei link di Bootstrap */
+  text-decoration: none; /* Opzionale: rimuove il sottolineamento */
+}
+
+.email-link:hover {
+  text-decoration: underline; /* Aggiunge un sottolineamento al passaggio del mouse per maggiore visibilità */
+}
+
+.nav-link{
+  text-decoration: none !important;
+}
+
+.offcanvas-header .btn-close {
+background-color: white;
+color: white;
+font-size: 20px;
+}
+
+.modal-body {
+  background-color: white !important;
+}
+
+
+
+

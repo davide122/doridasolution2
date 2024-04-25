@@ -8,7 +8,6 @@ export async function POST(request) {
     if (request.method !== 'POST') {
         return new NextResponse(null, { status: 405 });
     }
-
     try {
         const { email, password } = await request.json();
         const { rows } = await pool.query('SELECT * FROM users WHERE email = $1', [email]);
@@ -22,11 +21,6 @@ export async function POST(request) {
         if (!isMatch) {
             return new NextResponse(JSON.stringify({ message: 'Password errata' }), { status: 401 });
         }
-
-        // Determina la pagina di redirect basata sul ruolo dell'utente
-       
-
-        // Utilizza la chiave segreta dalle variabili d'ambiente
         const token = jwt.sign({
             user_id: user.user_id,
             is_artist: user.is_artist,
@@ -35,7 +29,7 @@ export async function POST(request) {
 
         let redirectUrl;
         if (user.is_admin) {
-            redirectUrl = '/admin'; // Cambia questo URL come necessario
+            redirectUrl = '/admin'; 
         } else if (user.is_artist) {
             redirectUrl = '/artistpage';
         } else {

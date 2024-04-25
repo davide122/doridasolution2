@@ -1,7 +1,7 @@
 [
     {
       "id": 1,
-      "title": "Dorin ciofalo",
+      "title": "Dorin Ciofalo",
       "work":"Digital Marketing Expert",
       "description": "Con un occhio sempre rivolto alle ultime tendenze, Dorin guida le strategie di digital marketing di Dorida Solution, enfatizzando l'innovazione e la personalizzazione per captare e coinvolgere efficacemente il target di riferimento.",
       "image": "https://doridasolutionbucket.s3.eu-north-1.amazonaws.com/about/Progetto+senza+titolo+(2).png",
@@ -18,7 +18,7 @@
     {
       "id": 3,
       "title": "Rino Ciofalo",
-      "work":"Song writer, Musician , Digital Creator",
+      "work":"Songwriter, Musician, Digital Creator",
       "description": "Rino è un vero innovatore, unendo il suo talento musicale con la passione per la tecnologia digitale. La sua capacità di esplorare nuovi orizzonti nell'AI e nella creazione di contenuti lo rende una forza trainante nell'innovazione dei servizi di Dorida Solution.",
       "image": "https://doridasolutionbucket.s3.eu-north-1.amazonaws.com/about/rinorino.png",
       "color":"#3B4A7A"

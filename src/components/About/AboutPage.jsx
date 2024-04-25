@@ -65,6 +65,7 @@ const AboutPage = () => {
               src="https://doridasolutionbucket.s3.eu-north-1.amazonaws.com/about/Progetto+senza+titolo+(1).png"
               alt=""
               className="img-fluid"
+              
             />
           </div>
         </div>

@@ -13,7 +13,7 @@ import AboutUs from "@/components/Section/aboutsection/AboutUs";
 export default function Home() {
   return (
     <>
-<MyNavbar className={"gradient"}></MyNavbar>
+<MyNavbar ></MyNavbar>
 <HeroSection></HeroSection>
 <Carouseltext></Carouseltext>
 <ServicesSection></ServicesSection>

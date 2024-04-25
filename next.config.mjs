@@ -3,7 +3,7 @@ const nextConfig = {
     reactStrictMode: true,  // Abilita la modalità strict per React
     poweredByHeader: false, // Disabilita l'intestazione "X-Powered-By" per le risposte del server
     images: {
-      domains: ['example.com'],  // Specifica quali domini esterni possono servire immagini
+      domains: ['https://eu-north-1.console.aws.amazon.com/'],  // Specifica quali domini esterni possono servire immagini
     }
   };
   

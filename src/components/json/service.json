@@ -1,136 +1,222 @@
 [
-    {
-      "id": 1,
-      "title": "Digital Marketing",
-      "description": "Offriamo servizi completi di digital marketing, dalla definizione di strategie personalizzate alla gestione di campagne pubblicitarie su tutti i canali digitali.",
-      "icon": "https://example.com/icons/digital-marketing.png"
-    },
-    {
-      "id": 2,
-      "title": "Produzione di Jingle Musicali",
-      "description": "Creiamo jingle musicali accattivanti e originali per promuovere i tuoi prodotti o servizi in modo memorabile.",
-      "icon": "https://example.com/icons/jingle-music.png"
-    },
-    {
-      "id": 3,
-      "title": "Design Grafico",
-      "description": "Realizziamo grafiche accattivanti e creative per loghi, brochure, banner pubblicitari e altro ancora.",
-      "icon": "https://example.com/icons/graphic-design.png"
-    },
-    {
-      "id": 4,
-      "title": "Sviluppo Web Full-Stack",
-      "description": "Siamo esperti nello sviluppo di siti web performanti e intuitivi, utilizzando le ultime tecnologie e best practices nel settore.",
-      "icon": "https://example.com/icons/full-stack-development.png"
-    },
-    {
-      "id": 5,
-      "title": "Sviluppo di Software Gestionali",
-      "description": "Realizziamo software gestionali personalizzati per ottimizzare i processi aziendali e migliorare l'efficienza operativa.",
-      "icon": "https://example.com/icons/management-software.png"
-    },
-    {
-      "id": 6,
-      "title": "E-commerce Solutions",
-      "description": "Creiamo e-commerce su misura per le esigenze del tuo business, garantendo un'esperienza utente intuitiva e sicura.",
-      "icon": "https://example.com/icons/ecommerce-solutions.png"
-    },
-    {
-      "id": 7,
-      "title": "Trasformazione di Autobiografie in Libri",
-      "description": "Aiutiamo a trasformare le tue memorie e le tue storie in libri pubblicabili, offrendo servizi di scrittura, editing e pubblicazione.",
-      "icon": "https://example.com/icons/autobiography-to-books.png"
-    },
-    {
-      "id": 8,
-      "title": "Gestione dei Social Media",
-      "description": "Gestiamo i tuoi account sui social media, curando la creazione di contenuti, la gestione delle interazioni e la crescita organica dell'audience.",
-      "icon": "https://example.com/icons/social-media-management.png"
-    },
-    {
-      "id": 9,
-      "title": "SEO (Search Engine Optimization)",
-      "description": "Ottimizziamo il tuo sito web per i motori di ricerca, aumentando la visibilità online e migliorando il posizionamento nei risultati di ricerca.",
-      "icon": "https://example.com/icons/seo.png"
-    },
-    {
-      "id": 10,
-      "title": "PPC (Pay-Per-Click) Advertising",
-      "description": "Gestiamo campagne pubblicitarie pay-per-click su piattaforme come Google Ads e Facebook Ads per massimizzare il ritorno sull'investimento.",
-      "icon": "https://example.com/icons/ppc-advertising.png"
-    },
-    {
-      "id": 11,
-      "title": "Email Marketing",
-      "description": "Creiamo strategie di email marketing efficaci per coinvolgere e fidelizzare i tuoi clienti, aumentando le conversioni e il valore del cliente.",
-      "icon": "https://example.com/icons/email-marketing.png"
-    },
-    {
-      "id": 12,
-      "title": "Content Writing",
-      "description": "Forniamo servizi di scrittura di contenuti di alta qualità per blog, siti web, newsletter e altro ancora, per attrarre e coinvolgere il tuo pubblico.",
-      "icon": "https://example.com/icons/content-writing.png"
-    },
-    {
-      "id": 13,
-      "title": "Video Production",
-      "description": "Realizziamo video promozionali e tutorial di alta qualità per presentare i tuoi prodotti o servizi in modo coinvolgente e professionale.",
-      "icon": "https://example.com/icons/video-production.png"
-    },
-    {
-      "id": 14,
-      "title": "Fotografia Professionale",
-      "description": "Offriamo servizi fotografici professionali per catturare immagini di alta qualità dei tuoi prodotti, servizi o eventi aziendali.",
-      "icon": "https://example.com/icons/professional-photography.png"
-    },
-    {
-      "id": 15,
-      "title": "Consulenza Strategica",
-      "description": "Forniamo consulenza strategica personalizzata per aiutare le aziende a identificare opportunità di crescita e a sviluppare piani d'azione efficaci.",
-      "icon": "https://example.com/icons/strategic-consulting.png"
-    },
-    {
-        "id": 16,
-        "title": "Fotografia Aerea",
-        "description": "Utilizziamo droni e tecnologie avanzate per catturare immagini aeree mozzafiato per progetti immobiliari, eventi speciali e altro ancora.",
-        "icon": "https://example.com/icons/aerial-photography.png"
-      },
-      {
-        "id": 17,
-        "title": "Video per Compleanni",
-        "description": "Creiamo video personalizzati per celebrare compleanni speciali, includendo messaggi di auguri, momenti memorabili e altro ancora.",
-        "icon": "https://example.com/icons/birthday-videos.png"
-      },
-      {
-        "id": 18,
-        "title": "Jingle Personalizzati",
-        "description": "Realizziamo jingle personalizzati e orecchiabili per promuovere il tuo marchio, prodotto o servizio in modo unico e memorabile.",
-        "icon": "https://example.com/icons/custom-jingles.png"
-      },
-      {
-        "id": 19,
-        "title": "Voci Narranti",
-        "description": "Offriamo voci narranti professionisti e uniche per spot pubblicitari, video aziendali, audiolibri e altro ancora, per dare vita alle tue storie.",
-        "icon": "https://example.com/icons/voice-overs.png"
-      },
-      {
-        "id": 20,
-        "title": "Bot Personalizzati",
-        "description": "Sviluppiamo bot personalizzati per rispondere alle domande frequenti, automatizzare processi e migliorare l'esperienza utente sui tuoi canali digitali.",
-        "icon": "https://example.com/icons/custom-bots.png"
-      },
-      {
-        "id": 21,
-        "title": "Consulenze sull'Intelligenza Artificiale",
-        "description": "Offriamo consulenze specializzate sull'intelligenza artificiale per aiutare le aziende a implementare soluzioni AI avanzate e ottenere vantaggi competitivi.",
-        "icon": "https://example.com/icons/ai-consulting.png"
-      },
-      {
-        "id": 22,
-        "title": "Consulenze su Criptovalute",
-        "description": "Forniamo consulenze esperte su criptovalute, blockchain e tecnologie finanziarie decentralizzate, aiutando i clienti a navigare nel complesso mondo delle criptovalute.",
-        "icon": "https://example.com/icons/crypto-consulting.png"
-      }
-
-  ]
-  
+  {
+    "id": 1,
+    "title": "Digital Marketing",
+    "description": "Offriamo servizi completi di digital marketing, dalla definizione di strategie personalizzate alla gestione di campagne pubblicitarie su tutti i canali digitali.",
+    "category": "Marketing",
+    "averagePrice": 500,
+    "icon": "https://doridasolutionbucket.s3.eu-north-1.amazonaws.com/Service/marketing.png",
+    "color": "#00B2FF",
+    "person": "Dorin"
+  },
+  {
+    "id": 2,
+    "title": "Produzione di Jingle Musicali",
+    "description": "Creiamo jingle musicali accattivanti e originali per promuovere i tuoi prodotti o servizi in modo memorabile.",
+    "category": "Audio Production",
+    "averagePrice": 500,
+    "icon": "https://doridasolutionbucket.s3.eu-north-1.amazonaws.com/Service/mUSICA.png",
+    "color": "#FFD700",
+    "person": "Rino"
+  },
+  {
+    "id": 3,
+    "title": "Design Grafico",
+    "description": "Realizziamo grafiche accattivanti e creative per loghi, brochure, banner pubblicitari e altro ancora.",
+    "category": "Graphic Design",
+    "averagePrice": 500,
+    "icon": "https://doridasolutionbucket.s3.eu-north-1.amazonaws.com/Service/GRAPICH.png",
+    "color": "#FF6347",
+    "person": "Dorin"
+  },
+  {
+    "id": 4,
+    "title": "Sviluppo Web Full-Stack",
+    "description": "Siamo esperti nello sviluppo di siti web performanti e intuitivi, utilizzando le ultime tecnologie e best practices nel settore.",
+    "category": "Web Development",
+    "averagePrice": 2000,
+    "icon": "https://doridasolutionbucket.s3.eu-north-1.amazonaws.com/Service/WEB+DEVELOPMENT.png",
+    "color": "#4B0082",
+    "person": "Davide"
+  },
+  {
+    "id": 5,
+    "title": "Sviluppo di Software Gestionali",
+    "description": "Realizziamo software gestionali personalizzati per ottimizzare i processi aziendali e migliorare l'efficienza operativa.",
+    "category": "Software Development",
+    "averagePrice": 4000,
+    "icon": "https://doridasolutionbucket.s3.eu-north-1.amazonaws.com/Service/gesionale.png",
+    "color": "#8B4513",
+    "person": "Davide"
+  },
+  {
+    "id": 6,
+    "title": "E-commerce Solutions",
+    "description": "Creiamo e-commerce su misura per le esigenze del tuo business, garantendo un'esperienza utente intuitiva e sicura.",
+    "category": "E-commerce",
+    "averagePrice": 2500,
+    "icon": "https://doridasolutionbucket.s3.eu-north-1.amazonaws.com/Service/ecommerce.png",
+    "color": "#32CD32",
+    "person": "Davide"
+  },
+  {
+    "id": 7,
+    "title": "Trasformazione di Autobiografie in Libri",
+    "description": "Aiutiamo a trasformare le tue memorie e le tue storie in libri pubblicabili, offrendo servizi di scrittura, editing e pubblicazione.",
+    "category": "Book Publishing",
+    "averagePrice": 3500,
+    "icon": "https://example.com/icons/autobiography-to-books.png",
+    "color": "#FF4500",
+    "person": "Rino"
+  },
+  {
+    "id": 8,
+    "title": "Gestione dei Social Media",
+    "description": "Gestiamo i tuoi account sui social media, curando la creazione di contenuti, la gestione delle interazioni e la crescita organica dell'audience.",
+    "category": "Social Media",
+    "averagePrice": 1000,
+    "icon": "https://example.com/icons/social-media-management.png",
+    "color": "#00FFFF",
+    "person": "Dorin"
+  },
+  {
+    "id": 9,
+    "title": "SEO (Search Engine Optimization)",
+    "description": "Ottimizziamo il tuo sito web per i motori di ricerca, aumentando la visibilità online e migliorando il posizionamento nei risultati di ricerca.",
+    "category": "SEO",
+    "averagePrice": 1800,
+    "icon": "https://example.com/icons/seo.png",
+    "color": "#9932CC",
+    "person": "Dorin"
+  },
+  {
+    "id": 10,
+    "title": "PPC (Pay-Per-Click) Advertising",
+    "description": "Gestiamo campagne pubblicitarie pay-per-click su piattaforme come Google Ads e Facebook Ads per massimizzare il ritorno sull'investimento.",
+    "category": "Advertising",
+    "averagePrice": 2200,
+    "icon": "https://example.com/icons/ppc-advertising.png",
+    "color": "#FF1493",
+    "person": "Dorin"
+  },
+  {
+    "id": 11,
+    "title": "Email Marketing",
+    "description": "Creiamo strategie di email marketing efficaci per coinvolgere e fidelizzare i tuoi clienti, aumentando le conversioni e il valore del cliente.",
+    "category": "Marketing",
+    "averagePrice": 900,
+    "icon": "https://example.com/icons/email-marketing.png",
+    "color": "#6495ED",
+    "person": "Dorin"
+  },
+  {
+    "id": 12,
+    "title": "Content Writing",
+    "description": "Forniamo servizi di scrittura di contenuti di alta qualità per blog, siti web, newsletter e altro ancora, per attrarre e coinvolgere il tuo pubblico.",
+    "category": "Content Creation",
+    "averagePrice": 500,
+    "icon": "https://example.com/icons/content-writing.png",
+    "color": "#FFA500",
+    "person": "Rino"
+  },
+  {
+    "id": 13,
+    "title": "Video Production",
+    "description": "Realizziamo video promozionali e tutorial di alta qualità per presentare i tuoi prodotti o servizi in modo coinvolgente e professionale.",
+    "category": "Video Production",
+    "averagePrice": 2600,
+    "icon": "https://example.com/icons/video-production.png",
+    "color": "#008000",
+    "person": "Rino"
+  },
+  {
+    "id": 14,
+    "title": "Fotografia Professionale",
+    "description": "Offriamo servizi fotografici professionali per catturare immagini di alta qualità dei tuoi prodotti, servizi o eventi aziendali.",
+    "category": "Photography",
+    "averagePrice": 1500,
+    "icon": "https://example.com/icons/professional-photography.png",
+    "color": "#B22222",
+    "person": "Rino"
+  },
+  {
+    "id": 15,
+    "title": "Consulenza Strategica",
+    "description": "Forniamo consulenza strategica personalizzata per aiutare le aziende a identificare opportunità di crescita e a sviluppare piani d'azione efficaci.",
+    "category": "Consulting",
+    "averagePrice": 5000,
+    "icon": "https://example.com/icons/strategic-consulting.png",
+    "color": "#DAA520",
+    "person": "Davide"
+  },
+  {
+    "id": 16,
+    "title": "Fotografia Aerea",
+    "description": "Utilizziamo droni e tecnologie avanzate per catturare immagini aeree mozzafiato per progetti immobiliari, eventi speciali e altro ancora.",
+    "category": "Aerial Photography",
+    "averagePrice": 2000,
+    "icon": "https://example.com/icons/aerial-photography.png",
+    "color": "#FF6347",
+    "person": "Rino"
+  },
+  {
+    "id": 17,
+    "title": "Video per Compleanni",
+    "description": "Creiamo video personalizzati per celebrare compleanni speciali, includendo messaggi di auguri, momenti memorabili e altro ancora.",
+    "category": "Event Videography",
+    "averagePrice": 800,
+    "icon": "https://example.com/icons/birthday-videos.png",
+    "color": "#FFB6C1",
+    "person": "Rino"
+  },
+  {
+    "id": 18,
+    "title": "Jingle Personalizzati",
+    "description": "Realizziamo jingle personalizzati e orecchiabili per promuovere il tuo marchio, prodotto o servizio in modo unico e memorabile.",
+    "category": "Audio Production",
+    "averagePrice": 1300,
+    "icon": "https://example.com/icons/custom-jingles.png",
+    "color": "#FFA07A",
+    "person": "Rino"
+  },
+  {
+    "id": 19,
+    "title": "Voci Narranti",
+    "description": "Offriamo voci narranti professionisti e uniche per spot pubblicitari, video aziendali, audiolibri e altro ancora, per dare vita alle tue storie.",
+    "category": "Voice Over",
+    "averagePrice": 600,
+    "icon": "https://example.com/icons/voice-overs.png",
+    "color": "#6B8E23",
+    "person": "Rino"
+  },
+  {
+    "id": 20,
+    "title": "Bot Personalizzati",
+    "description": "Sviluppiamo bot personalizzati per rispondere alle domande frequenti, automatizzare processi e migliorare l'esperienza utente sui tuoi canali digitali.",
+    "category": "Tech",
+    "averagePrice": 1800,
+    "icon": "https://example.com/icons/custom-bots.png",
+    "color": "#4682B4",
+    "person": "Davide"
+  },
+  {
+    "id": 21,
+    "title": "Consulenze sull'Intelligenza Artificiale",
+    "description": "Offriamo consulenze specializzate sull'intelligenza artificiale per aiutare le aziende a implementare soluzioni AI avanzate e ottenere vantaggi competitivi.",
+    "category": "AI Consulting",
+    "averagePrice": 7000,
+    "icon": "https://example.com/icons/ai-consulting.png",
+    "color": "#800080",
+    "person": "Davide"
+  },
+  {
+    "id": 22,
+    "title": "Consulenze su Criptovalute",
+    "description": "Forniamo consulenze esperte su criptovalute, blockchain e tecnologie finanziarie decentralizzate, aiutando i clienti a navigare nel complesso mondo delle criptovalute.",
+    "category": "Crypto Consulting",
+    "averagePrice": 3000,
+    "icon": "https://example.com/icons/crypto-consulting.png",
+    "color": "#B8860B",
+    "person": "Davide"
+  }
+]

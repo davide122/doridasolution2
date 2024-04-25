@@ -1,12 +1,15 @@
 //Metadata completi
 export const metadata = {
-    icons: {
-        icon: {
-          url: "/public/favicon.ico",
-          type: "image/png",
-        },
-        shortcut: { url: "/public/favicon.ico", type: "image/png" },
-      },
+  icons: {
+    icon: {
+      url: "/favicon.ico", // Corretto il percorso
+      type: "image/x-icon" // Cambiato in tipo più comune per .ico
+    },
+    shortcut: {
+      url: "/favicon.ico", // Corretto il percorso
+      type: "image/x-icon" // Cambiato in tipo più comune per .ico
+    },
+  },
     title: "Dorida Solution - Soluzioni Digitali e Servizi di Marketing",
     description: "Esplora una gamma di servizi digitali su misura: sviluppo web, marketing digitale, SEO, e-commerce e molto altro. Perfetti per aziende che cercano di innovare e ottimizzare la loro presenza online.",
     keywords: "soluzioni digitali, marketing digitale, sviluppo web, SEO, e-commerce, innovazione digitale",
@@ -22,7 +25,6 @@ export const metadata = {
 
 
 }
-
 export default function RootLayout({ children }) {
   return (
     <html lang="it">

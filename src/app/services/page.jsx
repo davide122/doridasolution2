@@ -1,6 +1,13 @@
+import AboutUs from "@/components/Section/aboutsection/AboutUs"
+import ServicesBox from "@/components/ServicesComponent/ServicesBox"
+import MyNavbar from "@/components/navbar/MyNavbar"
+
 const services = () => {
     return(
-        <h1>non pronto </h1>
+        <>
+        <MyNavbar></MyNavbar>
+      <ServicesBox></ServicesBox>
+        </>
     )
 
 }

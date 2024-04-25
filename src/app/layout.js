@@ -1,7 +1,7 @@
 import { Inter } from "next/font/google";
 import 'bootstrap/dist/css/bootstrap.min.css'; // Aggiungi questa linea
 import "./globals.css"
-
+import { SpeedInsights } from "@vercel/speed-insights/next"
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
@@ -31,7 +31,10 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="it">
+      <SpeedInsights/>
+
       <body className={inter.className}>{children}</body>
+    
     </html>
   );
 }

@@ -48,7 +48,7 @@ const route = useRouter();
         </div>
 
       </div>
-      <div className="col-12 col-md-6 vh-100 d-flex justify-content-center align-items-center ">
+      <div className="col-12 col-md-6 vh-100 d-flex justify-content-center align-items-center bg-white ">
         <div className="w-md-75 ">
           <form onSubmit={handleLogin} className="form-container">
           <h2 className="text-start ms-2 mb-4">Login</h2>

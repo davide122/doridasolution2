@@ -90,7 +90,7 @@ function AlbumManager() {
                 <textarea name="description" value={formData.description} onChange={handleFormChange} className="form-control" />
             </div>
 
-            <button type="submit" className="btn btn-primary">{formMode === 'add' ? 'Add Album' : 'Update Album'}</button>
+            <button type="submit" className="btn btn-primary">{formMode === 'add' ? 'Add' : 'Update'}</button>
         </form>
 
         <h3>Album List</h3>

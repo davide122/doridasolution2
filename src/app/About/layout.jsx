@@ -1,6 +1,16 @@
 
 
 export const metadata = {
+  icons: {
+    icon: {
+      url: "/favicon.ico", // Corretto il percorso
+      type: "image/x-icon" // Cambiato in tipo più comune per .ico
+    },
+    shortcut: {
+      url: "/favicon.ico", // Corretto il percorso
+      type: "image/x-icon" // Cambiato in tipo più comune per .ico
+    },
+  },
   title: "About - Dorida Solution",
   description: "Scopri di più su Dorida Solution, una web agency innovativa impegnata nella digitalizzazione e nel miglioramento della vita quotidiana attraverso tecnologie avanzate e un forte impegno sociale.",
   keywords: "Dorida Solution, digitalizzazione, tecnologia, impegno sociale, web agency",

@@ -1,6 +1,9 @@
 "use client"
 import React, { useState, useEffect } from 'react';
+import {useAlert} from "../AlertComponent/AlertContext"
+
 function AlbumManager() {
+    const { showAlert } = useAlert();
     const [albums, setAlbums] = useState([]);
     const [currentAlbum, setCurrentAlbum] = useState(null);
     const [formMode, setFormMode] = useState('add'); // 'add', 'edit'
@@ -15,8 +18,12 @@ function AlbumManager() {
             const response = await fetch('/api/songs/normal');
             if (!response.ok) throw new Error('Failed to fetch');
             const data = await response.json();
+
             setAlbums(data);
+            showAlert('Album trovati!', 'success');
+
         } catch (error) {
+            showAlert(error, 'danger');
             console.error("Fetch error:", error);
         }
     };
@@ -40,11 +47,14 @@ function AlbumManager() {
                 body: JSON.stringify(formData)
             });
             if (!response.ok) throw new Error('Failed to submit');
+
             await fetchAlbums();
             setFormMode('add');
             setFormData({ title: '', release_date: '', cover_url: '', description: '' });
+            showAlert('Album aggiunto!', 'success');
         } catch (error) {
             console.error("Submit error:", error);
+            showAlert(error, 'danger');
         }
     };
 

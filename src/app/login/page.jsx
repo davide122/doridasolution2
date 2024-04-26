@@ -2,7 +2,10 @@
 import { useState } from "react";
 import { useRouter } from 'next/navigation';
 import Link from "next/link";
+import {useAlert} from "../../components/AlertComponent/AlertContext"
 function LoginPage() {
+  const { showAlert } = useAlert();
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
@@ -21,11 +24,14 @@ const route = useRouter();
     
     const data = await response.json();
         if (response.ok) {
+          showAlert('Ti sei loggato con successo', 'success');
           localStorage.setItem('token', data.token);
           // window.location.href = data.redirectUrl; // Imposta direttamente l'URL, causando un refresh completo della pagina.
           route.push(data.redirectUrl); // Usa next/router per navigare senza refresh
         } else {
             setError(data.message);
+            showAlert(data.message, 'danger');
+
         }
     };
 
@@ -49,7 +55,7 @@ const route = useRouter();
 
       </div>
       <div className="col-12 col-md-6 vh-100 d-flex justify-content-center align-items-center bg-white ">
-        <div className="w-md-75 ">
+        <div className="w-75 ">
           <form onSubmit={handleLogin} className="form-container">
           <h2 className="text-start ms-2 mb-4">Login</h2>
             <div className="mb-3">
@@ -81,11 +87,12 @@ const route = useRouter();
                 <input type="checkbox" className="form-check-input" id="rememberMe"/>
                 <label className="form-check-label" htmlFor="rememberMe">Ricordati di me</label>
               </div>
-              <a href="#" className="text-decoration-none text-black">Hai dimenticato la password?</a>
+              
             </div>
-            <button type="submit" className="btn btn-danger w-100 mb-3">
-              Sign In
+            <button type="submit" className="btn btn-primary text-white w-100 mb-3">
+              Accedi
             </button>
+            <Link className="btn btn-danger text-black w-100 mb-3 bg-white" href={"/register"}>Registrati</Link>
             {error && (
               <div className="alert alert-danger" role="alert">
                 {error}

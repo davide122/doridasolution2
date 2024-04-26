@@ -15,7 +15,7 @@
     "description": "Creiamo jingle musicali accattivanti e originali per promuovere i tuoi prodotti o servizi in modo memorabile.",
     "category": "Audio Production",
     "averagePrice": 500,
-    "icon": "https://doridasolutionbucket.s3.eu-north-1.amazonaws.com/Service/mUSICA.png",
+    "icon": "https://doridasolutionbucket.s3.eu-north-1.amazonaws.com/Service/jingle.png",
     "color": "#FFD700",
     "person": "Rino"
   },
@@ -45,7 +45,7 @@
     "description": "Realizziamo software gestionali personalizzati per ottimizzare i processi aziendali e migliorare l'efficienza operativa.",
     "category": "Software Development",
     "averagePrice": 4000,
-    "icon": "https://doridasolutionbucket.s3.eu-north-1.amazonaws.com/Service/gesionale.png",
+    "icon": "https://doridasolutionbucket.s3.eu-north-1.amazonaws.com/Service/gestionale.png",
     "color": "#8B4513",
     "person": "Davide"
   },
@@ -65,7 +65,7 @@
     "description": "Aiutiamo a trasformare le tue memorie e le tue storie in libri pubblicabili, offrendo servizi di scrittura, editing e pubblicazione.",
     "category": "Book Publishing",
     "averagePrice": 3500,
-    "icon": "https://example.com/icons/autobiography-to-books.png",
+    "icon": "https://doridasolutionbucket.s3.eu-north-1.amazonaws.com/Service/libri.png",
     "color": "#FF4500",
     "person": "Rino"
   },
@@ -75,7 +75,7 @@
     "description": "Gestiamo i tuoi account sui social media, curando la creazione di contenuti, la gestione delle interazioni e la crescita organica dell'audience.",
     "category": "Social Media",
     "averagePrice": 1000,
-    "icon": "https://example.com/icons/social-media-management.png",
+    "icon": "https://doridasolutionbucket.s3.eu-north-1.amazonaws.com/Service/Social+Media.png",
     "color": "#00FFFF",
     "person": "Dorin"
   },
@@ -85,7 +85,7 @@
     "description": "Ottimizziamo il tuo sito web per i motori di ricerca, aumentando la visibilità online e migliorando il posizionamento nei risultati di ricerca.",
     "category": "SEO",
     "averagePrice": 1800,
-    "icon": "https://example.com/icons/seo.png",
+    "icon": "https://doridasolutionbucket.s3.eu-north-1.amazonaws.com/Service/seo.png",
     "color": "#9932CC",
     "person": "Dorin"
   },
@@ -95,7 +95,7 @@
     "description": "Gestiamo campagne pubblicitarie pay-per-click su piattaforme come Google Ads e Facebook Ads per massimizzare il ritorno sull'investimento.",
     "category": "Advertising",
     "averagePrice": 2200,
-    "icon": "https://example.com/icons/ppc-advertising.png",
+    "icon": "https://doridasolutionbucket.s3.eu-north-1.amazonaws.com/Service/ads.png",
     "color": "#FF1493",
     "person": "Dorin"
   },
@@ -105,7 +105,7 @@
     "description": "Creiamo strategie di email marketing efficaci per coinvolgere e fidelizzare i tuoi clienti, aumentando le conversioni e il valore del cliente.",
     "category": "Marketing",
     "averagePrice": 900,
-    "icon": "https://example.com/icons/email-marketing.png",
+    "icon": "https://doridasolutionbucket.s3.eu-north-1.amazonaws.com/Service/email+mark.png",
     "color": "#6495ED",
     "person": "Dorin"
   },
@@ -115,7 +115,7 @@
     "description": "Forniamo servizi di scrittura di contenuti di alta qualità per blog, siti web, newsletter e altro ancora, per attrarre e coinvolgere il tuo pubblico.",
     "category": "Content Creation",
     "averagePrice": 500,
-    "icon": "https://example.com/icons/content-writing.png",
+    "icon": "https://doridasolutionbucket.s3.eu-north-1.amazonaws.com/Service/content+writing.png",
     "color": "#FFA500",
     "person": "Rino"
   },
@@ -125,7 +125,7 @@
     "description": "Realizziamo video promozionali e tutorial di alta qualità per presentare i tuoi prodotti o servizi in modo coinvolgente e professionale.",
     "category": "Video Production",
     "averagePrice": 2600,
-    "icon": "https://example.com/icons/video-production.png",
+    "icon": "https://doridasolutionbucket.s3.eu-north-1.amazonaws.com/Service/Video.png",
     "color": "#008000",
     "person": "Rino"
   },
@@ -135,7 +135,7 @@
     "description": "Offriamo servizi fotografici professionali per catturare immagini di alta qualità dei tuoi prodotti, servizi o eventi aziendali.",
     "category": "Photography",
     "averagePrice": 1500,
-    "icon": "https://example.com/icons/professional-photography.png",
+    "icon": "https://doridasolutionbucket.s3.eu-north-1.amazonaws.com/Service/fotografia.png",
     "color": "#B22222",
     "person": "Rino"
   },
@@ -145,7 +145,7 @@
     "description": "Forniamo consulenza strategica personalizzata per aiutare le aziende a identificare opportunità di crescita e a sviluppare piani d'azione efficaci.",
     "category": "Consulting",
     "averagePrice": 5000,
-    "icon": "https://example.com/icons/strategic-consulting.png",
+    "icon": "https://doridasolutionbucket.s3.eu-north-1.amazonaws.com/Service/Consulenza+Strategica.png",
     "color": "#DAA520",
     "person": "Davide"
   },
@@ -155,7 +155,7 @@
     "description": "Utilizziamo droni e tecnologie avanzate per catturare immagini aeree mozzafiato per progetti immobiliari, eventi speciali e altro ancora.",
     "category": "Aerial Photography",
     "averagePrice": 2000,
-    "icon": "https://example.com/icons/aerial-photography.png",
+    "icon": "https://doridasolutionbucket.s3.eu-north-1.amazonaws.com/Service/drone.png",
     "color": "#FF6347",
     "person": "Rino"
   },
@@ -165,7 +165,7 @@
     "description": "Creiamo video personalizzati per celebrare compleanni speciali, includendo messaggi di auguri, momenti memorabili e altro ancora.",
     "category": "Event Videography",
     "averagePrice": 800,
-    "icon": "https://example.com/icons/birthday-videos.png",
+    "icon": "https://doridasolutionbucket.s3.eu-north-1.amazonaws.com/Service/compleanni.png",
     "color": "#FFB6C1",
     "person": "Rino"
   },
@@ -175,7 +175,7 @@
     "description": "Realizziamo jingle personalizzati e orecchiabili per promuovere il tuo marchio, prodotto o servizio in modo unico e memorabile.",
     "category": "Audio Production",
     "averagePrice": 1300,
-    "icon": "https://example.com/icons/custom-jingles.png",
+    "icon": "https://doridasolutionbucket.s3.eu-north-1.amazonaws.com/Service/jingle.png",
     "color": "#FFA07A",
     "person": "Rino"
   },
@@ -185,7 +185,7 @@
     "description": "Offriamo voci narranti professionisti e uniche per spot pubblicitari, video aziendali, audiolibri e altro ancora, per dare vita alle tue storie.",
     "category": "Voice Over",
     "averagePrice": 600,
-    "icon": "https://example.com/icons/voice-overs.png",
+    "icon": "https://doridasolutionbucket.s3.eu-north-1.amazonaws.com/Service/voce+narrante.png",
     "color": "#6B8E23",
     "person": "Rino"
   },
@@ -195,7 +195,7 @@
     "description": "Sviluppiamo bot personalizzati per rispondere alle domande frequenti, automatizzare processi e migliorare l'esperienza utente sui tuoi canali digitali.",
     "category": "Tech",
     "averagePrice": 1800,
-    "icon": "https://example.com/icons/custom-bots.png",
+    "icon": "https://doridasolutionbucket.s3.eu-north-1.amazonaws.com/Service/bot.png",
     "color": "#4682B4",
     "person": "Davide"
   },
@@ -205,7 +205,7 @@
     "description": "Offriamo consulenze specializzate sull'intelligenza artificiale per aiutare le aziende a implementare soluzioni AI avanzate e ottenere vantaggi competitivi.",
     "category": "AI Consulting",
     "averagePrice": 7000,
-    "icon": "https://example.com/icons/ai-consulting.png",
+    "icon": "https://doridasolutionbucket.s3.eu-north-1.amazonaws.com/Service/AI.png",
     "color": "#800080",
     "person": "Davide"
   },
@@ -215,7 +215,7 @@
     "description": "Forniamo consulenze esperte su criptovalute, blockchain e tecnologie finanziarie decentralizzate, aiutando i clienti a navigare nel complesso mondo delle criptovalute.",
     "category": "Crypto Consulting",
     "averagePrice": 3000,
-    "icon": "https://example.com/icons/crypto-consulting.png",
+    "icon": "https://doridasolutionbucket.s3.eu-north-1.amazonaws.com/Service/cripto.png",
     "color": "#B8860B",
     "person": "Davide"
   }

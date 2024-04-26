@@ -2,8 +2,10 @@
 import { useEffect, useState } from 'react';
 import useAdminCheck from '../Hook/useAdminCheck'; // Adjust the path as per your project structure
 import Router from 'next/router';
+import {useAlert} from "../AlertComponent/AlertContext"
 
 function Contact() {
+    const { showAlert } = useAlert();
     useAdminCheck();  // Performs the admin access check
     const [contacts, setContacts] = useState([]);
     const [error, setError] = useState('');
@@ -33,12 +35,18 @@ function Contact() {
                 });
 
                 if (!response.ok) {
+                    showAlert("Purtroppo non siamo riusciti a recuperare i contatti, contatta l'assistenza", 'danger');
                     throw new Error('Failed to fetch contacts');
+
                 }
 
                 const data = await response.json();
+                showAlert("Contatti trovati", 'success');
+
                 setContacts(data);
             } catch (error) {
+                showAlert("Purtroppo non siamo riusciti a recuperare i contatti, contatta l'assistenza", 'danger');
+
                 setError(error.message);
             }
         };

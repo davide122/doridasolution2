@@ -1,6 +1,6 @@
 "use client"
 import { useState } from 'react';
-import Router from 'next/router';
+import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 
 /**
@@ -14,6 +14,7 @@ import Link from 'next/link';
  * - Redirecting the user to the login page upon successful registration
  */
 function RegisterPage() {
+  const Router = useRouter();
   const [formData, setFormData] = useState({
     username: "",
     email: "",

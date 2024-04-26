@@ -1,5 +1,15 @@
 import { Analytics } from "@vercel/analytics/react"
 export const metadata = {
+  icons: {
+    icon: {
+      url: "/favicon.ico", // Corretto il percorso
+      type: "image/x-icon" // Cambiato in tipo più comune per .ico
+    },
+    shortcut: {
+      url: "/favicon.ico", // Corretto il percorso
+      type: "image/x-icon" // Cambiato in tipo più comune per .ico
+    },
+  },
     title: "Dorida Music - Promuovendo l'Arte Musicale",
     description: "Scopri i nostri eventi, rilasci musicali e talenti emergenti. Dorida Music porta l'innovazione nel mondo della musica.",
     canonical: "www.doridasolution/doridamusic",
@@ -15,7 +25,6 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="it">
-      <Analytics/>
       <body>{children}</body>
 
     </html>

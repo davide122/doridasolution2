@@ -973,3 +973,85 @@ font-size: 20px;
 
 
 
+/* TermsAndConditions.css */
+.terms-container {
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  margin: 20px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.terms-container h1, h2 {
+  color: #000000;
+}
+
+.terms-container p {
+  color: #666;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.terms-nav ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.terms-nav li {
+  display: inline;
+  margin-right: 20px;
+  color: black !important;
+}
+
+
+
+.alert-position {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000; /* High z-index to ensure it appears over everything */
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.alert-info {
+  background-color: #007bff;
+  color: white;
+}
+
+.alert-success {
+  background-color: #28a745;
+  color: white;
+}
+
+.alert-warning {
+  background-color: #ffc107;
+  color: black;
+}
+
+.alert-danger {
+  background-color: #dc3545;
+  color: white;
+}
+
+.img-user{
+  width: 100px;
+  overflow: hidden;
+  border-radius: 100%;
+  bottom: 0;
+  object-fit: contain;
+}
+
+.img-user img{
+  width: 100%;
+  overflow: hidden;
+  border-radius: 100%;
+}
+
+
+.albumphoto
+{
+  width: 300px;
+ cursor: pointer;
+}

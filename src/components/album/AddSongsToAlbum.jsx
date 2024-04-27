@@ -1,54 +1,92 @@
-import React, { useState } from 'react';
+import { useState } from "react";
 
-function AddSongsToAlbum({ albumId, userId}) {
-  const [formData, setFormData] = useState({
-    title: '',
-    duration: '',
-    fileUrl: '',
-    album_id: albumId, // preset album_id passed as a prop
-    user_id: userId,   // preset user_id passed as a prop
-    category: ''   
-  });
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData(prevState => ({
-      ...prevState,
-      [name]: value
-    }));
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    onAddSong(formData);
-    // Reset the form data
-    setFormData({
-      title: '',
-      duration: '',
-      fileUrl: ''
-    });
-  };
-
-  return (
-    <div>
-      <h3>Aggiungi una nuova canzone</h3>
-      <form onSubmit={handleSubmit}>
+function AddSongsToAlbum({ albumId, userId }) {
+    const [title, setTitle] = useState('');
+    const [duration, setDuration] = useState('');
+    const [fileUrl, setFileUrl] = useState('');
+    const [category, setCategory] = useState('');
+  
+    const handleSubmit = async (event) => {
+      event.preventDefault();
+  
+      // Preparazione dei dati della canzone con l'album_id e user_id passati via props
+      const songData = {
+        album_id: albumId,
+        user_id: userId,
+        title,
+        duration,
+        file_url: fileUrl,
+        category
+      };
+  
+      try {
+        const token = localStorage.getItem('token');
+        const response = await fetch(`/api/songs/song/${albumId}`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}`
+          },
+          body: JSON.stringify(songData)
+        });
+        const data = await response.json();
+        if (response.ok) {
+          alert('Canzone aggiunta con successo!');
+          // Aggiorna lo stato o reindirizza se necessario
+        } else {
+          alert(`Errore: ${data.message}`);
+        }
+      } catch (error) {
+        console.error('Errore durante l’aggiunta della canzone:', error);
+        alert('Errore durante l’aggiunta della canzone');
+      }
+    };
+  
+    return (
+      <div className="container mt-4">
+      <h1 className="mb-3">Aggiungi una canzone</h1>
+      <form onSubmit={handleSubmit} className="shadow p-3 mb-5 bg-body rounded">
         <div className="mb-3">
-          <label htmlFor="title" className="form-label">Titolo</label>
-          <input type="text" className="form-control" id="title" name="title" value={formData.title} onChange={handleChange} required />
+          <input
+            type="text"
+            className="form-control"
+            value={title}
+            onChange={e => setTitle(e.target.value)}
+            placeholder="Titolo"
+          />
         </div>
         <div className="mb-3">
-          <label htmlFor="duration" className="form-label">Durata</label>
-          <input type="text" className="form-control" id="duration" name="duration" value={formData.duration} onChange={handleChange} required />
-        </div>  
-        <div className="mb-3">
-          <label htmlFor="fileUrl" className="form-label">URL File</label>
-          <input type="text" className="form-control" id="fileUrl" name="fileUrl" value={formData.fileUrl} onChange={handleChange} required />
+          <input
+            type="text"
+            className="form-control"
+            value={duration}
+            onChange={e => setDuration(e.target.value)}
+            placeholder="Durata"
+          />
         </div>
-        <button type="submit" className="btn btn-primary">Aggiungi</button>
+        <div className="mb-3">
+          <input
+            type="text"
+            className="form-control"
+            value={fileUrl}
+            onChange={e => setFileUrl(e.target.value)}
+            placeholder="URL del file"
+          />
+        </div>
+        <div className="mb-3">
+          <input
+            type="text"
+            className="form-control"
+            value={category}
+            onChange={e => setCategory(e.target.value)}
+            placeholder="Categoria"
+          />
+        </div>
+        <button type="submit" className="btn btn-primary">Aggiungi Canzone</button>
       </form>
     </div>
-  );
-}
-
-export default AddSongsToAlbum;
+    );
+  }
+  
+  export default AddSongsToAlbum;
+  

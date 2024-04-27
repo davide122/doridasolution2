@@ -55,33 +55,10 @@ function AddAlbumForm() {
 
 
 
-    const handleAddSong = async () => {
-        const token = localStorage.getItem("token");
-        try {
-          const response = await fetch(`/api/songs/song`, {
-            method: "POST",
-            headers: {
-              Authorization: `Bearer ${token}`,
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-              ...formData,
-            }),
-          });
-          if (!response.ok) {
-            throw new Error("Network response was not ok");
-          }
-          // Refresh the list of songs for the selected album
-          handleAlbumSelect(selectedAlbum);
-        } catch (error) {
-          console.error("Failed to add song:", error);
-        }
-      };
-
     return (
         <div className="container mt-5">
         <h1>Aggiungi un nuovo album</h1>
-        <form onSubmit={handleAddSong}>
+        <form onSubmit={handleSubmit}>
             <div className="mb-3">
                 <label htmlFor="title" className="form-label">Titolo</label>
                 <input type="text" className="form-control" id="title" name="title" value={formData.title} onChange={handleChange} required />

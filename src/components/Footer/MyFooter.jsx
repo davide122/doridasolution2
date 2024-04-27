@@ -61,6 +61,9 @@ function MyFooter() {
               <li className="nav-item mb-2 lifooter">
                 <Link href="/about" passHref className="text-decoration-none"><span className="nav-link p-0 lifooter" role="button">About</span></Link>
               </li>
+              <li className="nav-item mb-2 lifooter">
+                <Link href="/terms" passHref className="text-decoration-none"><span className="nav-link p-0 lifooter" role="button">Termini e Condizioni</span></Link>
+              </li>
             </ul>
           </div>
           <div className="col-6 col-md-3">

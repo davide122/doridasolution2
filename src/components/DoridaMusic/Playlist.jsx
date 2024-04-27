@@ -39,12 +39,12 @@ const Playlist = () => {
         <div className="carousel ms-3 shadow2 ">
           {playlists.map((playlist) => (
             console.log(playlist.blurred_image),
-            <div key={playlist.id} className="playlist-card">
-              {playlist.blurred_image ? (
-      <img src={playlist.blurred_image.trim()} alt={playlist.artist_name} className="img-fluid" />
+            <div key={playlist.album_id} className="playlist-card">
+              {playlist.cover_url ? (
+      <img src={playlist.cover_url} alt={playlist.title} className="img-fluid" />
     ) : null}
 
-              {console.log(playlist.originalImage)}
+
             </div>
           ))}
         </div>

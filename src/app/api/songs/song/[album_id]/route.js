@@ -18,9 +18,9 @@ export async function POST(request, { params }) {
     }
 
     const album_id = params.album_id;
-    const { title, duration, file_url, category } = await request.json();
+    const { title, duration, file_url, category,image_songs } = await request.json();
 
-    if (!title || !duration || !file_url || !category) {
+    if (!title || !duration || !file_url || !category || !image_songs) {
         return new NextResponse(JSON.stringify({ message: 'Tutti i campi sono obbligatori' }), { status: 400 });
     }
 
@@ -33,8 +33,8 @@ export async function POST(request, { params }) {
         }
 
         // Inserisci la nuova canzone nel database
-        const insertQuery = 'INSERT INTO songs (album_id, user_id, title, duration, file_url, category) VALUES ($1, $2, $3, $4, $5, $6) RETURNING *';
-        const queryParams = [album_id, user_id, title, duration, file_url, category];
+        const insertQuery = 'INSERT INTO songs (album_id, user_id, title, duration, file_url, category, image_songs) VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING *';
+        const queryParams = [album_id, user_id, title, duration, file_url, category,image_songs];
         const { rows } = await pool.query(insertQuery, queryParams);
 
         // Restituisci la canzone appena creata

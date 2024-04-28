@@ -3,26 +3,27 @@ import React, { useState } from "react";
 import { FiPlay, FiPause, FiSkipBack, FiSkipForward } from "react-icons/fi";
 import "./Css/Player.css";
 
-const Player = () => {
+const Player = ({song}) => {
   const [isPlaying, setIsPlaying] = useState(false);
   
   const togglePlay = () => {
     setIsPlaying(!isPlaying);
-    // Qui aggiungi la logica per la riproduzione della musica
+    // Qui potresti aggiungere la logica per riprodurre la musica usando l'elemento audio
   };
+
 
   return (
     <div className="player-bar fixed-bottom bg-dark">
       <div className="container-fluid">
         <div className="row align-items-center justify-content-between">
           <div className="col d-flex align-items-center">
-            <img src="https://doridasolutionbucket.s3.eu-north-1.amazonaws.com/MusicianCreator/signorablur.png" alt="Copertina album" className="cover" />
+            <img src={song ? song.image_songs : "/placeholder.png"} alt="Copertina album" className="cover" />
             <div className="track-info">
-              <div className="track-title">1° episodio: So co...</div>
-              <div className="track-artist">Bunga Bunga (ITA)</div>
+              <div className="track-title">{song ? song.title : "Nessun brano selezionato"}</div>
+              <div className="track-artist">{song ? `Durata: ${song.duration}` : ""}</div>
             </div>
           </div>
-          <div className="col d-flex justify-content-center ">
+          <div className="col d-flex justify-content-center">
             <FiSkipBack className="control-icon d-md-block d-none" />
             {isPlaying ? (
               <FiPause onClick={togglePlay} className="control-icon" />

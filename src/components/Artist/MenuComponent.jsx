@@ -17,7 +17,7 @@ function MenuComponent() {
 
 function MenuItem({ icon, text }) {
   return (
-    <div className="MenuCard w-100 d-flex justify-content-start align-items-center rounded-4 px-2">
+    <div className="MenuCard w-100 d-flex justify-content-start align-items-center rounded-4 px-2 shadow-sm">
       {icon}
       <p className="fs-6 mt-3 ms-3 fw">{text}</p>
     </div>

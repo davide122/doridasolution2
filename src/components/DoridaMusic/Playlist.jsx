@@ -2,11 +2,16 @@
 import React, { useState, useEffect } from "react";
 import "./Css/playlist.css";
 import Image from "next/image";
+import { useRouter } from "next/navigation"; // Utilizza il gancio useRouter di Next.js
+import Loader from "../Loader/Loader";
 
 const Playlist = () => {
   const [playlists, setPlaylists] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
+  const router = useRouter(); // Hook per utilizzare il router
+
+ 
 
   useEffect(() => {
     const fetchPlaylists = async () => {
@@ -28,8 +33,15 @@ const Playlist = () => {
     fetchPlaylists();
   }, []);
 
-  if (loading) return <div>Loading...</div>;
+  if (loading) return <Loader></Loader>;
   if (error) return <div>Error: {error}</div>;
+
+
+  const handleClick = (albumId) => {
+    // Naviga alla pagina dell'album con l'ID specificato
+    router.push(`/album/${albumId}`); // Aggiorna questo percorso in base alla struttura delle tue pagine
+  };
+
 
   return (
     
@@ -39,7 +51,8 @@ const Playlist = () => {
         <div className="carousel ms-3 shadow2 ">
           {playlists.map((playlist) => (
             console.log(playlist.blurred_image),
-            <div key={playlist.album_id} className="playlist-card">
+            <div key={playlist.album_id} className="playlist-card" onClick={() => handleClick(playlist.album_id)}
+            >
               {playlist.cover_url ? (
       <img src={playlist.cover_url} alt={playlist.title} className="img-fluid" />
     ) : null}

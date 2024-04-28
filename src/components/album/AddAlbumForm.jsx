@@ -57,8 +57,8 @@ function AddAlbumForm() {
 
     return (
         <div className="container mt-5">
-        <h1>Aggiungi un nuovo album</h1>
-        <form onSubmit={handleSubmit}>
+        <h1 className='text-white fs-3 text-center'>Aggiungi un nuovo album</h1>
+        <form onSubmit={handleSubmit} className='text-white shadow p-3 mb-5 bg-body rounded'>
             <div className="mb-3">
                 <label htmlFor="title" className="form-label">Titolo</label>
                 <input type="text" className="form-control" id="title" name="title" value={formData.title} onChange={handleChange} required />
@@ -75,7 +75,7 @@ function AddAlbumForm() {
                 <label htmlFor="description" className="form-label">Descrizione</label>
                 <textarea className="form-control" id="description" name="description" value={formData.description} onChange={handleChange}></textarea>
             </div>
-            <button type="submit" className="btn btn-primary" disabled={isLoading}>
+            <button type="submit" className="btn btn-primary w-100" disabled={isLoading}>
                 {isLoading ? 'Invio...' : 'Aggiungi Album'}
             </button>
         </form>

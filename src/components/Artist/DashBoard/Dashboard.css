@@ -1,0 +1,45 @@
+.songs-list {
+    background-color: transparent !important; /* colore di sfondo della lista */
+  }
+  
+  .song-item {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.657) !important; /* rimuove il bordo di default */
+    background-color: transparent !important; /* colore di sfondo degli elementi della lista */
+    margin-bottom: 2px; /* spazio tra gli elementi */
+  }
+  
+  .song-item:hover {
+    background-color: rgba(255, 53, 53, 0.203) !important;; /* colore di sfondo al hover */
+  }
+  
+  .track-number {
+    min-width: 25px;
+    color: #ffffff; /* colore del numero della traccia */
+    margin-right: 15px; /* spazio tra il numero della traccia e la copertina */
+  }
+  
+  .cover {
+    width: 48px; /* larghezza della copertina */
+    height: 48px; /* altezza della copertina */
+    object-fit: cover; /* assicura che la copertina mantenga le proporzioni */
+  }
+  
+  .title {
+    color: #000000; /* colore del titolo */
+  }
+  
+  .artist {
+    color: #000000; /* colore dell'artista */
+  }
+  
+  .player-controls {
+    display: flex;
+    align-items: center;
+  }
+  
+  audio {
+    max-width: 250px; /* larghezza massima del player audio */
+    margin-left: 15px; /* spazio tra l'audio e i dettagli del brano */
+    background-color: transparent !important;
+  }
+  

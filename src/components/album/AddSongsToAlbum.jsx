@@ -5,7 +5,7 @@ function AddSongsToAlbum({ albumId, userId }) {
     const [duration, setDuration] = useState('');
     const [fileUrl, setFileUrl] = useState('');
     const [category, setCategory] = useState('');
-  
+    const [imageSongs, setimageSongs] = useState('');
     const handleSubmit = async (event) => {
       event.preventDefault();
   
@@ -16,7 +16,8 @@ function AddSongsToAlbum({ albumId, userId }) {
         title,
         duration,
         file_url: fileUrl,
-        category
+        category,
+        image_songs: imageSongs
       };
   
       try {
@@ -43,9 +44,9 @@ function AddSongsToAlbum({ albumId, userId }) {
     };
   
     return (
-      <div className="container mt-4">
-      <h1 className="mb-3">Aggiungi una canzone</h1>
-      <form onSubmit={handleSubmit} className="shadow p-3 mb-5 bg-body rounded">
+      <div className="container mt-4 ">
+      <h1 className="mb-3 text-white fs-4 text-center">Aggiungi una canzone</h1>
+      <form onSubmit={handleSubmit} className="shadow p-3 mb-5 bg-body rounded ">
         <div className="mb-3">
           <input
             type="text"
@@ -80,6 +81,15 @@ function AddSongsToAlbum({ albumId, userId }) {
             value={category}
             onChange={e => setCategory(e.target.value)}
             placeholder="Categoria"
+          />
+        </div>
+        <div className="mb-3">
+          <input
+            type="text"
+            className="form-control"
+            value={imageSongs}
+            onChange={e => setimageSongs(e.target.value)}
+            placeholder="Immagine...(url)"
           />
         </div>
         <button type="submit" className="btn btn-primary">Aggiungi Canzone</button>

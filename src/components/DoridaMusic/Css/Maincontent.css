@@ -6,7 +6,7 @@
   }
   
   .blurra {
-    filter: blur(89px) opacity(0.7);
+    filter: blur(89px) opacity(0.7) !important;
     width: 100%;
     height: 60vh; /* o 100vh come desideri */
     position: absolute;
@@ -17,6 +17,19 @@
     background-position: center;
   }
   
+
+  .blurra2 {
+    filter: blur(200px) opacity(0.9) !important;
+    width: 100%;
+    height: 60vh; /* o 100vh come desideri */
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: opacity 1s ease-in-out;
+    z-index: 0;
+    background-position: center;
+  }
+
   .img-sovra {
     width: 33%; /* Su desktop */
     position: absolute;

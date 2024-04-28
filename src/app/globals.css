@@ -1036,11 +1036,10 @@ font-size: 20px;
 }
 
 .img-user{
-  width: 100px;
-  overflow: hidden;
+  width: 220px;
+  
   border-radius: 100%;
-  bottom: 0;
-  object-fit: contain;
+  
 }
 
 .img-user img{
@@ -1052,25 +1051,12 @@ font-size: 20px;
 
 .albumphoto
 {
-  width: 300px;
+  
  cursor: pointer;
 }
 
 
-.form-control {
-  background: linear-gradient(45deg, #e3f2fd, #bbdefb);
-  border: none;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-}
-
-.btn-primary {
-  background: linear-gradient(45deg, #64b5f6, #2196f3);
-  border: none;
-}
-
-.container {
-  background: #fff;
-  box-shadow: 0 6px 10px rgba(0,0,0,0.1);
-  border-radius: 8px;
-  padding: 20px;
+.PositionBottomImage{
+  position: relative;
+ top: 20%;
 }

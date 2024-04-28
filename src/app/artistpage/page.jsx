@@ -5,14 +5,14 @@ import { useAlert } from "../../components/AlertComponent/AlertContext"; // Assi
 import { Container, Row, Col, Image, Nav, Button, Modal } from "react-bootstrap";
 import useArtistCheck from "../../components/Hook/useArtistCheck";
 import { useUserProfile } from "../../components/Hook/useUserProfile";
-import AddSongsToAlbum from "@/components/album/AddSongsToAlbum";
+import AddSongsToAlbum from "../../components/album/AddSongsToAlbum";
 import MenuComponent from "@/components/Artist/MenuComponent";
 import AlbumsList from "@/components/Artist/DashBoard/AlbumsList";
 import SongsList from "@/components/Artist/DashBoard/SongList";
 import ArtistNavbar from "@/components/Artist/DashBoard/ArtistNavbar";
 import UserProfile from "@/components/Artist/DashBoard/UserProfile";
 import Loader from "@/components/Loader/Loader";
-import AddAlbumForm from "@/components/album/AddAlbumForm";
+import AddAlbumForm from "../../components/album/AddAlbumForm";
 import ConfirmModal from "@/components/modal/ConfirmModal";
 
 function ArtistPage() {

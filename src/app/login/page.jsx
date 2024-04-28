@@ -5,10 +5,11 @@ import Link from "next/link";
 import {useAlert} from "../../components/AlertComponent/AlertContext"
 function LoginPage() {
   const { showAlert } = useAlert();
-
+  
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+ 
   
 const route = useRouter();
   const handleLogin = async (event) => {

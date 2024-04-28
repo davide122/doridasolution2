@@ -18,6 +18,6 @@ export async function GET(request) {
         return new NextResponse(JSON.stringify({ message: 'Accesso autorizzato' }), { status: 200 });
     } catch (error) {
         // Se il token non è valido o scaduto
-        return new NextResponse(JSON.stringify({ message: 'Token non valido' }), { status: 403 });
+        return new NextResponse(JSON.stringify({ message: 'Token non valido' }), { status: 401 });
     }
 }

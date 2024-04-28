@@ -16,6 +16,7 @@ import AddAlbumForm from "@/components/album/AddAlbumForm";
 import ConfirmModal from "@/components/modal/ConfirmModal";
 
 function ArtistPage() {
+  useArtistCheck();
   const [albumToDelete, setAlbumToDelete] = useState(null);
   const [songToDelete, setSongToDelete] = useState(null);
   const [albums, setAlbums] = useState([]);
@@ -29,8 +30,8 @@ console.log(songToDelete)
 
 
 const [addalbum, setalbum] = useState(false);
-  useArtistCheck();
   const userProfile = useUserProfile();
+
 
   useEffect(() => {
     async function fetchAlbums() {
@@ -126,9 +127,14 @@ const [addalbum, setalbum] = useState(false);
   }, [selectedAlbum]);
 
   return (
+    
     <Container fluid className="d-flex flex-column">
-      <Row>
-        <Col md={2} sm={12} className="d-flex flex-row flex-md-column d-none d-md-block text-white vh-100 border-right">
+      {loading ? (<div className="vh-100 bg-black d-flex justify-content-center align-items-center flex-column">
+        <img src="./logo.png" alt="" className="logo position-absolute top-0 start-0"/>
+<h1 className="Title text-white">La tua musica, Sempre!</h1>
+
+            </div>) : ( <Row>
+        <Col md={2} sm={12} className="d-flex flex-row flex-md-column d-none d-md-block text-white   ">
           <div className="p-3 d-flex align-items-center">
             <Image src="/logo.png" alt="Music Logo" fluid width={60} />
             <h4>Music</h4>
@@ -136,25 +142,31 @@ const [addalbum, setalbum] = useState(false);
           <Nav className="flex-column mt-4">
             <MenuComponent />
           </Nav>
+          {/* <div className="position-absolute bottom-0 ">
           <UserProfile userProfile={userProfile} />
+
+          </div> */}
         </Col>
-        <Col md={7} className="bg-black wh-100">
+        <Col md={7} className="bg-black  ">
           <ArtistNavbar username={userProfile.username} />
           {loading ? (
             <Loader />
           ) : (
           albums?  <>
               <AlbumsList albums={albums} onAlbumSelect={setSelectedAlbum} onDeleteAlbum={openConfirmModal}  />
+              <div className="colnav">
+
               <SongsList songs={songs} onDeleteSong={(id) => { setSongToDelete(id); setShowSongConfirmModal(true); }} />
+              </div>
             </> : <h2>Nessun album caricato</h2>
           )}
           
         </Col>
 
         <Col md={3} className="">
-        {!addalbum && <Button className="bg-white text-black d-flex justify-content-center align-items-center w-100 h-75" onClick={()=>{setalbum(true)}}>Aggiungi un album</Button>}
+      
           
-          {addalbum&&  <AddAlbumForm/>}
+        <AddAlbumForm/>
         
 {console.log("qui",selectedAlbum)}
           {selectedAlbum && (
@@ -169,7 +181,8 @@ const [addalbum, setalbum] = useState(false);
           )}
        
         </Col>
-      </Row>
+      </Row>)}
+     
 
 
      {/* Modal for confirming album deletion */}

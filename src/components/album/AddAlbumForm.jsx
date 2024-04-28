@@ -58,22 +58,18 @@ function AddAlbumForm() {
     return (
         <div className="container mt-5">
         <h1 className='text-white fs-3 text-center'>Aggiungi un nuovo album</h1>
-        <form onSubmit={handleSubmit} className='text-white shadow p-3 mb-5 bg-body rounded'>
+        <form onSubmit={handleSubmit} className='text-white  p-3 mb-5 '>
             <div className="mb-3">
-                <label htmlFor="title" className="form-label">Titolo</label>
-                <input type="text" className="form-control" id="title" name="title" value={formData.title} onChange={handleChange} required />
+                <input type="text" className="form-control rounded-0" id="title" name="title" value={formData.title} onChange={handleChange} required  placeholder='Titolo'/>
             </div>
             <div className="mb-3">
-                <label htmlFor="release_date" className="form-label">Data di Rilascio</label>
-                <input type="date" className="form-control" id="release_date" name="release_date" value={formData.release_date} onChange={handleChange} required />
+                <input type="date" className="form-control rounded-0" id="release_date" name="release_date" value={formData.release_date} onChange={handleChange} required placeholder='Data di rilascio' />
             </div>
             <div className="mb-3">
-                <label htmlFor="cover_url" className="form-label">URL Copertina</label>
-                <input type="url" className="form-control" id="cover_url" name="cover_url" value={formData.cover_url} onChange={handleChange} />
+                <input type="url" className="form-control rounded-0" id="cover_url" name="cover_url" value={formData.cover_url} onChange={handleChange} placeholder='Copertina Url'/>
             </div>
             <div className="mb-3">
-                <label htmlFor="description" className="form-label">Descrizione</label>
-                <textarea className="form-control" id="description" name="description" value={formData.description} onChange={handleChange}></textarea>
+                <textarea className="form-control rounded-0" id="description" name="description" value={formData.description} onChange={handleChange} placeholder="Descrizione dell'album"></textarea>
             </div>
             <button type="submit" className="btn btn-primary w-100" disabled={isLoading}>
                 {isLoading ? 'Invio...' : 'Aggiungi Album'}

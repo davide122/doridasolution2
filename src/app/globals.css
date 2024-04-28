@@ -1065,3 +1065,7 @@ font-size: 20px;
 .border-right{
   border-right: 1px solid rgba(255, 255, 255, 0.644) ;
 }
+
+.colnav{
+  height: 70%;
+}

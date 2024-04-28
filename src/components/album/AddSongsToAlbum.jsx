@@ -46,11 +46,11 @@ function AddSongsToAlbum({ albumId, userId }) {
     return (
       <div className="container mt-4 ">
       <h1 className="mb-3 text-white fs-4 text-center">Aggiungi una canzone</h1>
-      <form onSubmit={handleSubmit} className="shadow p-3 mb-5 bg-body rounded ">
+      <form onSubmit={handleSubmit} className=" p-3 mb-5">
         <div className="mb-3">
           <input
             type="text"
-            className="form-control"
+            className="form-control rounded-0"
             value={title}
             onChange={e => setTitle(e.target.value)}
             placeholder="Titolo"
@@ -59,7 +59,7 @@ function AddSongsToAlbum({ albumId, userId }) {
         <div className="mb-3">
           <input
             type="text"
-            className="form-control"
+            className="form-control rounded-0"
             value={duration}
             onChange={e => setDuration(e.target.value)}
             placeholder="Durata"
@@ -68,7 +68,7 @@ function AddSongsToAlbum({ albumId, userId }) {
         <div className="mb-3">
           <input
             type="text"
-            className="form-control"
+            className="form-control rounded-0"
             value={fileUrl}
             onChange={e => setFileUrl(e.target.value)}
             placeholder="URL del file"
@@ -77,7 +77,7 @@ function AddSongsToAlbum({ albumId, userId }) {
         <div className="mb-3">
           <input
             type="text"
-            className="form-control"
+            className="form-control rounded-0"
             value={category}
             onChange={e => setCategory(e.target.value)}
             placeholder="Categoria"
@@ -86,13 +86,13 @@ function AddSongsToAlbum({ albumId, userId }) {
         <div className="mb-3">
           <input
             type="text"
-            className="form-control"
+            className="form-control rounded-0"
             value={imageSongs}
             onChange={e => setimageSongs(e.target.value)}
             placeholder="Immagine...(url)"
           />
         </div>
-        <button type="submit" className="btn btn-primary">Aggiungi Canzone</button>
+        <button type="submit" className="btn btn-primary w-100">Aggiungi Canzone</button>
       </form>
     </div>
     );

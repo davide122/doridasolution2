@@ -44,3 +44,47 @@ export async function POST(request, { params }) {
         return new NextResponse(JSON.stringify({ message: 'Errore durante l’aggiunta della canzone', error: error.message }), { status: 500 });
     }
 }
+
+
+
+export async function DELETE(request, { params }) {
+    // Estrai il token JWT e verifica l'autenticazione
+    const token = request.headers.get('Authorization')?.split(' ')[1];
+    if (!token) {
+        return new NextResponse(JSON.stringify({ message: 'Token non fornito' }), { status: 401 });
+    }
+
+    let user_id;
+    try {
+        const decoded = jwt.verify(token, process.env.JWT_SECRET);
+        user_id = decoded.user_id;
+    } catch (error) {
+        return new NextResponse(JSON.stringify({ message: 'Token non valido' }), { status: 403 });
+    }
+
+    const { album_id, song_id } = params;
+
+    try {
+        // Verifica che l'utente sia il proprietario dell'album
+        const ownershipCheckQuery = 'SELECT user_id FROM albums WHERE album_id = $1';
+        const ownershipCheckResult = await pool.query(ownershipCheckQuery, [album_id]);
+        if (ownershipCheckResult.rowCount === 0 || ownershipCheckResult.rows[0].user_id !== user_id) {
+            return new NextResponse(JSON.stringify({ message: 'Non autorizzato o album non trovato' }), { status: 404 });
+        }
+
+        // Elimina la canzone dal database
+        const deleteQuery = 'DELETE FROM songs WHERE album_id = $1 AND song_id = $2 AND user_id = $3 RETURNING *';
+        const queryParams = [album_id, song_id, user_id];
+        const { rows } = await pool.query(deleteQuery, queryParams);
+
+        if (rows.length === 0) {
+            return new NextResponse(JSON.stringify({ message: 'Canzone non trovata o non sei autorizzato a eliminarla' }), { status: 404 });
+        }
+
+        // Restituisci la conferma dell'eliminazione
+        return new NextResponse(JSON.stringify({ message: 'Canzone eliminata con successo' }), { status: 200, headers: { 'Content-Type': 'application/json' } });
+    } catch (error) {
+        console.error('Error deleting song:', error);
+        return new NextResponse(JSON.stringify({ message: 'Errore durante l’eliminazione della canzone', error: error.message }), { status: 500 });
+    }
+}

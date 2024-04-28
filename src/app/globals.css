@@ -1060,3 +1060,8 @@ font-size: 20px;
   position: relative;
  top: 20%;
 }
+
+
+.border-right{
+  border-right: 1px solid rgba(255, 255, 255, 0.644) ;
+}

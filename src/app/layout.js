@@ -33,14 +33,15 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
+
     <html lang="it">
       <SpeedInsights/>
 <Analytics></Analytics>
 <AlertProvider>
-
       <body className={inter.className}>{children}</body>
 </AlertProvider>
     
     </html>
+   
   );
 }

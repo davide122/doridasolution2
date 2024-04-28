@@ -2,7 +2,7 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import { useAlert } from "../../components/AlertComponent/AlertContext"; // Assicurati che il percorso sia corretto
-import { Container, Row, Col, Image, Nav } from "react-bootstrap";
+import { Container, Row, Col, Image, Nav, Button, Modal } from "react-bootstrap";
 import useArtistCheck from "../../components/Hook/useArtistCheck";
 import { useUserProfile } from "../../components/Hook/useUserProfile";
 import AddSongsToAlbum from "@/components/album/AddSongsToAlbum";
@@ -13,14 +13,22 @@ import ArtistNavbar from "@/components/Artist/DashBoard/ArtistNavbar";
 import UserProfile from "@/components/Artist/DashBoard/UserProfile";
 import Loader from "@/components/Loader/Loader";
 import AddAlbumForm from "@/components/album/AddAlbumForm";
+import ConfirmModal from "@/components/modal/ConfirmModal";
 
 function ArtistPage() {
+  const [albumToDelete, setAlbumToDelete] = useState(null);
+  const [songToDelete, setSongToDelete] = useState(null);
   const [albums, setAlbums] = useState([]);
   const [loading, setLoading] = useState(true);
   const [selectedAlbum, setSelectedAlbum] = useState(null);
   const [songs, setSongs] = useState([]);
   const { showAlert } = useAlert();
+  const [showAlbumConfirmModal, setShowAlbumConfirmModal] = useState(false);
+  const [showSongConfirmModal, setShowSongConfirmModal] = useState(false);
+console.log(songToDelete)
 
+
+const [addalbum, setalbum] = useState(false);
   useArtistCheck();
   const userProfile = useUserProfile();
 
@@ -45,6 +53,61 @@ function ArtistPage() {
     fetchAlbums();
   }, []);
 
+
+  const deleteAlbum = async () => {
+    const token = localStorage.getItem("token");
+    try {
+      const response = await fetch(`/api/songs/album/${albumToDelete}`, {
+        method: 'DELETE',
+        headers: { Authorization: `Bearer ${token}` },
+      });
+      if (!response.ok) throw new Error("Network response was not ok");
+
+      setAlbums(albums.filter(album => album.album_id !== albumToDelete));
+      showAlert("Album eliminato con successo!", "success");
+    } catch (error) {
+      console.error("Failed to delete album:", error);
+      showAlert("Errore durante l'eliminazione dell'album.", "error");
+    } finally {
+      setShowConfirmModal(false); // Chiudi il modal dopo l'azione
+    }
+  };
+
+
+  const deleteSong = async () => {
+    const token = localStorage.getItem("token");
+    try {
+      const response = await fetch(`/api/songs/song/${songToDelete}`, { method: 'DELETE', headers: { Authorization: `Bearer ${token}` } });
+      if (!response.ok) throw new Error("Network response was not ok");
+      setSongs(songs.filter(song => song.song_id !== songToDelete));
+      showAlert("Canzone eliminata con successo!", "success");
+      setShowSongConfirmModal(false);
+    } catch (error) {
+      console.error("Failed to delete song:", error);
+      showAlert("Errore durante l'eliminazione della canzone.", "error");
+    }
+  };
+
+
+
+  const handleDelete = () => {
+    deleteAlbum();
+    setAlbumToDelete(null); // Reset dell'ID dell'album da eliminare
+  };
+
+  const openConfirmModal = (albumId) => {
+    setAlbumToDelete(albumId);
+    setShowConfirmModal(true);
+  };
+
+
+  const openSongConfirmModal = (songId) => {
+    setSongToDelete(songId);
+    console.log(songToDelete(songId))
+    setShowSongConfirmModal(true);
+  };
+
+
   useEffect(() => {
     if (!selectedAlbum) return;
     async function fetchSongs() {
@@ -65,7 +128,7 @@ function ArtistPage() {
   return (
     <Container fluid className="d-flex flex-column">
       <Row>
-        <Col md={2} className="d-flex flex-column bg-dark text-white vh-100 ">
+        <Col md={2} sm={12} className="d-flex flex-row flex-md-column d-none d-md-block text-white vh-100 border-right">
           <div className="p-3 d-flex align-items-center">
             <Image src="/logo.png" alt="Music Logo" fluid width={60} />
             <h4>Music</h4>
@@ -75,21 +138,24 @@ function ArtistPage() {
           </Nav>
           <UserProfile userProfile={userProfile} />
         </Col>
-        <Col md={7} className="bg-light wh-100">
+        <Col md={7} className="bg-black wh-100">
           <ArtistNavbar username={userProfile.username} />
           {loading ? (
             <Loader />
           ) : (
-            <>
-              <AlbumsList albums={albums} onAlbumSelect={setSelectedAlbum} />
-              <SongsList songs={songs} />
-            </>
+          albums?  <>
+              <AlbumsList albums={albums} onAlbumSelect={setSelectedAlbum} onDeleteAlbum={openConfirmModal}  />
+              <SongsList songs={songs} onDeleteSong={(id) => { setSongToDelete(id); setShowSongConfirmModal(true); }} />
+            </> : <h2>Nessun album caricato</h2>
           )}
           
         </Col>
 
-        <Col md={3} className="wh-100">
-          <AddAlbumForm ></AddAlbumForm>
+        <Col md={3} className="">
+        {!addalbum && <Button className="bg-white text-black d-flex justify-content-center align-items-center w-100 h-75" onClick={()=>{setalbum(true)}}>Aggiungi un album</Button>}
+          
+          {addalbum&&  <AddAlbumForm/>}
+        
 {console.log("qui",selectedAlbum)}
           {selectedAlbum && (
             <AddSongsToAlbum
@@ -97,9 +163,35 @@ function ArtistPage() {
               userId={userProfile.user_id}
             />
           )}
+
+{!selectedAlbum && (
+              <h2 className="text-white text-center">Seleziona un album per aggiungere delle canzoni</h2>
+          )}
+       
         </Col>
       </Row>
+
+
+     {/* Modal for confirming album deletion */}
+     <ConfirmModal
+        show={showAlbumConfirmModal}
+        onHide={() => setShowAlbumConfirmModal(false)}
+        onConfirm={deleteAlbum}
+        title="Conferma Eliminazione Album"
+      >
+        Sei sicuro di voler eliminare questo album?
+      </ConfirmModal>
+
+      <ConfirmModal
+        show={showSongConfirmModal}
+        onHide={() => setShowSongConfirmModal(false)}
+        onConfirm={deleteSong}
+        title="Conferma Eliminazione Canzone"
+      >
+        Sei sicuro di voler eliminare questa canzone?
+      </ConfirmModal>
     </Container>
+
   );
 }
 

@@ -42,7 +42,6 @@ const MainContent = () => {
         alt=""
         className="blurra img-fullscreen  "
       />
-
       <img
         src={immagini[currentImage].clear}
         alt=""

@@ -9,6 +9,7 @@ function LoginPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+  
 const route = useRouter();
   const handleLogin = async (event) => {
 
@@ -24,7 +25,6 @@ const route = useRouter();
     
     const data = await response.json();
         if (response.ok) {
-          showAlert('Ti sei loggato con successo', 'success');
           localStorage.setItem('token', data.token);
           // window.location.href = data.redirectUrl; // Imposta direttamente l'URL, causando un refresh completo della pagina.
           route.push(data.redirectUrl); // Usa next/router per navigare senza refresh

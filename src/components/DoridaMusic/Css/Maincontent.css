@@ -35,6 +35,7 @@
     position: absolute;
     right: 2%;
     height: 100%;
+    opacity: 1;
     object-fit: cover;
     transition: opacity 1s ease-in-out;
     z-index: 0;
@@ -43,7 +44,7 @@
   /* Responsive styles for mobile devices */
   @media (max-width: 576px) {
     .blurra {
-      filter: blur(0px) opacity(1);
+      filter: blur(0px) opacity(0.9) !important;
       width: 100%;
       height: 70vh; /* o 100vh come desideri */
       position: absolute;
@@ -53,6 +54,7 @@
       height: 60vh;
       object-fit: cover;
       z-index: 0;
+      display: block;
     }
     .fw{
       font-weight: 900 !important;

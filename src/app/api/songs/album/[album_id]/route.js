@@ -82,29 +82,38 @@ export async function DELETE(request, { params }) {
 
 
 
-
-export async function GET(request, {params}) {
-    const album_id  = params.album_id;
-console.log(album_id);
+export async function GET(request, { params }) {
+    const album_id = params.album_id;
+    console.log(album_id);
     if (!album_id) {
         return new NextResponse(JSON.stringify({ message: 'Album ID è obbligatorio' }), { status: 400 });
     }
 
     try {
-        // Query per ottenere tutte le canzoni di un determinato album
-        const queryText = 'SELECT * FROM songs WHERE album_id = $1';
+        // Query per ottenere tutte le canzoni, le informazioni dell'album e dettagli specifici dell'utente di un determinato album
+        const queryText = `
+            SELECT s.*, a.title AS album_title, a.user_id, a.release_date, a.cover_url, a.description,
+                   u.username, u.artist_bio, u.profile_picture_url
+            FROM songs s
+            INNER JOIN albums a ON s.album_id = a.album_id
+            INNER JOIN users u ON a.user_id = u.user_id
+            WHERE s.album_id = $1;
+        `;
         const queryParams = [album_id];
         const { rows } = await pool.query(queryText, queryParams);
 
         if (rows.length === 0) {
-            return new NextResponse(JSON.stringify({ message: 'Nessuna canzone trovata per questo album' }), { status: 404 });
+            return new NextResponse(JSON.stringify({ message: 'Nessuna canzone, informazioni sull\'album o dettagli utente trovati per questo album' }), { status: 404 });
         }
 
-        // Restituisci le canzoni trovate
-        return new NextResponse(JSON.stringify(rows), { status: 200, headers: { 'Content-Type': 'application/json' } });
+        // Restituisci le canzoni, le informazioni dell'album e i dettagli dell'utente trovati
+        return new NextResponse(JSON.stringify(rows), {
+            status: 200,
+            headers: { 'Content-Type': 'application/json' }
+        });
     } catch (error) {
-        console.error('Error fetching songs:', error);
-        return new NextResponse(JSON.stringify({ message: 'Errore durante il recupero delle canzoni', error: error.message }), { status: 500 });
+        console.error('Error fetching songs, album details, and user information:', error);
+        return new NextResponse(JSON.stringify({ message: 'Errore durante il recupero delle canzoni, delle informazioni dell\'album e dei dettagli utente', error: error.message }), { status: 500 });
     }
 }
 

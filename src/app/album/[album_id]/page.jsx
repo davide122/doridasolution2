@@ -5,7 +5,7 @@ import SongsList from '@/components/Artist/DashBoard/SongList';
 import MyNavbar from '@/components/navbar/MyNavbar';
 import "../../../components/DoridaMusic/Css/Maincontent.css"
 
-const AlbumDetailsPage = ({albumData}) => {
+const AlbumDetailsPage = () => {
   
 
   const [albumDetails, setAlbumDetails] = useState(null);

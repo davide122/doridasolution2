@@ -25,7 +25,7 @@ export const metadata = {
       
     };
     
-    export default function RootLayout({ children, albumData}) {
+    export default function RootLayout({ children}) {
       return (
         <html lang="en">
         

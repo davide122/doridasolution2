@@ -26,7 +26,6 @@ function ArtistPage() {
   const { showAlert } = useAlert();
   const [showAlbumConfirmModal, setShowAlbumConfirmModal] = useState(false);
   const [showSongConfirmModal, setShowSongConfirmModal] = useState(false);
-console.log(songToDelete)
 
 
 const [addalbum, setalbum] = useState(false);

@@ -1,6 +1,6 @@
 // Assuming this file is located at app/api/songs.js
 import { NextResponse } from "next/server";
-import { pool } from "@/app/lib/db"; // Verifica che il percorso alla tua connessione DB sia corretto
+import { pool } from "../../lib/db"; // Verifica che il percorso alla tua connessione DB sia corretto
 
 export async function POST(request) {
     if (request.method !== 'POST') {

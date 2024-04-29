@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
 import jwt from 'jsonwebtoken';
-import { pool } from "@/app/lib/db"; // Verifica che il percorso alla tua connessione DB sia corretto
+import { pool } from "../../../lib/db"; // Verifica che il percorso alla tua connessione DB sia corretto
 
 export async function POST(req) {
     const authHeader = req.headers.get('Authorization');

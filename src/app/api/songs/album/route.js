@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
 import jwt from 'jsonwebtoken';
-import { pool } from "@/app/lib/db"; // Verifica che il percorso alla tua connessione DB sia corretto
+import { pool } from "../../../lib/db";
 
 export async function POST(request) {
     if (request.method !== 'POST') {

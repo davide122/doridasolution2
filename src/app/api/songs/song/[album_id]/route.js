@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
 import jwt from 'jsonwebtoken';
-import { pool } from "@/app/lib/db";
+import { pool } from "../../../../lib/db";
 
 export async function POST(request, { params }) {
     // Estrai il token JWT e verifica l'autenticazione

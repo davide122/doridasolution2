@@ -1,4 +1,4 @@
-import TermCondiction from "@/components/Legal/TermsCondiction"
+import TermCondiction from "../../components/Legal/TermsCondiction"
 
 const terms = () => {
     return(

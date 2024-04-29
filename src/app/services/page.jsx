@@ -1,6 +1,5 @@
-import AboutUs from "@/components/Section/aboutsection/AboutUs"
-import ServicesBox from "@/components/ServicesComponent/ServicesBox"
-import MyNavbar from "@/components/navbar/MyNavbar"
+import ServicesBox from "../../components/ServicesComponent/ServicesBox"
+import MyNavbar from "../../components/navbar/MyNavbar"
 
 const services = () => {
     return(

@@ -1,7 +1,7 @@
 // app/api/user/register.js
 import { NextResponse } from 'next/server';
 import bcrypt from 'bcryptjs';
-import { pool } from "@/app/lib/db";  // Make sure the path to your database connection pool is correct.
+import { pool } from "../../../lib/db";  // Make sure the path to your database connection pool is correct.
 
 export async function POST(request) {
     if (request.method !== 'POST') {

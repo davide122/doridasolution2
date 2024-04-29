@@ -1,8 +1,8 @@
 "use client"
 import React, { useEffect, useState } from 'react';
 import { useRouter,useParams } from 'next/navigation';
-import SongsList from '@/components/Artist/DashBoard/SongList';
-import MyNavbar from '@/components/navbar/MyNavbar';
+import SongsList from '../../../components/Artist/DashBoard/SongList';
+import MyNavbar from '../../../components/navbar/MyNavbar';
 import "../../../components/DoridaMusic/Css/Maincontent.css"
 
 const AlbumDetailsPage = () => {

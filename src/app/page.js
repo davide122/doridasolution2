@@ -3,12 +3,11 @@ import MyNavbar from "../components/navbar/MyNavbar";
 import HeroSection from "../components/HeroSection/HeroSection";
 import Carouseltext from "../components/Carousel/Carouseltext";
 import ServicesSection from "../components/Section/ServicesSection";
-import ServicesExplain from "@/components/Section/ServicesExplain/ServiceExplain";
-import ChangeColor from "@/components/Section/ChangeColor";
-import VideoPresentazione from "@/components/Section/VideoPresentazione";
-import MyFooter from "@/components/Footer/MyFooter";
-import AboutPage from "@/components/About/AboutPage";
-import AboutUs from "@/components/Section/aboutsection/AboutUs";
+import ServicesExplain from "../components/Section/ServicesExplain/ServiceExplain";
+import ChangeColor from "../components/Section/ChangeColor";
+import VideoPresentazione from "../components/Section/VideoPresentazione";
+import MyFooter from "../components/Footer/MyFooter";
+import AboutUs from "../components/Section/aboutsection/AboutUs";
 
 export default function Home() {
   return (

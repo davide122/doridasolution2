@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
 import jwt from 'jsonwebtoken';
-import { pool } from "@/app/lib/db";
+import { pool } from "../../../../../lib/db";
 
 export async function DELETE(request, { params }) {
     const album_id = params.album_id;

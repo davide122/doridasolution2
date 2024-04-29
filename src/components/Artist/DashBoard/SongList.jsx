@@ -5,7 +5,7 @@ import { IoIosPause } from "react-icons/io";
 
 import "./Dashboard.css"
 import { BsXCircle } from 'react-icons/bs';
-import ConfirmModal from '@/components/modal/ConfirmModal';
+import ConfirmModal from '../../../components/modal/ConfirmModal';
 const SongsList = ({ songs, onDeleteSong  }) => {
   const [play,setplay] = useState(false);
   const [showConfirmModal, setShowConfirmModal] = useState(false);

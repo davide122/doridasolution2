@@ -1,11 +1,9 @@
 "use client"
 import { useEffect, useState } from 'react';
 import useAdminCheck from '../../components/Hook/useAdminCheck'; // Adjust the path as per your project structure
-import Router from 'next/router';
 import Contact from '../../components/Contactspage/Contact';
-import AlbumManager from '@/components/album/AlbumManager';
-import AddSongForm from '@/components/album/AddSongForm';
-import Albumselector from '@/components/album/AlbumSelector';
+import AlbumManager from '../../components/album/AlbumManager';
+import Albumselector from '../../components/album/AlbumSelector';
 
 function AdminPage() {
     useAdminCheck();  // Performs the admin access check

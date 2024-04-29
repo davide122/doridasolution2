@@ -1,10 +1,18 @@
+import Image from "next/image";
+
 function SongListComponent({ songs }) {
     return (
       <div className="w-100 list">
         {songs.map((song) => (
           <div key={song.id} className="song-item d-flex align-items-center justify-content-between mb-3">
             <div className="song-details d-flex align-items-center">
-              <img src={song.cover_url} alt="Song Cover" className="song-cover" />
+              <Image
+              src={song.cover_url}
+              alt={song.title + song.category }
+              width={500}
+              height={500}
+              className="song-cover"
+              />
               <div className="song-info ms-3">
                 <p className="song-title">{song.title}</p>
                 <p className="song-artist">{song.artist}</p>

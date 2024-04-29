@@ -4,6 +4,7 @@ import { useRouter,useParams } from 'next/navigation';
 import SongsList from '../../../components/Artist/DashBoard/SongList';
 import MyNavbar from '../../../components/navbar/MyNavbar';
 import "../../../components/DoridaMusic/Css/Maincontent.css"
+import Image from 'next/image';
 
 const AlbumDetailsPage = () => {
   
@@ -52,10 +53,22 @@ console.log(`Durata totale dell'album: ${totalHours} ore, ${totalMinutes} minuti
 
   return (
     <div className='w-100'>
-      <img src={albumDetails[0].cover_url} alt=""  className='blurra2 '/>
+       <Image
+                src={albumDetails[0].cover_url}
+                alt={`Copertina dell'album ${albumDetails[0].album_title}`} // Aggiungi il nome dell'album se disponibile
+                width={500} // Imposta la larghezza desiderata
+                height={500} // Imposta l'altezza desiderata
+                className="blurra2" // Se hai bisogno di classi personalizzate per ulteriori stili
+            />
       <MyNavbar/>
       <div className="container my-5 d-flex align-items-center d-flex flex-column flex-md-row">
-        <img src={albumDetails[0].cover_url} alt="" width={300} className='position-relative img-fluid rounded-5'/>
+        <Image
+                src={albumDetails[0].cover_url}  // Usa l'URL dell'immagine dell'album
+                alt={`Copertina dell'album di ${albumDetails[0].username}`} // Descrivi l'immagine, ad esempio "Copertina dell'album di [Artista]"
+                width={300}  // Larghezza dell'immagine
+                height={300}  // Altezza dell'immagine
+                className='rounded-5 position-relative img-fluid '  // Applica classi per stili come l'arrotondamento
+            />
         <div className='mt-3'>
         <h1 className='text-white mx-4 position-relative text-center text-md-start Title fs-1'>{albumDetails[0].username}</h1>
         <p className='text-white mx-4 position-relative  fs-6 fs-md-5 my-2  text-center text-md-start'>{albumDetails[0].description}</p>

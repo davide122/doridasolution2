@@ -3,13 +3,13 @@ import jwt from 'jsonwebtoken';
 import { pool } from "../../lib/db"; // Verifica che il percorso alla tua connessione DB sia corretto
 import validator from 'validator';
 
-  
 export async function POST(request) {
     if (request.method !== 'POST') {
         return new NextResponse(null, { status: 405 });
     }
+
     try {
-        const { nome, email, persona, messaggio } = await request.json();
+        const { nome, email, persona, messaggio, telefono } = await request.json(); // Aggiunto telefono
         if (!nome || !email || !persona || !messaggio) {
             return new NextResponse(JSON.stringify({ message: 'Tutti i campi sono obbligatori' }), { status: 400 });
         }
@@ -19,14 +19,13 @@ export async function POST(request) {
             return new NextResponse(JSON.stringify({ message: 'Indirizzo email non valido' }), { status: 400 });
         }
 
-        const queryText = 'INSERT INTO contatti (nome, email, persona, messaggio) VALUES ($1, $2, $3, $4) RETURNING *';
-        const queryParams = [nome, email, persona, messaggio];
+        // Query per inserire dati, inclusivo del campo telefono
+        const queryText = 'INSERT INTO contatti (nome, email, persona, messaggio, telefono) VALUES ($1, $2, $3, $4, $5) RETURNING *';
+        const queryParams = [nome, email, persona, messaggio, telefono || null]; // Imposta telefono a null se non fornito
         const { rows } = await pool.query(queryText, queryParams);
 
-       
-
-          return new NextResponse(JSON.stringify({ message: 'Contatto aggiunto con successo e email di conferma inviata!' }), { status: 201 });
-        } catch (error) {
+        return new NextResponse(JSON.stringify({ message: 'Contatto aggiunto con successo e email di conferma inviata!' }), { status: 201 });
+    } catch (error) {
         console.error('Error during database operation:', error);
         return new NextResponse(JSON.stringify({ message: 'Errore durante l’inserimento nel database', error: error.message }), { status: 500 });
     }
@@ -59,7 +58,7 @@ export async function GET(request) {
     }
 
     try {
-        const { persona, email, data } = request.nextUrl.searchParams;
+        const { persona, email, data, telefono} = request.nextUrl.searchParams;
         let queryParams = [];
         let queryText = 'SELECT * FROM contatti';
         let conditions = [];
@@ -76,6 +75,12 @@ export async function GET(request) {
             conditions.push('data = $3');
             queryParams.push(data);
         }
+
+        if (telefono) { // Aggiunto controllo per il telefono
+            conditions.push('telefono = $' + (conditions.length + 1));
+            queryParams.push(telefono);
+        }
+
 
         if (conditions.length) {
             queryText += ' WHERE ' + conditions.join(' AND ');

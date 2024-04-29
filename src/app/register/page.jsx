@@ -2,6 +2,7 @@
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
+import Image from 'next/image';
 
 /**
  * Renders the registration page for the application.
@@ -55,7 +56,12 @@ function RegisterPage() {
     <div className="container-fluid">
       <div className="row ">
         <div className="col-md-6 d-none d-md-block  fill ">
-        <img src="https://doridasolutionbucket.s3.eu-north-1.amazonaws.com/uomo.svg" alt="" className="svglogin2" />
+        <Image src={"https://doridasolutionbucket.s3.eu-north-1.amazonaws.com/uomo.svg"}
+        width={500}
+        height={500}
+        alt='Uomo che canta in versione cartoon dorida solution'
+        className='svglogin2'
+        />
           <div className="vh-100 d-flex flex-column justify-content-center align-items-center  text-white position-relative z-1">
             <h1 className="fs-1">Sei un artista emergente?</h1>
             <h3 className="my-2">e non hai un account?</h3>

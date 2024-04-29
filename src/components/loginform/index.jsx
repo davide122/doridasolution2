@@ -32,23 +32,7 @@ const authenticate = async (_e, data) => {
         console.error("Error authenticating:", error);
         throw error;
       }
-      //   const users = await fetch(
-        
-//     "/user/authenticate/",
-//     {
-//       method: "POST",
-//       headers: {
-//         "Content-Type": "application/json",
-//       },
-//       body: JSON.stringify(data),
-//     }
-//   );
-
-//   if (users) {
-//     return users;
-//   }
-//   return null;
-
+    
   
 };
 

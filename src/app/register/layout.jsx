@@ -10,8 +10,8 @@ export const metadata = {
       type: "image/x-icon" // Cambiato in tipo più comune per .ico
     },
   },
-    title: "Login",
-    description: "Login to Dorida Solution",
+    title: "Dorida solution - Register",
+    description: "Register to Dorida Solution",
   };
   
   export default function RootLayout({ children }) {

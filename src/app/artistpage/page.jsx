@@ -2,7 +2,14 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import { useAlert } from "../../components/AlertComponent/AlertContext"; // Assicurati che il percorso sia corretto
-import { Container, Row, Col, Image, Nav, Button, Modal } from "react-bootstrap";
+import {
+  Container,
+  Row,
+  Col,
+  Nav,
+  Button,
+  Modal,
+} from "react-bootstrap";
 import useArtistCheck from "../../components/Hook/useArtistCheck";
 import { useUserProfile } from "../../components/Hook/useUserProfile";
 import AddSongsToAlbum from "../../components/album/AddSongsToAlbum";
@@ -13,6 +20,7 @@ import ArtistNavbar from "../../components/Artist/DashBoard/ArtistNavbar";
 import Loader from "../../components/Loader/Loader";
 import AddAlbumForm from "../../components/album/AddAlbumForm";
 import ConfirmModal from "../../components/modal/ConfirmModal";
+import Image from "next/image";
 
 function ArtistPage() {
   useArtistCheck();
@@ -26,10 +34,8 @@ function ArtistPage() {
   const [showAlbumConfirmModal, setShowAlbumConfirmModal] = useState(false);
   const [showSongConfirmModal, setShowSongConfirmModal] = useState(false);
 
-
-const [addalbum, setalbum] = useState(false);
+  const [addalbum, setalbum] = useState(false);
   const userProfile = useUserProfile();
-
 
   useEffect(() => {
     async function fetchAlbums() {
@@ -52,17 +58,16 @@ const [addalbum, setalbum] = useState(false);
     fetchAlbums();
   }, []);
 
-
   const deleteAlbum = async () => {
     const token = localStorage.getItem("token");
     try {
       const response = await fetch(`/api/songs/album/${albumToDelete}`, {
-        method: 'DELETE',
+        method: "DELETE",
         headers: { Authorization: `Bearer ${token}` },
       });
       if (!response.ok) throw new Error("Network response was not ok");
 
-      setAlbums(albums.filter(album => album.album_id !== albumToDelete));
+      setAlbums(albums.filter((album) => album.album_id !== albumToDelete));
       showAlert("Album eliminato con successo!", "success");
     } catch (error) {
       console.error("Failed to delete album:", error);
@@ -72,13 +77,15 @@ const [addalbum, setalbum] = useState(false);
     }
   };
 
-
   const deleteSong = async () => {
     const token = localStorage.getItem("token");
     try {
-      const response = await fetch(`/api/songs/song/${songToDelete}`, { method: 'DELETE', headers: { Authorization: `Bearer ${token}` } });
+      const response = await fetch(`/api/songs/song/${songToDelete}`, {
+        method: "DELETE",
+        headers: { Authorization: `Bearer ${token}` },
+      });
       if (!response.ok) throw new Error("Network response was not ok");
-      setSongs(songs.filter(song => song.song_id !== songToDelete));
+      setSongs(songs.filter((song) => song.song_id !== songToDelete));
       showAlert("Canzone eliminata con successo!", "success");
       setShowSongConfirmModal(false);
     } catch (error) {
@@ -86,8 +93,6 @@ const [addalbum, setalbum] = useState(false);
       showAlert("Errore durante l'eliminazione della canzone.", "error");
     }
   };
-
-
 
   const handleDelete = () => {
     deleteAlbum();
@@ -99,13 +104,11 @@ const [addalbum, setalbum] = useState(false);
     setShowConfirmModal(true);
   };
 
-
   const openSongConfirmModal = (songId) => {
     setSongToDelete(songId);
-    console.log(songToDelete(songId))
+    console.log(songToDelete(songId));
     setShowSongConfirmModal(true);
   };
-
 
   useEffect(() => {
     if (!selectedAlbum) return;
@@ -125,66 +128,92 @@ const [addalbum, setalbum] = useState(false);
   }, [selectedAlbum]);
 
   return (
-    
     <Container fluid className="d-flex flex-column">
-      {loading ? (<div className="vh-100 bg-black d-flex justify-content-center align-items-center flex-column">
-        <img src="./logo.png" alt="" className="logo position-absolute top-0 start-0"/>
-<h1 className="Title text-white">La tua musica, Sempre!</h1>
-
-            </div>) : ( <Row>
-        <Col md={2} sm={12} className="d-flex flex-row flex-md-column d-none d-md-block text-white   ">
-          <div className="p-3 d-flex align-items-center">
-            <Image src="/logo.png" alt="Music Logo" fluid width={60} />
-            <h4>Music</h4>
-          </div>
-          <Nav className="flex-column mt-4">
-            <MenuComponent />
-          </Nav>
-          {/* <div className="position-absolute bottom-0 ">
+      {loading ? (
+        <div className="vh-100 bg-black d-flex justify-content-center align-items-center flex-column">
+          <Image
+            src="/logo.png"
+            alt="Dorida Solution Logo"
+            width={100}
+            height={110}
+            className="logo position-absolute top-0 start-0"
+          />
+          <h1 className="Title text-white">La tua musica, Sempre!</h1>
+        </div>
+      ) : (
+        <Row>
+          <Col
+            md={2}
+            sm={12}
+            className="d-flex flex-row flex-md-column d-none d-md-block text-white   "
+          >
+            <div className="p-3 d-flex align-items-center">
+              {/* <Image src="/logo.png" alt="Music Logo" fluid width={60} /> */}
+              <Image
+            src="/logo.png"
+            alt="Dorida Solution Logo"
+            width={60}
+            height={60}
+            className=" "
+          />
+              <h4>Music</h4>
+            </div>
+            <Nav className="flex-column mt-4">
+              <MenuComponent />
+            </Nav>
+            {/* <div className="position-absolute bottom-0 ">
           <UserProfile userProfile={userProfile} />
 
           </div> */}
-        </Col>
-        <Col md={7} className="bg-black  ">
-          <ArtistNavbar username={userProfile.username} />
-          {loading ? (
-            <Loader />
-          ) : (
-          albums?  <>
-              <AlbumsList albums={albums} onAlbumSelect={setSelectedAlbum} onDeleteAlbum={openConfirmModal}  />
-              <div className="colnav">
+          </Col>
+          <Col md={7} className="bg-black  ">
+            <ArtistNavbar username={userProfile.username} />
+            {loading ? (
+              <Loader />
+            ) : albums ? (
+              <>
+                <AlbumsList
+                  albums={albums}
+                  onAlbumSelect={setSelectedAlbum}
+                  onDeleteAlbum={openConfirmModal}
+                />
+                <div className="colnav">
+                  <SongsList
+                    songs={songs}
+                    onDeleteSong={(id) => {
+                      setSongToDelete(id);
+                      setShowSongConfirmModal(true);
+                    }}
+                  />
+                </div>
+              </>
+            ) : (
+              <h2>Nessun album caricato</h2>
+            )}
+          </Col>
 
-              <SongsList songs={songs} onDeleteSong={(id) => { setSongToDelete(id); setShowSongConfirmModal(true); }} />
-              </div>
-            </> : <h2>Nessun album caricato</h2>
-          )}
-          
-        </Col>
+          <Col md={3} className="">
+            <AddAlbumForm />
 
-        <Col md={3} className="">
-      
-          
-        <AddAlbumForm/>
-        
-{console.log("qui",selectedAlbum)}
-          {selectedAlbum && (
-            <AddSongsToAlbum
-              albumId={selectedAlbum}
-              userId={userProfile.user_id}
-            />
-          )}
+            {console.log("qui", selectedAlbum)}
+            {selectedAlbum && (
+              <AddSongsToAlbum
+                albumId={selectedAlbum}
+                userId={userProfile.user_id}
+              />
+            )}
 
-{!selectedAlbum && (
-              <h2 className="text-white text-center">Seleziona un album per aggiungere delle canzoni</h2>
-          )}
-       
-        </Col>
-      </Row>)}
-     
+            {!selectedAlbum && (
+              <h2 className="text-white text-center">
+                Seleziona un album per aggiungere delle canzoni
+              </h2>
+            )}
+          </Col>
+        </Row>
+      )}
 
-
-     {/* Modal for confirming album deletion */}
-     <ConfirmModal
+      {/* Modal for confirming album deletion */}
+      <ConfirmModal
         show={showAlbumConfirmModal}
         onHide={() => setShowAlbumConfirmModal(false)}
         onConfirm={deleteAlbum}
@@ -202,7 +231,6 @@ const [addalbum, setalbum] = useState(false);
         Sei sicuro di voler eliminare questa canzone?
       </ConfirmModal>
     </Container>
-
   );
 }
 

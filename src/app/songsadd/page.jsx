@@ -108,7 +108,12 @@ export default function AddSong() {
         <div key={song.id} className="card mb-3">
           <div className="card-body ">
             <div className='d-flex justify-content-between align-items-center'>
-            <img src={song.original_image} alt="foto artista" width={200} height={200} />
+            <Image 
+            src={song.original_image}
+            alt="Foto dell'artista"
+            width={200}
+            height={200}
+            />
             <h5 className="card-title">{song.song_name}</h5>
 
             </div>

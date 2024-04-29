@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import { FiPlay, FiPause, FiSkipBack, FiSkipForward } from "react-icons/fi";
 import "./Css/Player.css";
+import Image from "next/image";
 
 const Player = ({song}) => {
   const [isPlaying, setIsPlaying] = useState(false);
@@ -17,7 +18,13 @@ const Player = ({song}) => {
       <div className="container-fluid">
         <div className="row align-items-center justify-content-between">
           <div className="col d-flex align-items-center">
-            <img src={song ? song.image_songs : "/placeholder.png"} alt="Copertina album" className="cover" />
+            <Image
+                src={song ? song.image_songs : "/placeholder.png"}
+                alt="Copertina album"
+                width={500} // Sostituisci con la larghezza reale dell'immagine
+                height={500} // Sostituisci con l'altezza reale dell'immagine
+                className="cover"
+            />
             <div className="track-info">
               <div className="track-title">{song ? song.title : "Nessun brano selezionato"}</div>
               <div className="track-artist">{song ? `Durata: ${song.duration}` : ""}</div>

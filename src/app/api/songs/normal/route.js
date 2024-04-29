@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
 
-import { pool } from "@/app/lib/db"; // Verifica che il percorso alla tua connessione DB sia corretto
+import { pool } from "../../../lib/db"; // Verifica che il percorso alla tua connessione DB sia corretto
 
 export async function GET() {
     try {

@@ -19,7 +19,7 @@ const Player = ({song}) => {
         <div className="row align-items-center justify-content-between">
           <div className="col d-flex align-items-center">
             <Image
-                src={song ? song.image_songs : "/placeholder.png"}
+                src={song ? song.image_songs : ""}
                 alt="Copertina album"
                 width={500} // Sostituisci con la larghezza reale dell'immagine
                 height={500} // Sostituisci con l'altezza reale dell'immagine

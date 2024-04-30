@@ -65,7 +65,7 @@ const ServicesSection = () => {
             </div>
             <div className="col-12 col-md-6 d-flex justify-content-center">
               <motion.h1 variants={textVariants} initial="hidden" animate={isVisible ? "visible" : "hidden"} className='Title text-right mx-2' id='titolobottom'>
-                Strategie Innovative, risultati concreti.
+              Innovazione e Prestazioni Il Cuore della Nostra Strategia
               </motion.h1>
             </div>
           </div>
@@ -83,12 +83,12 @@ const ServicesSection = () => {
             <div className="col-md-6">
               <div className="stats-container d-flex flex-column">
                 <div className="stat-item my-3 p-4">
-                  <h3>Innovazione in azione</h3>
-                  <p>Ogni progetto inizia con un sogno. La nostra mission è di realizzare visioni innovative, coniugando creatività e tecnologia per plasmare il futuro digitale.</p>
+                <h3>Innovazione in azione</h3>
+              <p>La nostra mission è trasformare visioni avanguardistiche in realtà, coniugando creatività e tecnologia per forgiare il futuro digitale.</p>
                 </div>
                 <div className="stat-item my-3 p-4">
-                  <h3>Soluzioni personalizzate</h3>
-                  <p>Perché ogni Business è unico, le nostre soluzioni sono tagliate su misura per le tue esigenze specifiche.</p>
+                <h3>Soluzioni Personalizzate</h3>
+              <p>Ogni business è unico, ed è per questo che modelliamo le nostre soluzioni per rispondere perfettamente alle tue esigenze specifiche.</p>
                 </div>
                 <div className="stat-item my-3 p-4">
                   <h3>Connessione e Collaborazione</h3>

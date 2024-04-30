@@ -46,6 +46,11 @@
     .service-box {
       min-width: 60%; /* Più spazio per ogni servizio su dispositivi mobili */
     }
+    .scrolling-container {
+      display: flex;
+      will-change: transform;
+      animation: scroll-left-mobile 10s linear infinite;
+    }
   }
   
   @keyframes scroll-left {
@@ -57,4 +62,11 @@
     }
   }
   
-  
+  @keyframes scroll-left-mobile {
+    0% {
+      transform: translateX(0%);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
+  }

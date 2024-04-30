@@ -762,3 +762,9 @@ tr:hover {
 	width: 100%;
 	height: 100%
 }
+
+.zmusic{
+	z-index: 1000;
+	height: 100vh;
+	width: 100%;
+}

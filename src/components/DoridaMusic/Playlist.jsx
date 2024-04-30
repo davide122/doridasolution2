@@ -35,7 +35,6 @@ const Playlist = () => {
     fetchPlaylists();
   }, []);
 
-  if (loading) return <Loader></Loader>;
   if (error) return <div>Error: {error}</div>;
 
   const handleClick = (albumId) => {
@@ -44,7 +43,17 @@ const Playlist = () => {
   };
 
   return (
-    <div>
+    <>
+   {loading ?  (<div className="vh-100 bg-black d-flex justify-content-center align-items-center flex-column position-absolute top-0 zmusic">
+   <Image
+     src="/logo.png"
+     alt="Dorida Solution Logo"
+     width={100}
+     height={110}
+     className="logo position-absolute top-0 start-0"
+   />
+   <h1 className="Title text-white">La tua musica, Sempre!</h1>
+ </div>) : ( <div>
       <div className="carousel-container mt-2 mb-5">
         <h3 className="text-white ms-md-4 ms-3 text-start">
           Scopri le nostre Playlist
@@ -74,7 +83,10 @@ const Playlist = () => {
           )}
         </div>
       </div>
-    </div>
+    </div>)};
+    </>
+
+   
   );
 };
 

@@ -1,31 +1,35 @@
-import { NextResponse } from 'next/server';
-import axios from 'axios';
+import NextResponse from 'next';
+import fetch from 'node-fetch';
+
 
 export async function POST(request) {
-    const { question } = await request.json();
-    const openAIKey = process.env.OPENAI_KEY;
-
-    try {
-        const response = await axios.post(
-            'https://api.openai.com/v1/chat/completions',
-            {
-                model: 'gpt-4',
-                messages: [{ role: "user", content: question }],
-                max_tokens: 400,
-            },
-            {
-                headers: {
-                    'Authorization': `Bearer ${openAIKey}`,
-                }
-            }
-        );
-
-        const message = response.data.choices[0].message.content.slice(0, 200);
-        return new NextResponse(JSON.stringify({ message }), { status: 200 });
-    } catch (error) {
-        console.error('Error calling OpenAI:', error);
-        return new NextResponse(JSON.stringify({ error: 'Failed to fetch response from OpenAI' }), { status: 500 });
+    if (request.method !== 'POST') {
+      return new NextResponse(null, { status: 405 });
     }
-}
-
-
+  
+    try {
+      const { message } = await request.json();
+      if (!message) {
+        return new NextResponse(JSON.stringify({ error: 'Message is required' }), { status: 400 });
+      }
+  
+      // Crea un nuovo thread (se non hai già un ID thread salvato)
+      const threadResponse = await callOpenAI('https://api.openai.com/v1/threads', 'POST', {
+        assistant_id: 'asst_ryDX834UsWaMAUSVrk80X1Th'
+      });
+  
+      // Invia un messaggio al chatbot
+      const sendMessageResponse = await callOpenAI(`https://api.openai.com/v1/threads/${threadResponse.data.id}/messages`, 'POST', {
+        messages: [{ role: "user", content: message }]
+      });
+  
+      // (Opzionale) Gestisci runs se necessario
+      const runResponse = await callOpenAI(`https://api.openai.com/v1/threads/${threadResponse.data.id}/runs`, 'POST', {});
+  
+      return new NextResponse(JSON.stringify({ threadResponse: sendMessageResponse, runResponse }), { status: 200 });
+    } catch (error) {
+      console.error('Error processing request:', error);
+      return new NextResponse(JSON.stringify({ error: 'Internal Server Error', details: error.message }), { status: 500 });
+    }
+  }
+  

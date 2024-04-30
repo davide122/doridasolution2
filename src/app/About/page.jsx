@@ -5,7 +5,7 @@ import MyNavbar from "../../components/navbar/MyNavbar";
 const page = () => {
     return(
         <div>
-            <MyNavbar className={"gradient"}/>
+            <MyNavbar/>
           <AboutPage/>
           <MyFooter></MyFooter>
         </div>

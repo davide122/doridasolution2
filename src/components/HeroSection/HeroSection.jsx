@@ -3,7 +3,6 @@ import React, { useState } from 'react';
 import Spline from '@splinetool/react-spline';
 import Image from 'next/image';
 import imageHumanSrc from "../../../public/image/Screenshot 2024-03-26 alle 12.03.30.png"; // Assicurati di spostare l'immagine nella cartella public
-
 import ChatWithGPT from '../ChatGpt/ChatWithGpt'; // Aggiorna il percorso se necessario
 import { BsChatDots, BsRobot } from 'react-icons/bs';
 
@@ -28,7 +27,7 @@ const HeroSection = () => {
             <div>
               <Spline scene="https://prod.spline.design/fG63sTT4o138JOix/scene.splinecode" className='vh-100 d-none d-md-block d-md' />
               <div className="d-block d-md-none vh-100 mx-0">
-                <Image src={imageHumanSrc} alt="Mobile" className="imgHuman"/>
+                <Image src={imageHumanSrc} alt="Immagine di nova, un ai di dorida solution" className="imgHuman" width={500} height={500}/>
               </div>
             </div>
           ) : (

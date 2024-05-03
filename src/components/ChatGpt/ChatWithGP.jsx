@@ -18,10 +18,6 @@ const ChatWithGP = () => {
   const [responseReceived, setResponseReceived] = useState(false);
 
   const phrases = ["Sto pensando...", "Sto cercando la risposta migliore", "Un momento, per favore"];
-  // const openAISettings = {
-  //   assistantId: "asst_ryDX834UsWaMAUSVrk80X1Th",
-  //   openaiApiKey: "sk-proj-WBytRlkT7hAkDrcxRVjyT3BlbkFJ5faMsZE0VRfkTt1AgyGo",
-  // };
 
   const openAISettings = {
     assistantId: process.env.OPENAI_ASSISTANT_ID,

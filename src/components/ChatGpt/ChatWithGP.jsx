@@ -26,6 +26,7 @@ const ChatWithGP = () => {
   const openAISettings = {
     assistantId: process.env.OPENAI_ASSISTANT_ID,
     openaiApiKey: process.env.OPENAI_KEY,
+    evenlabsapiKey: process.env.ELEVENLABS_KEY
   };
 
 
@@ -238,7 +239,7 @@ const ChatWithGP = () => {
           headers: {
             "Content-Type": "application/json",
             Accept: "audio/mpeg",
-            "xi-api-key": "ecbae933bc567ab52fcb34df67265a6c",
+            "xi-api-key": `${openAISettings.evenlabsapiKey}`,
           },
         }
       );

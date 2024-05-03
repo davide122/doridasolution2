@@ -3,10 +3,13 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { useAlert } from "../../components/AlertComponent/AlertContext";
+import { useDispatch } from 'react-redux';
+import { loginSuccess } from '../../app/features/authSlice';
 import Image from "next/image";
-function LoginPage() {
-  const { showAlert } = useAlert();
 
+function LoginPage() {
+  const dispatch = useDispatch();
+  const { showAlert } = useAlert();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
@@ -24,6 +27,7 @@ function LoginPage() {
 
     const data = await response.json();
     if (response.ok) {
+      dispatch(loginSuccess({ user: data.user, token: data.token }));
       localStorage.setItem("token", data.token);
       // window.location.href = data.redirectUrl; // Imposta direttamente l'URL, causando un refresh completo della pagina.
       route.push(data.redirectUrl); // Usa next/router per navigare senza refresh

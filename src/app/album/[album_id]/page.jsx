@@ -5,11 +5,35 @@ import SongsList from "../../../components/Artist/DashBoard/SongList";
 import MyNavbar from "../../../components/navbar/MyNavbar";
 import "../../../components/DoridaMusic/Css/Maincontent.css";
 import Image from "next/image";
+import Player from "../../../components/DoridaMusic/Player";
 
 const AlbumDetailsPage = () => {
   const [albumDetails, setAlbumDetails] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
+  const [activeSong, setActiveSong] = useState(null);
+  const [activeSongIndex, setActiveSongIndex] = useState(0); // Stato per gestire l'indice della canzone attiva
+
+  const handleNextSong = () => {
+    const nextSongIndex = (activeSongIndex + 1) % albumDetails.length;
+    setActiveSongIndex(nextSongIndex);
+    setActiveSong(albumDetails[nextSongIndex]);
+  };
+
+  const handlePreviousSong = () => {
+    const previousSongIndex = (activeSongIndex - 1 + albumDetails.length) % albumDetails.length;
+    setActiveSongIndex(previousSongIndex);
+    setActiveSong(albumDetails[previousSongIndex]);
+  };
+  const handleSelectSong = (song) => {
+    setActiveSong(song);
+    console.log(song);
+  };
+
+  const handleDeleteSong = (songId) => {
+    // Logica per eliminare la canzone
+  };
+
   const router = useRouter();
   const { album_id } = useParams();
   const total = albumDetails && albumDetails.length;
@@ -49,6 +73,7 @@ const AlbumDetailsPage = () => {
 
   if (error) return <div>Errore: {error}</div>;
 
+  
 
   return (
     <>
@@ -72,14 +97,15 @@ const AlbumDetailsPage = () => {
             height={500} // Imposta l'altezza desiderata
             className="blurra2" // Se hai bisogno di classi personalizzate per ulteriori stili
           />
-          <MyNavbar />
-          <div className="container my-5 d-flex align-items-center d-flex flex-column flex-md-row">
+          <MyNavbar className={"position-absolute trasparent w-100 top-0"}/>
+          <div className="container my-5 d-flex align-items-center d-flex justify-content-center flex-column flex-md-row">
+            
             <Image
               src={albumDetails[0].cover_url} // Usa l'URL dell'immagine dell'album
               alt={`Copertina dell'album di ${albumDetails[0].username}`} // Descrivi l'immagine, ad esempio "Copertina dell'album di [Artista]"
-              width={300} // Larghezza dell'immagine
-              height={300} // Altezza dell'immagine
-              className="rounded-5 position-relative img-fluid " // Applica classi per stili come l'arrotondamento
+              width={350} // Larghezza dell'immagine
+              height={350} // Altezza dell'immagine
+              className="rounded-5 position-relative img-fluid mt-3 " // Applica classi per stili come l'arrotondamento
             />
             <div className="mt-3">
               <h1 className="text-white mx-4 position-relative text-center text-md-start Title fs-1">
@@ -95,8 +121,13 @@ const AlbumDetailsPage = () => {
           </div>
 
           <h1>{albumDetails.title}</h1>
-          <SongsList songs={albumDetails} />
-        </div>
+         
+          <SongsList songs={albumDetails} onDeleteSong={handleDeleteSong} onSelectSong={handleSelectSong} />
+          {activeSong && <Player song={activeSong}  onNextSong={handleNextSong}
+        onPreviousSong={handlePreviousSong} />}
+      
+       
+            </div>
       )}
     </>
   );

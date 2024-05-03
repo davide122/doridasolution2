@@ -2,7 +2,7 @@
     position: relative;
     overflow: hidden;
     padding: 10px 0;
-    top: -10px;
+    
   }
   
   .carousel {
@@ -12,6 +12,7 @@
     scroll-snap-type: x mandatory;
     -webkit-overflow-scrolling: touch;
     padding: 0 5px;
+    
   }
   
   .playlist-card {

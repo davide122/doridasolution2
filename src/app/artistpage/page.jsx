@@ -21,9 +21,13 @@ import Loader from "../../components/Loader/Loader";
 import AddAlbumForm from "../../components/album/AddAlbumForm";
 import ConfirmModal from "../../components/modal/ConfirmModal";
 import Image from "next/image";
+import { useSelector } from 'react-redux';
+import { selectUser } from "../features/authSlice";
 
 function ArtistPage() {
   useArtistCheck();
+  const user = useSelector(selectUser)
+  console.log("redux",user);
   const [albumToDelete, setAlbumToDelete] = useState(null);
   const [songToDelete, setSongToDelete] = useState(null);
   const [albums, setAlbums] = useState([]);
@@ -138,7 +142,7 @@ function ArtistPage() {
             height={110}
             className="logo position-absolute top-0 start-0"
           />
-          <h1 className="Title text-white">La tua musica, Sempre!</h1>
+          <h1 className="Title text-white">La tua musica, Sempre!<h2 className="text-white">Benvenuto, {user ? user.name : 'Utente'}!</h2></h1>
         </div>
       ) : (
         <Row>

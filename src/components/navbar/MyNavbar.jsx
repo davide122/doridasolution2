@@ -12,7 +12,7 @@ const MyNavbar = ({ className }) => {
     const toggleOffcanvas = () => setShow(!show);
 
     return (
-        <nav className={`navbar navi navbar-expand-lg navbar-dark ${className}`} style={{ backgroundColor: '#000' }}>
+        <nav className={`navbar navi navbar-expand-lg navbar-dark ${className}`}>
             <div className="container-fluid">
                 <Link href="/" passHref className='text-decoration-none'>
                     <div className="navbar-brand d-flex align-items-center">
@@ -61,7 +61,7 @@ const MyNavbar = ({ className }) => {
                     </div>
                 </Link>
 
-                <Offcanvas show={show} onHide={toggleOffcanvas} placement="end" className="gradient fs-2 text-center d-flex justify-content-center align-items-center">
+                <Offcanvas show={show} onHide={toggleOffcanvas} placement="end" className=" bg-black fs-2 text-center d-flex justify-content-center align-items-center">
                     <Offcanvas.Header closeButton className='text-white'>
                     </Offcanvas.Header>
                     <Offcanvas.Body className='text-center'>

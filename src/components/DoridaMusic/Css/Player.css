@@ -1,61 +1,123 @@
-.player-bar {
-    color: white;
-    background-color: #000000 !important; /* o qualsiasi altro colore tu preferisca */
-    font-family: Arial, sans-serif; /* o il tuo font preferito */
-  padding: 10px 0px;
-  }
+.player-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #000000;
+  padding: 20px;
+  color: white;
+  width: 100%;  
+
+
+}
+
+
+
+.track-info {
+  display: flex;
+  align-items: center;
+}
+
+.album-cover {
+  margin-right: 20px;
+}
+
+.player-controls button {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 24px;
+  margin-right: 10px;
+}
+
+.volume-slider {
+  width: 100px;
+}
+
+.song-artist{
+  font-size: 10px;
+}
+
+/* Stilizzazione generale dell'input range */
+.progress-bar {
+  margin: 10px;
+  -webkit-appearance: none;  /* Rimuove lo stile di default per WebKit/Blink */
+  width: 300px; /* Larghezza della barra di progresso */
+  height: 7px; /* Altezza della barra di progresso */
+  background: #6d6c6c; /* Colore di sfondo della barra */
+border-radius: 10px 10px 10px 10px;
+}
+
+/* Stilizzazione del tracciato della barra di progresso */
+.progress-bar::-webkit-slider-runnable-track {
+
+  width: 100%;
+  height: 8px;
+  background: #646161; /* Colore di sfondo del tracciato */
+}
+
+.progress-bar::-moz-range-track {
+  width: 100%;
+  height: 8px;
+  background: #ddd;
+}
+
+.progress-bar::-ms-track {
+  width: 100%;
+  height: 8px;
+  background: #ddd;
+}
+
+/* Stilizzazione del pollice della barra di progresso */
+.progress-bar::-webkit-slider-thumb {
+  -webkit-appearance: none; /* Rimuove lo stile di default per WebKit/Blink */
+  height: 8px;
+  width: 30px;
+  background: #ffffff; /* Colore di sfondo del pollice */
+  margin-top: 0px; /* Assicura che il pollice sia centrato verticalmente */
+  border-radius: 10px 10px 10px 10px;
   
-  .cover {
-    width: 50px; /* o la dimensione che preferisci */
-    height: auto;
-    margin-right: 15px;
+}
+
+.progress-bar::-moz-range-thumb {
+  height: 16px;
+  width: 16px;
+  background: #000000;
+  border: none;
+  border-radius: 50%;
+}
+
+.progress-bar::-ms-thumb {
+  height: 16px;
+  width: 16px;
+  background: #000000;
+  border-radius: 50%;
+}
+
+.volume-slider{
+  width: 100px !important;
+}
+
+
+/* Media Queries */
+@media (max-width: 768px) {
+  .player-container {
+    flex-direction: column;
+    padding: 10px;
   }
-  
+
   .track-info {
-    font-size: 5px !important;
+    margin-bottom: 10px; /* Distanza tra le informazioni della traccia e i controlli del player */
   }
-  
-  .track-title {
-    font-weight: bold;
-    font-size: 14px;
+
+  .player-controls button {
+    font-size: 20px; /* Riduci la dimensione delle icone per dispositivi più piccoli */
   }
-  
-  .track-artist {
-    font-size: 10px !important;
-    font-weight: 100;
+
+  .volume-slider, .progress-bar {
+    width: 100%; /* Adatta la larghezza della barra di progresso e del volume all'intera larghezza disponibile */
   }
-  
-  .control-icon {
-    font-size: 1.5rem; /* dimensione delle icone dei controlli */
-    margin: 0 10px;
-    cursor: pointer;
+
+  .progress-bar {
+    width: 100%; /* Full width in mobile */
   }
-  
-  .volume-slider {
-    width: 200px !important; /* lunghezza dello slider del volume */
-    align-items: center;
-  }
-  
-  /* Media query per desktop */
-  @media (min-width: 992px) {
-    .track-info {
-      display: block;
-    }
-  
-    .player-bar {
-      padding: 15px 0;
-    }
-  
-    .cover {
-      width: 80px; /* dimensione più grande per desktop */
-    }
-  
-    .control-icon {
-      font-size: 2rem; /* icone più grandi per desktop */
-    }
-  
-    .volume-slider {
-      width: 150px; /* slider del volume più lungo per desktop */
-    }
-  }
-  
+}

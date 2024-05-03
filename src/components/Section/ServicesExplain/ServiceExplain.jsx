@@ -31,17 +31,23 @@ const ServicesExplain = () => {
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
+    pauseOnHover: true,
+
     adaptiveHeight: true,
-    arrows: false, // disabilita le frecce di navigazione
+    arrows: true, // disabilita le frecce di navigazione
     responsive: [
       {
         breakpoint: 768,
         settings: {
-          slidesToShow: 1,
+          slidesToShow: 1.1,
+          autoplay: true,
+          autoplaySpeed: 2000,
+          pauseOnHover: true,
+          
           slidesToScroll: 1,
           infinite: true,
           dots: true,
-          arrows: false, // assicurati che le frecce siano disabilitate anche nei breakpoints
+          arrows: true, // assicurati che le frecce siano disabilitate anche nei breakpoints
         },
       },
     ],
@@ -153,7 +159,7 @@ const ServicesExplain = () => {
   };
 
   return (
-    <div className="container-fluid slide">
+    <div className="container-fluid slide mb-5">
       {/* Carosello visibile solo su dispositivi mobili */}
       <div className="d-md-none">
         <Slider {...settings} className="my-3">
@@ -182,7 +188,7 @@ const ServicesExplain = () => {
       </div>
 
       {/* Layout griglia per dispositivi non mobili */}
-      <div className="d-none d-md-flex row">
+      <div className="d-none d-md-flex row cursor">
         {columnData.map((column) => (
           <div key={column.id} className={`col-md-${column.colMdSize}`}>
             {column.images.map((image) => (

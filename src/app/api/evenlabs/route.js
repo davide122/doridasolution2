@@ -4,7 +4,7 @@ import axios from 'axios';
 export async function POST(request) {
   const { text } = await request.json(); // Assumi che 'text' venga passato nel body della richiesta
   const response = await axios.post(
-    'https://api.elevenlabs.io/v1/text-to-speech/efJVaDDMBq2ch2Qf4phN',
+    'https://api.elevenlabs.io/v1/text-to-speech/2i8A1430OvhAMmkT5Ika',
     {
       text: text,
       model_id: "eleven_multilingual_v2",

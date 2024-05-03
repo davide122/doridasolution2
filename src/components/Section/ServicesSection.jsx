@@ -65,7 +65,7 @@ const ServicesSection = () => {
             </div>
             <div className="col-12 col-md-6 d-flex justify-content-center">
               <motion.h1 variants={textVariants} initial="hidden" animate={isVisible ? "visible" : "hidden"} className='Title text-right mx-2' id='titolobottom'>
-              Innovazione e Prestazioni Il Cuore della Nostra Strategia
+              Strategie Innovative, risultati concreti.
               </motion.h1>
             </div>
           </div>

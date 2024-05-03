@@ -48,7 +48,7 @@ html {
 .imgHuman {
 	width: 100%;
 	object-fit: cover;
-	height: 100%
+	
 }
 @keyframes spaziale {
 	0%,100% {
@@ -582,7 +582,7 @@ p {
 }
 @media (max-width:768px) {
 	.Title {
-		font-size: 62px;
+		font-size: 55px;
 		text-align: center;
 		letter-spacing: 2px
 }
@@ -768,3 +768,54 @@ tr:hover {
 	height: 100vh;
 	width: 100%;
 }
+
+
+.slick-next{
+	position: absolute !important;
+	right: 2% !important;
+	top:80% !important;
+}
+
+
+
+.slick-prev{
+	position: absolute !important;
+	left: 8% !important;
+	top:80% !important;
+	z-index: 5 !important;
+}
+.trasparent{
+	background-color: transparent !important ;
+}
+.object{
+	object-fit: fill !important;
+}
+
+.tooltip {
+	position: relative;
+	display: inline-block;
+  }
+  
+  .tooltip .tooltiptext {
+	visibility: hidden;
+	width: 120px;
+	background-color: black;
+	color: white;
+	text-align: center;
+	border-radius: 6px;
+	padding: 5px 0;
+	position: absolute;
+	z-index: 1;
+	bottom: 125%;
+	left: 50%;
+	margin-left: -60px;
+	opacity: 0;
+	transition: opacity 0.3s;
+  }
+  
+  .tooltip:hover .tooltiptext {
+	visibility: visible;
+	opacity: 1;
+  }
+  
+ 

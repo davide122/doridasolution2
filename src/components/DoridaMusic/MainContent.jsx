@@ -77,17 +77,8 @@ const MainContent = () => {
       />
       <div className="blur-overlay"></div>
       <div className="text-overlay">
-        <p className="fs-5 text-primary my-0">Radio</p>
-        <h1 className="text-white text-start fw  ">La mia colonna...</h1>
-        <p className="fs-6">Another text</p>
-        <button
-          className="Call-Button my-0 d-md-block d-none "
-          id="callnone"
-          onClick={playMusic}
-        >
-          <FiPlay className="player-icon play" />
-          Riproduci
-        </button>
+        <p className="fs-5 text-primary my-0 ms-md-3 ms-0">Dorida Music</p>
+        <h1 className="text-white text-start fw">Arte musicale</h1>
         <button
           className="Call-Button my-0 d-md-none d-block rotondo d-none "
           id="callnone"

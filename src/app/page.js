@@ -8,9 +8,15 @@ import ChangeColor from "../components/Section/ChangeColor";
 import VideoPresentazione from "../components/Section/VideoPresentazione";
 import MyFooter from "../components/Footer/MyFooter";
 import AboutUs from "../components/Section/aboutsection/AboutUs";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import Image from "next/image";
+import gsap from "gsap";
+import Tippy from "@tippyjs/react";
+import { Tooltip } from "react-bootstrap";
 
 export default function Home() {
+  const [showTooltip, setShowTooltip] = useState(false);
+
   useEffect(() => {
     const warnMessage = "ATTENZIONE: Questa console è monitorata. L'abuso sarà perseguito.";
     const cssWarning = 'background: red; color: white; font-size: 16px;';
@@ -60,17 +66,61 @@ export default function Home() {
 
    
   }, []);
+
+
+  const [showImage, setShowImage] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      // Verifica se lo scroll ha superato il 100vh
+      if (window.scrollY > window.innerHeight) {
+        setShowTooltip(true);
+
+        setShowImage(true);
+        // Aggiungi animazione all'immagine con GSAP
+        gsap.fromTo(
+          ".sticky-bottom-image",
+          { opacity: 0, y: 100 },
+          { opacity: 1, y: 0, duration: 4 }
+        );
+      } else {
+        setShowImage(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
+
   return (
     <>
-<MyNavbar ></MyNavbar>
-<HeroSection></HeroSection>
-<Carouseltext></Carouseltext>
-<ServicesSection></ServicesSection>
-<ServicesExplain></ServicesExplain>
-<AboutUs></AboutUs>
-<ChangeColor></ChangeColor>
-<VideoPresentazione></VideoPresentazione>
-<MyFooter></MyFooter>
+      <MyNavbar />
+      <HeroSection />
+      <Carouseltext />
+      <ServicesSection />
+      <ServicesExplain />
+      <AboutUs />
+      <ChangeColor />
+      <VideoPresentazione />
+      {showImage && (
+          <Image
+            src="/image/rodeo.png"
+            alt="Immagine di nova, un ai di dorida solution"
+            width={300}
+            height={300}
+            className="d-md-block d-none sticky-bottom-image"
+          />
+      )}
+      <MyFooter />
+      {showTooltip && (
+        <Tooltip id="tooltip" place="top" effect="solid">
+          Clicca per parlare con me
+        </Tooltip>
+      )}
     </>
   );
 }

@@ -1,35 +1,66 @@
+// Funzione che recupera i dettagli dell'album, incluso l'elenco delle canzoni
+async function fetchAlbumDetails(album_id) {
+  const response = await fetch(`https://www.doridasolution.com/api/songs/album/${album_id}`, {
+    cache: "no-store",
+  });
+  if (!response.ok) {
+    throw new Error("Failed to fetch album details");
+  }
+  return response.json();
+}
 
+// Funzione per generare i metadati dinamici
+export async function generateMetadata({ params }) {
+  const { album_id } = params;
+  const albumDetails = await fetchAlbumDetails(album_id);
 
-export const metadata = {
-  icons: {
-    icon: {
-      url: "/favicon.ico", // Mantenuto il percorso corretto
-      type: "image/x-icon" // Tipo comune per .ico
+  // Controlla che ci siano dettagli disponibili
+  if (albumDetails.length === 0) {
+    throw new Error("Album not found");
+  }
+
+  // Estrai le informazioni dell'album (il primo elemento dell'array)
+  const album = albumDetails[0];
+
+  // Recupera tutti i titoli delle canzoni nell'album
+  const songTitles = albumDetails.map((song) => song.title);
+  const firstFewSongs = songTitles.slice(0, 3).join(", "); // Mostra solo le prime 3 canzoni
+
+  // Genera un elenco più ampio di parole chiave
+  const keywords = [
+    "album",
+    album.album_title,
+    album.username,
+    "musica",
+    "artisti",
+    ...songTitles, // Aggiungi i titoli delle canzoni come parole chiave
+  ];
+
+  return {
+    title: `${album.album_title} - Album di ${album.username}`,
+    description: `Esplora l'album "${album.album_title}" dell'artista ${album.username}. Include le canzoni: ${firstFewSongs}...`,
+    keywords,
+    openGraph: {
+      title: `${album.album_title} - Album di ${album.username}`,
+      description: `Esplora l'album "${album.album_title}" dell'artista ${album.username}. Include le canzoni: ${firstFewSongs}...`,
+      url: `https://www.doridasolution.com/album/${album_id}`,
+      images: [
+        {
+          url: album.cover_url,
+          alt: `${album.album_title} album cover`,
+        },
+      ],
     },
-    shortcut: {
-      url: "/favicon.ico", // Mantenuto il percorso corretto
-      type: "image/x-icon" // Tipo comune per .ico
-    },
-  },
-  title: "Album Music - Dorida Solution",
-  description: "Esplora la nostra collezione esclusiva di album musicali. Dorida Solution offre una varietà unica di generi musicali che connettono culture e passioni.",
-  keywords: "Dorida Solution, album musicali, generi musicali, cultura musicale, collezione esclusiva",
-  canonical:"http://www.doridasolution.com/music",
-  og: {
-      title: "Esplora gli Album Musicali di Dorida Solution",
-      type: "website",
-      url: "http://www.doridasolution.com/music",
-      image: "http://www.doridasolution.com/assets/images/albums-og-image.jpg",
-      description: "Visita la nostra sezione album per scoprire collezioni musicali uniche che attraversano diverse culture e generazioni.",
-      site_name: "Dorida Solution"
-  },
-};
-    export default function RootLayout({ children}) {
-      return (
-        <html lang="en">
-        
-          <body>{children}</body>
-        </html>
-      );
-    }
-    
+  };
+}
+
+// Componente Layout principale
+export default function RootLayout({ children }) {
+  return (
+    <html lang="en">
+      <body>
+        {children}
+      </body>
+    </html>
+  );
+}

@@ -1,47 +1,53 @@
 .contact-form-container {
-    background-color: transparent; /* Dark background */
-    color: #c7c7c7; /* Light grey text */
-    padding: 20px;
-    width: 50%;
-    margin: 0 auto;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-}
-
-.contact-form-title {
-    color: #e6e6ff; /* Lilla pastello */
-    text-align: center;
-}
-
-.contact-input-group label {
-    color: #add8e6; /* Azzurro pastello */
-    display: block;
-    margin-bottom: 5px;
-}
-
-.contact-input-group input,
-.contact-input-group textarea {
     width: 100%;
-    padding: 10px;
-    margin-bottom: 10px;
-    background-color: #333;
-    border: 1px solid #555;
-    border-radius: 4px;
-    color: #ddd;
-}
-
-.contact-submit-btn {
-    display: block;
-    width: 100%;
-    background-color: #5d5d8d; /* Lilla pastello */
+    max-width: 600px;
+    margin: auto;
+    overflow: hidden;
+  }
+  
+  .contact-form-title {
     color: #fff;
-    padding: 10px 20px;
+    text-align: center;
+    margin-bottom: 1.5rem;
+  }
+  
+  .contact-input-group {
+    margin-bottom: 1rem;
+  }
+  
+  .contact-input-group label {
+    color: #d9d9d9;
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+  
+  .contact-input-group input,
+  .contact-input-group textarea {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+  border-radius: 5px;
+    background-color: #f5f5f5;
+  }
+  
+  .contact-submit-btn {
+    width: 100%;
+    padding: 0.75rem;
     border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-.contact-submit-btn:hover {
-    background-color: #4b4b6f;
-}
+    background-color: #3498db;
+    color: #fff;
+    font-weight: bold;
+    border-radius: 10px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .contact-submit-btn:hover {
+    background-color: #2980b9;
+  }
+  
+  .error {
+    color: #ff4d4d;
+    font-size: 0.9rem;
+    margin-top: 0.2rem;
+  }
+    

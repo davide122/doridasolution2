@@ -9,10 +9,10 @@ const ContactPage = () => {
       <MyNavbar />
       <div className="container">
         <div className="row">
-          <div className="col-6 vh-md-100 d-flex justify-content-center align-items-center">
+          <div className="col-12 col-md-6 vh-md-100 d-flex justify-content-center align-items-center">
             <ContactForm />
           </div>
-          <div className="col-6">
+          <div className="col-12 col-md-6">
             <Image
               src="https://doridasolutionbucket.s3.eu-north-1.amazonaws.com/about/Progetto+senza+titolo+(1).png"
               alt="Foto della dorida Solution, i 3 componenti, dorin ciofalo, davide marchica, rino ciofalo"

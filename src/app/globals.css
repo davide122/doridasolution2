@@ -456,7 +456,8 @@ html {
 	background-color: #ec6aff
 }
 .BluBG {
-	background-color: #05024d
+	background-color: #05024d;
+	border: 3px solid white;
 }
 .AzzurroBG {
 	background-color: #38b6ff

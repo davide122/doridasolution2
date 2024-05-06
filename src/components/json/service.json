@@ -5,7 +5,7 @@
     "description": "Offriamo servizi completi di digital marketing, dalla definizione di strategie personalizzate alla gestione di campagne pubblicitarie su tutti i canali digitali.",
     "category": "Marketing",
     "averagePrice": 500,
-    "icon": "https://doridasolutionbucket.s3.eu-north-1.amazonaws.com/Service/marketing.png",
+    "icon": "https://doridasolutionbucket.s3.eu-north-1.amazonaws.com/Service/MarketingPrincipal.png",
     "color": "#00B2FF",
     "person": "Dorin"
   },
@@ -61,7 +61,7 @@
   },
   {
     "id": 7,
-    "title": "Trasformazione di Autobiografie in Libri",
+    "title": "Creazione di libri",
     "description": "Aiutiamo a trasformare le tue memorie e le tue storie in libri pubblicabili, offrendo servizi di scrittura, editing e pubblicazione.",
     "category": "Book Publishing",
     "averagePrice": 3500,

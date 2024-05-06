@@ -86,8 +86,7 @@
       font-weight: 800; 
 
     }
-
-    
+   
     
 .videochange{
  
@@ -156,4 +155,15 @@ background-position: top, bottom; /* Posizionamento dei gradienti */
 
 .blurra, .img-sovra {
   transition: opacity 1s ease-in-out;
+}
+
+.btn-link{
+  width: 100%;
+  max-width: 500px;
+  display: inline-block;
+  border-radius: 10px 10px 10px 10px;
+  background-color: #0C6DFD;
+  text-align: center;
+  color: white !important;
+  padding: auto;
 }

@@ -84,7 +84,6 @@ const ContactForm = () => {
           {errors.nome && <p className="error">{errors.nome}</p>}
         </div>
         <div className="contact-input-group">
-          <label htmlFor="contactEmail">Email:</label>
           <input
             type="email"
             id="contactEmail"
@@ -97,7 +96,6 @@ const ContactForm = () => {
           {errors.email && <p className="error">{errors.email}</p>}
         </div>
         <div className="contact-input-group">
-          <label htmlFor="contactMessage">Messaggio:</label>
           <textarea
             id="contactMessage"
             name="messaggio"
@@ -110,7 +108,6 @@ const ContactForm = () => {
           {errors.messaggio && <p className="error">{errors.messaggio}</p>}
         </div>
         <div className="contact-input-group">
-          <label htmlFor="contactNumber">Numero:</label>
           <input
             type="text"
             id="contactNumber"

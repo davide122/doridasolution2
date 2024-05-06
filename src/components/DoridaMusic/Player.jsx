@@ -95,7 +95,7 @@ const Player = ({ song, onNextSong, onPreviousSong }) => {
   };
 
   return (
-    <div className="player-container">
+    <div className="player-container d-flex justify-content-between ">
       <div className="track-info">
         {song && (
           <Image
@@ -108,14 +108,14 @@ const Player = ({ song, onNextSong, onPreviousSong }) => {
         )}
         <div>
           <div className="song-title d-none d-md-block">
-            {song ? song.title : "No song playing"}
+            {song ? song.title : "Seleziona una canzone"}
           </div>
           <div className="song-artist d-none d-md-block">
-            {song ? song.username : "No artist"}
+            {song ? song.username : ""}
           </div>
         </div>
       </div>
-      <div className="player-controls d-flex flex-column">
+      <div className="player-controls flex-column">
         <div>
           <button onClick={onPreviousSong}>
             <FiChevronLeft />
@@ -148,7 +148,7 @@ const Player = ({ song, onNextSong, onPreviousSong }) => {
               onChange={handleProgressChange}
               className="progress-bar "
             />
-            {formatTime(audioRef.current?.duration)}
+            {formatTime(audioRef.current?.duration || 0)}
           </div>
         </div>
       </div>

@@ -826,3 +826,62 @@ tr:hover {
 	z-index: 999; /* Assicurati che l'immagine sia sopra gli altri contenuti */
   }
   
+
+  .create-song-form {
+  background-color: #fff;
+  padding: 2rem;
+  margin: 2rem auto;
+
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.create-song-form form div {
+  margin-bottom: 1.5rem;
+}
+
+.create-song-form form label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+}
+
+.create-song-form form input,
+.create-song-form form select,
+.create-song-form form textarea {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.create-song-form form button {
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 5px;
+  background-color: #3498db;
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+  margin-right: 0.5rem;
+  margin-top: 1rem;
+}
+
+.create-song-form form button:hover {
+  background-color: #2980b9;
+}
+
+
+
+button img:hover{
+	transform: scale(1.1);
+	transition: 1ms;
+	border-radius: 10px 10px 10px 10px;
+	overflow: hidden !important;
+
+
+}
+button img{
+	transition: transform 1s;
+	border-radius: 10px 10px 10px 10px;
+	overflow: hidden !important;
+}

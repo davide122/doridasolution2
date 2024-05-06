@@ -21,7 +21,8 @@ const AlbumDetailsPage = () => {
   };
 
   const handlePreviousSong = () => {
-    const previousSongIndex = (activeSongIndex - 1 + albumDetails.length) % albumDetails.length;
+    const previousSongIndex =
+      (activeSongIndex - 1 + albumDetails.length) % albumDetails.length;
     setActiveSongIndex(previousSongIndex);
     setActiveSong(albumDetails[previousSongIndex]);
   };
@@ -73,12 +74,10 @@ const AlbumDetailsPage = () => {
 
   if (error) return <div>Errore: {error}</div>;
 
-  
-
   return (
     <>
       {loading ? (
-        <div className="vh-100 bg-black d-flex justify-content-center align-items-center flex-column position-absolute top-0 zmusic">
+        <div className="vh-100 bg-black d-flex justify-content-center align-items-center flex-column position-absolute top-0 zmusic ">
           <Image
             src="/logo.png"
             alt="Dorida Solution Logo"
@@ -89,17 +88,16 @@ const AlbumDetailsPage = () => {
           <h1 className="Title text-white">La tua musica, Sempre!</h1>
         </div>
       ) : (
-        <div className="w-100">
+        <div className="w-100 ">
           <Image
             src={albumDetails[0].cover_url}
             alt={`Copertina dell'album ${albumDetails[0].album_title}`} // Aggiungi il nome dell'album se disponibile
-            width={500} // Imposta la larghezza desiderata
-            height={500} // Imposta l'altezza desiderata
+            width={400} // Imposta la larghezza desiderata
+            height={400} // Imposta l'altezza desiderata
             className="blurra2" // Se hai bisogno di classi personalizzate per ulteriori stili
           />
-          <MyNavbar className={"position-absolute trasparent w-100 top-0"}/>
-          <div className="container my-5 d-flex align-items-center d-flex justify-content-center flex-column flex-md-row">
-            
+          <MyNavbar className={"position-absolute trasparent w-100 top-0 mb-3"} />
+          <div className="container my-5 d-flex align-items-center d-flex justify-content-center flex-column flex-md-row ">
             <Image
               src={albumDetails[0].cover_url} // Usa l'URL dell'immagine dell'album
               alt={`Copertina dell'album di ${albumDetails[0].username}`} // Descrivi l'immagine, ad esempio "Copertina dell'album di [Artista]"
@@ -121,13 +119,22 @@ const AlbumDetailsPage = () => {
           </div>
 
           <h1>{albumDetails.title}</h1>
-         
-          <SongsList songs={albumDetails} onDeleteSong={handleDeleteSong} onSelectSong={handleSelectSong} />
-          {activeSong && <Player song={activeSong}  onNextSong={handleNextSong}
-        onPreviousSong={handlePreviousSong} />}
-      
+
+          <SongsList
+            songs={albumDetails}
+            onDeleteSong={handleDeleteSong}
+            onSelectSong={handleSelectSong}
+          />
        
-            </div>
+            <div className="position-sticky bottom-0 w-100">
+              <Player
+                song={activeSong}
+                onNextSong={handleNextSong}
+                onPreviousSong={handlePreviousSong}
+              />
+              </div>
+          
+        </div>
       )}
     </>
   );

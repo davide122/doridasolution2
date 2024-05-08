@@ -21,16 +21,7 @@ const ChatWithGP = () => {
 
   const phrases = ["Sto pensando...", "Sto cercando la risposta migliore", "Un momento, per favore"];
 
-  // Effetto per cambiare le frasi mostrando messaggi casuali mentre si attende
-  useEffect(() => {
-    const intervalId = setInterval(() => {
-      setCurrentPhrase((prevPhrase) => (prevPhrase + 1) % phrases.length);
-    }, 2000); // Cambia frase ogni 2 secondi
 
-    return () => clearInterval(intervalId);
-  }, []);
-
-  // Effetto per caricare o creare un nuovo thread
   useEffect(() => {
     const savedThreadId = localStorage.getItem("threadId");
     if (savedThreadId) {
@@ -40,7 +31,6 @@ const ChatWithGP = () => {
     }
   }, []);
 
-  // Crea un nuovo thread chiamando l'API lato backend
   const createNewThread = async () => {
     const res = await fetch("/api/openai/start-thread", {
       method: "POST",

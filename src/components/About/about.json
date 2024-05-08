@@ -22,6 +22,14 @@
       "description": "Rino è un vero innovatore, unendo il suo talento musicale con la passione per la tecnologia digitale. La sua capacità di esplorare nuovi orizzonti nell'AI e nella creazione di contenuti lo rende una forza trainante nell'innovazione dei servizi di Dorida Solution.",
       "image": "https://doridasolutionbucket.s3.eu-north-1.amazonaws.com/about/rinorino.png",
       "color":"#3B4A7A"
+    },
+    {
+      "id": 4,
+      "title": "Potresti essere tu!",
+      "work":"... ... ... ... ...",
+      "description": "Saremmo felici di accogliere persone competenti, con il talento e la passione per la tecnologia, che vogliano lavorare insieme a noi per creare un futuro migliore per la nostra città.",
+      "image": "https://doridasolutionbucket.s3.eu-north-1.amazonaws.com/about/Fotografia+Aerea+(1).png",
+      "color":"#A78FB5"
     }
   ]
   

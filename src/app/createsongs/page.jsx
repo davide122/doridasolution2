@@ -58,7 +58,7 @@ const CreateSongForm = () => {
     <div className={`container vh-100 justify-content-center d-flex flex-column ${styles.container}`}>
       {!isGenreSelected ? (
         <>
-          <h1 className={`${styles.title} text-center Titolo text-white`}>Crea la tua canzone!</h1>
+          <h1 className={`text-center Title text-white`}>Crea la tua canzone!</h1>
           <h2 className="text-center text-white">Iniziamo dal genere</h2>
           <Slider {...settings} className={`w-100 ${styles.slider}`}>
             <div className={`text-center ${styles.slide}`}>

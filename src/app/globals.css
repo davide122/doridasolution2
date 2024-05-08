@@ -196,7 +196,7 @@ html {
 }
 .Titolo {
 	color: #ec6aff !important;
-	font-size: 50px !important;
+	font-size: 45px;
 	text-align: start;
 	margin: 10px 0 10%
 }
@@ -585,9 +585,9 @@ p {
 }
 @media (max-width:768px) {
 	.Title {
-		font-size: 55px;
+		font-size: 45px;
 		text-align: center;
-		letter-spacing: 2px
+		
 }
 	.over,.person {
 		position: relative
@@ -887,3 +887,57 @@ button img{
 	border-radius: 10px 10px 10px 10px;
 	overflow: hidden !important;
 }
+
+.clock {
+	width: 200px;
+	height: 200px;
+	position: relative;
+	border: 10px solid #ffffff;
+	border-radius: 50%;
+	margin: 50px auto;
+  }
+  
+  .hour,
+  .minute,
+  .second {
+	position: absolute;
+	width: 50%;
+	height: 2px;
+	background: #ffffff;
+	top: 50%;
+	transform-origin: 100%;
+	transition: all 0.5s ease-in-out;
+  }
+  
+  .hour {
+	transform: rotate(90deg);
+  }
+  
+  .minute {
+	transform: rotate(180deg);
+  }
+  
+  .second {
+	transform: rotate(180deg);
+  }
+  
+  @keyframes rotate {
+	from {
+	  transform: rotate(0);
+	}
+	to {
+	  transform: rotate(360deg);
+	}
+  }
+  
+  .second {
+	animation: rotate 60s infinite linear;
+  }
+  
+  .minute {
+	animation: rotate 3600s infinite linear;
+  }
+  
+  .hour {
+	animation: rotate 43200s infinite linear;
+  }

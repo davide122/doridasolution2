@@ -13,7 +13,7 @@ const ChatWithGP = () => {
   const [isListening, setIsListening] = useState(false);
   const [messages, setMessages] = useState([]);
   const [threadId, setThreadId] = useState(null);
-  const [isWait, setIsWait] = useState(true);
+  const [isWait, setIsWait] = useState(false);
   const recognitionRef = useRef(null);
   const [currentPhrase, setCurrentPhrase] = useState(0);
   const [responseReceived, setResponseReceived] = useState(false);
@@ -21,13 +21,7 @@ const ChatWithGP = () => {
 
   const phrases = ["Sto pensando...", "Sto cercando la risposta migliore", "Un momento, per favore"];
 
-  const openAISettings = {
-    assistantId: "asst_ryDX834UsWaMAUSVrk80X1Th",
-    openaiApiKey: "sk-proj-QCZXoEd5c97q2NDfo5viT3BlbkFJDZD1oTbZbjHQjNyVR5eK",
-  };
-
-
-
+  // Effetto per cambiare le frasi mostrando messaggi casuali mentre si attende
   useEffect(() => {
     const intervalId = setInterval(() => {
       setCurrentPhrase((prevPhrase) => (prevPhrase + 1) % phrases.length);
@@ -36,6 +30,7 @@ const ChatWithGP = () => {
     return () => clearInterval(intervalId);
   }, []);
 
+  // Effetto per caricare o creare un nuovo thread
   useEffect(() => {
     const savedThreadId = localStorage.getItem("threadId");
     if (savedThreadId) {
@@ -45,42 +40,34 @@ const ChatWithGP = () => {
     }
   }, []);
 
-
-
+  // Crea un nuovo thread chiamando l'API lato backend
   const createNewThread = async () => {
-    const res = await axios.post(
-      "https://api.openai.com/v1/threads",
-      {},
-      {
-        headers: {
-          Authorization: `Bearer ${openAISettings.openaiApiKey}`,
-          "Content-Type": "application/json",
-          "OpenAI-Beta": "assistants=v1",
-        },
-      }
-    );
-    const newThreadId = res.data.id;
-    setThreadId(newThreadId);
-    localStorage.setItem("threadId", newThreadId);
+    const res = await fetch("/api/openai/start-thread", {
+      method: "POST",
+    });
+
+    const newThread = await res.json();
+    setThreadId(newThread.id);
+    localStorage.setItem("threadId", newThread.id);
   };
 
   const toggleListening = () => {
     if (isListening) {
-      stopListening();  // Call a function to stop listening
+      stopListening();
     } else {
-      startListening();  // Starts listening again if not already listening
+      startListening();
     }
   };
-  
+
   const stopListening = () => {
     if (recognitionRef.current) {
-      recognitionRef.current.stop();  // Stop the speech recognition
-      recognitionRef.current = null;  // Reset the reference
+      recognitionRef.current.stop();
+      recognitionRef.current = null;
     }
-    setIsListening(false);  // Update the listening state
-    setCurrentPhrase(0);    // Optionally reset the phrase index
+    setIsListening(false);
+    setCurrentPhrase(0);
   };
-  
+
   const startListening = () => {
     const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
     if (SpeechRecognition) {
@@ -88,128 +75,97 @@ const ChatWithGP = () => {
       recognition.lang = "it-IT";
       recognitionRef.current = recognition;
       recognition.start();
-  
-  
+
       recognition.onresult = async (event) => {
         const speechToText = event.results[0][0].transcript;
         handleSpeechToTextResult(speechToText);
       };
-  
+
       recognition.onend = () => {
         setIsListening(false);
-      
-        // Controlla se la risposta è stata ricevuta dopo 50 secondi
         setTimeout(() => {
           if (!responseReceived) {
             playWaitingPhrase();
-            // Puoi aggiungere ulteriori controlli e riprodurre messaggi aggiuntivi se necessario
           }
         }, 10000);
       };
-  
+
       recognition.onerror = (event) => {
         console.error("Speech recognition error", event.error);
         setIsListening(false);
       };
-  
+
       setIsListening(true);
     } else {
       console.error("Speech recognition not supported.");
     }
   };
-  
 
   const handleSpeechToTextResult = async (speechToText) => {
     setIsWait(true);
-    setResponseReceived(false); // Resetta lo stato di ricezione alla nuova richiesta
+    setResponseReceived(false);
 
     try {
-      await axios.post(
-        `https://api.openai.com/v1/threads/${threadId}/messages`,
-        {
-          role: "user",
-          content: speechToText,
-        },
-        {
-          headers: {
-            Authorization: `Bearer ${openAISettings.openaiApiKey}`,
-            "Content-Type": "application/json",
-            "OpenAI-Beta": "assistants=v1",
-          },
-        }
-      );
+      // Invia il messaggio all'API
+      await fetch(`/api/openai/messages/${threadId}`, {
+        method: "POST",
+        headers: { 
+          "Content-Type": "application/json",
 
-      const runRes = await axios.post(
-        `https://api.openai.com/v1/threads/${threadId}/runs`,
-        {
-          assistant_id: openAISettings.assistantId,
+        
         },
-        {
-          headers: {
-            Authorization: `Bearer ${openAISettings.openaiApiKey}`,
-            "Content-Type": "application/json",
-            "OpenAI-Beta": "assistants=v1",
-          },
-        }
-      );
+        body: JSON.stringify({ content: speechToText }),
+      });
 
-      await checkRunCompletion(runRes.data.id);
+      // Avvia la run per ottenere la risposta
+      const runRes = await fetch(`/api/openai/runs/${threadId}`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ assistantId: "asst_ryDX834UsWaMAUSVrk80X1Th" }),
+      });
+
+      const runData = await runRes.json();
+      await checkRunCompletion(runData.id);
     } catch (error) {
-      console.error("Error processing the speech to text result:", error);
+      console.error("Errore nell'elaborare il risultato:", error);
       setIsWait(false);
     }
   };
 
   const checkRunCompletion = async (runId) => {
     try {
-      const statusRes = await axios.get(
-        `https://api.openai.com/v1/threads/${threadId}/runs/${runId}`,
-        {
-          headers: {
-            Authorization: `Bearer ${openAISettings.openaiApiKey}`,
-            "Content-Type": "application/json",
-            "OpenAI-Beta": "assistants=v1",
-          },
-        }
-      );
+      const statusRes = await fetch(`/api/openai/completion/${threadId}/${runId}`, {
+        method: "GET",
+      });
 
-      if (statusRes.data.status === "completed") {
+      const statusData = await statusRes.json();
+      if (statusData.status === "completed") {
         fetchMessages();
-        setResponseReceived(true);  
-      } else if (statusRes.data.status === "failed") {
-        alert("Assistant encountered an error.");
+        setResponseReceived(true);
+      } else if (statusData.status === "failed") {
+        alert("L'assistente ha riscontrato un errore.");
         setIsWait(false);
       } else {
         setTimeout(() => checkRunCompletion(runId), 2000);
       }
     } catch (error) {
-      console.error("Error checking run completion:", error);
+      console.error("Errore nel verificare il completamento:", error);
       setIsWait(false);
     }
   };
 
   const fetchMessages = async () => {
     try {
-      const messagesRes = await axios.get(
-        `https://api.openai.com/v1/threads/${threadId}/messages`,
-        {
-          headers: {
-            Authorization: `Bearer ${openAISettings.openaiApiKey}`,
-            "Content-Type": "application/json",
-            "OpenAI-Beta": "assistants=v1",
-          },
-        }
-      );
-      const assistantMessages = messagesRes.data.data.filter(
-        (msg) => msg.role === "assistant"
-      );
-      const newMessages = assistantMessages.filter(
-        (msg) => !messages.some((m) => m.id === msg.id)
-      );
+      const messagesRes = await fetch(`/api/openai/messages/${threadId}`, {
+        method: "GET",
+      });
+      const data = await messagesRes.json();
+      const assistantMessages = data.data.filter((msg) => msg.role === "assistant");
+
+      const newMessages = assistantMessages.filter((msg) => !messages.some((m) => m.id === msg.id));
       if (newMessages.length > 0) {
         setMessages((prevMessages) => [...prevMessages, ...newMessages]);
-        const lastMessageText =
-          newMessages[newMessages.length - 1].content[0].text.value;
+        const lastMessageText = newMessages[newMessages.length - 1].content[0].text.value;
 
         await sendToEvenlabs(lastMessageText);
         setIsWait(false);
@@ -218,91 +174,47 @@ const ChatWithGP = () => {
       setIsWait(false);
     }
   };
+
   const sendToEvenlabs = async (text) => {
     try {
-      const response = await axios.post(
-        "https://api.elevenlabs.io/v1/text-to-speech/eUyfQOl1LW94ySVToNWD",
-        {
-          text: text,
-          model_id: "eleven_multilingual_v2",
-          voice_settings: {
-            stability: 0.5,
-            similarity_boost: 0.5,
-            style: 0.5,
-            use_speaker_boost: true,
-          },
-        },
-        {
-          responseType: "blob",
-          headers: {
-            "Content-Type": "application/json",
-            Accept: "audio/mpeg",
-            "xi-api-key": `ecbae933bc567ab52fcb34df67265a6c`,
-          },
-        }
-      );
-      
-      const audioUrl = URL.createObjectURL(response.data);
-      setAudioUrl(audioUrl); // Aggiorna l'URL per AudioVisualizer
-      const audio = new Audio(audioUrl);
+      const response = await fetch('/api/openai/sendtoevenlab', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ text }),
+      });
   
+      if (response.ok) {
+        const { audio } = await response.json();
+        // Decodifica l'audio da base64 e crea un URL
+        const audioBlob = new Blob([Uint8Array.from(atob(audio), c => c.charCodeAt(0))], { type: 'audio/mpeg' });
+        const audioUrl = URL.createObjectURL(audioBlob);
+        setAudioUrl(audioUrl);
+      } else {
+        console.error('Errore nel recuperare l\'audio da ElevenLabs:', await response.json());
+      }
     } catch (error) {
-      console.error("Failed to fetch audio from API", error);
+      console.error('Errore nel recuperare l\'audio da ElevenLabs:', error);
     }
   };
-
   const playWaitingPhrase = async () => {
-    const randomPhrase = phrases[Math.floor(Math.random() * phrases.length)]; // Scegli una frase casuale
-    try {
-      const response = await axios.post(
-        "https://api.elevenlabs.io/v1/text-to-speech/eUyfQOl1LW94ySVToNWD",
-        {
-          text: randomPhrase,
-          model_id: "eleven_multilingual_v2",
-          voice_settings: {
-            stability: 0.5,
-            similarity_boost: 0.5,
-            style: 0.5,
-            use_speaker_boost: true,
-          },
-        },
-        {
-          responseType: "blob",
-          headers: {
-            "Content-Type": "application/json",
-            Accept: "audio/mpeg",
-            "xi-api-key":`${openAISettings.evenlabsapiKey}`,
-          },
-        }
-      );
-      const audioUrl = URL.createObjectURL(response.data);
-      setAudioUrl(audioUrl);
-      const audio = new Audio(audioUrl);
-    } catch (error) {
-      console.error("Failed to fetch waiting phrase audio", error);
-    }
+    // Implementa qui la logica per riprodurre una frase di attesa
   };
-  
 
   return (
     <div>
-{isWait && (
-  <>
+      {isWait && (
         <div className="Nuvoletta">
           <Image src="/image/loaderrombo.png" width={150} height={150} alt="Nuvoletta Loading" />
         </div>
-  </>
-
-      )}  
-<Tippy content="Clicca per parlare con me" className="fs-5 bg-black">
-          <button onClick={toggleListening} className="Call-Button text-center">
-        {isListening ? <FiMic className="text-danger" /> : <FiMic className=" " />}
-      </button>
-    </Tippy>
-    <div>
-    <AudioVisualizer audioUrl={audioUrl}/>
-
-    </div>
+      )}
+      <Tippy content="Clicca per parlare con me" className="fs-5 bg-black">
+        <button onClick={toggleListening} className="Call-Button text-center">
+          {isListening ? <FiMic className="text-danger" /> : <FiMic className="" />}
+        </button>
+      </Tippy>
+      <div>
+        <AudioVisualizer audioUrl={audioUrl} />
+      </div>
     </div>
   );
 };

@@ -59,9 +59,8 @@
 
   .Nuvoletta {
     position: absolute;
-  
-    top: -550px;  /* Centrato verticalmente */
-    left: -320px; /* Centrato orizzontalmente */
+    right: 230px;
+bottom: 260px;
     animation: scale-animation 1s infinite ease-in-out;
     display: flex;
     align-items: center;
@@ -85,3 +84,41 @@
 
   
   
+
+  @media (max-width:400px) {
+    .Nuvoletta {
+      position: absolute;
+  bottom: 200px;
+  right: -16px;
+    
+    }
+  }
+
+  @media (min-width:400px) {
+    .Nuvoletta {
+      position: absolute;
+  bottom: 200px;
+  right: 10px;
+    
+    }
+
+
+  }
+
+
+  @media (min-width:1000px) {
+    .Nuvoletta {
+      position: absolute;
+  bottom: 250px;
+  right: 72px;
+    
+    }
+  }
+
+  @media (min-width:1200px) {
+    .Nuvoletta {
+      position: absolute;
+      right: 230px;
+  bottom: 260px;
+    
+    }}

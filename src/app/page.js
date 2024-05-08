@@ -13,9 +13,11 @@ import Image from "next/image";
 import gsap from "gsap";
 import Tippy from "@tippyjs/react";
 import { Tooltip } from "react-bootstrap";
+import { useRouter } from "next/navigation";
 
-export default function Home() {
+export default function Home( ) {
   const [showTooltip, setShowTooltip] = useState(false);
+  const router = useRouter();
 
   useEffect(() => {
     const warnMessage = "ATTENZIONE: Questa console è monitorata. L'abuso sarà perseguito.";

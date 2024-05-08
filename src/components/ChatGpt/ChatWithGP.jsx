@@ -6,28 +6,26 @@ import Loader from "../Loader/Loader"
 import Image from "next/image";
 import 'tippy.js/dist/tippy.css'; // Questo importa gli stili di base
 import Tippy from '@tippyjs/react';
+import AudioVisualizer from "../ChatGpt/AudioVisualizer"; // Assicurati che il percorso sia corretto
 
 import "./chat.css"
 const ChatWithGP = () => {
   const [isListening, setIsListening] = useState(false);
   const [messages, setMessages] = useState([]);
   const [threadId, setThreadId] = useState(null);
-  const [isWait, setIsWait] = useState(false);
+  const [isWait, setIsWait] = useState(true);
   const recognitionRef = useRef(null);
   const [currentPhrase, setCurrentPhrase] = useState(0);
   const [responseReceived, setResponseReceived] = useState(false);
+  const [audioUrl, setAudioUrl] = useState(null);
 
   const phrases = ["Sto pensando...", "Sto cercando la risposta migliore", "Un momento, per favore"];
-  // const openAISettings = {
-  //   assistantId: "asst_ryDX834UsWaMAUSVrk80X1Th",
-  //   openaiApiKey: "sk-proj-WBytRlkT7hAkDrcxRVjyT3BlbkFJ5faMsZE0VRfkTt1AgyGo",
-  // };
 
   const openAISettings = {
-    assistantId: process.env.OPENAI_ASSISTANT_ID,
-    openaiApiKey: process.env.OPENAI_KEY,
-    evenlabsapiKey: process.env.ELEVENLABS_KEY
+    assistantId: "asst_ryDX834UsWaMAUSVrk80X1Th",
+    openaiApiKey: "sk-proj-QCZXoEd5c97q2NDfo5viT3BlbkFJDZD1oTbZbjHQjNyVR5eK",
   };
+
 
 
   useEffect(() => {
@@ -239,13 +237,15 @@ const ChatWithGP = () => {
           headers: {
             "Content-Type": "application/json",
             Accept: "audio/mpeg",
-            "xi-api-key": `${openAISettings.evenlabsapiKey}`,
+            "xi-api-key": `ecbae933bc567ab52fcb34df67265a6c`,
           },
         }
       );
+      
       const audioUrl = URL.createObjectURL(response.data);
+      setAudioUrl(audioUrl); // Aggiorna l'URL per AudioVisualizer
       const audio = new Audio(audioUrl);
-      audio.play();
+  
     } catch (error) {
       console.error("Failed to fetch audio from API", error);
     }
@@ -276,8 +276,8 @@ const ChatWithGP = () => {
         }
       );
       const audioUrl = URL.createObjectURL(response.data);
+      setAudioUrl(audioUrl);
       const audio = new Audio(audioUrl);
-      audio.play();
     } catch (error) {
       console.error("Failed to fetch waiting phrase audio", error);
     }
@@ -287,15 +287,22 @@ const ChatWithGP = () => {
   return (
     <div>
 {isWait && (
+  <>
         <div className="Nuvoletta">
           <Image src="/image/loaderrombo.png" width={150} height={150} alt="Nuvoletta Loading" />
         </div>
+  </>
+
       )}  
 <Tippy content="Clicca per parlare con me" className="fs-5 bg-black">
           <button onClick={toggleListening} className="Call-Button text-center">
         {isListening ? <FiMic className="text-danger" /> : <FiMic className=" " />}
       </button>
     </Tippy>
+    <div>
+    <AudioVisualizer audioUrl={audioUrl}/>
+
+    </div>
     </div>
   );
 };

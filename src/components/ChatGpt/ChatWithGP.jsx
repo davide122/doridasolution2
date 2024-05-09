@@ -1,14 +1,14 @@
 "use client";
 import React, { useState, useRef, useEffect } from "react";
 import axios from "axios";
-import { FiMic } from "react-icons/fi";
-import Loader from "../Loader/Loader"
+import { FiMic, FiStopCircle } from "react-icons/fi";
+import Loader from "../Loader/Loader";
 import Image from "next/image";
-import 'tippy.js/dist/tippy.css'; // Questo importa gli stili di base
-import Tippy from '@tippyjs/react';
+import "tippy.js/dist/tippy.css"; // Questo importa gli stili di base
+import Tippy from "@tippyjs/react";
 import AudioVisualizer from "../ChatGpt/AudioVisualizer"; // Assicurati che il percorso sia corretto
 
-import "./chat.css"
+import "./chat.css";
 const ChatWithGP = () => {
   const [isListening, setIsListening] = useState(false);
   const [messages, setMessages] = useState([]);
@@ -18,9 +18,13 @@ const ChatWithGP = () => {
   const [currentPhrase, setCurrentPhrase] = useState(0);
   const [responseReceived, setResponseReceived] = useState(false);
   const [audioUrl, setAudioUrl] = useState(null);
+  const [isAudioPlaying, setIsAudioPlaying] = useState(false);
 
-  const phrases = ["Sto pensando...", "Sto cercando la risposta migliore", "Un momento, per favore"];
-
+  const phrases = [
+    "Sto pensando...",
+    "Sto cercando la risposta migliore",
+    "Un momento, per favore",
+  ];
 
   useEffect(() => {
     const savedThreadId = localStorage.getItem("threadId");
@@ -59,7 +63,8 @@ const ChatWithGP = () => {
   };
 
   const startListening = () => {
-    const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+    const SpeechRecognition =
+      window.SpeechRecognition || window.webkitSpeechRecognition;
     if (SpeechRecognition) {
       const recognition = new SpeechRecognition();
       recognition.lang = "it-IT";
@@ -91,6 +96,23 @@ const ChatWithGP = () => {
     }
   };
 
+
+  const stopAudioPlayback = () => {
+    if (audioRef.current) {
+      audioRef.current.pause();
+      audioRef.current.currentTime = 0;
+      setIsAudioPlaying(false);
+    }
+  };
+
+  const playAudio = (audioUrl) => {
+    if (audioUrl && audioRef.current) {
+      audioRef.current.src = audioUrl;
+      audioRef.current.play();
+      setIsAudioPlaying(true);
+    }
+  };
+
   const handleSpeechToTextResult = async (speechToText) => {
     setIsWait(true);
     setResponseReceived(false);
@@ -99,10 +121,8 @@ const ChatWithGP = () => {
       // Invia il messaggio all'API
       await fetch(`/api/openai/messages/${threadId}`, {
         method: "POST",
-        headers: { 
+        headers: {
           "Content-Type": "application/json",
-
-        
         },
         body: JSON.stringify({ content: speechToText }),
       });
@@ -124,9 +144,12 @@ const ChatWithGP = () => {
 
   const checkRunCompletion = async (runId) => {
     try {
-      const statusRes = await fetch(`/api/openai/completion/${threadId}/${runId}`, {
-        method: "GET",
-      });
+      const statusRes = await fetch(
+        `/api/openai/completion/${threadId}/${runId}`,
+        {
+          method: "GET",
+        }
+      );
 
       const statusData = await statusRes.json();
       if (statusData.status === "completed") {
@@ -150,12 +173,17 @@ const ChatWithGP = () => {
         method: "GET",
       });
       const data = await messagesRes.json();
-      const assistantMessages = data.data.filter((msg) => msg.role === "assistant");
+      const assistantMessages = data.data.filter(
+        (msg) => msg.role === "assistant"
+      );
 
-      const newMessages = assistantMessages.filter((msg) => !messages.some((m) => m.id === msg.id));
+      const newMessages = assistantMessages.filter(
+        (msg) => !messages.some((m) => m.id === msg.id)
+      );
       if (newMessages.length > 0) {
         setMessages((prevMessages) => [...prevMessages, ...newMessages]);
-        const lastMessageText = newMessages[newMessages.length - 1].content[0].text.value;
+        const lastMessageText =
+          newMessages[newMessages.length - 1].content[0].text.value;
 
         await sendToEvenlabs(lastMessageText);
         setIsWait(false);
@@ -167,23 +195,29 @@ const ChatWithGP = () => {
 
   const sendToEvenlabs = async (text) => {
     try {
-      const response = await fetch('/api/openai/sendtoevenlab', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+      const response = await fetch("/api/openai/sendtoevenlab", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ text }),
       });
-  
+
       if (response.ok) {
         const { audio } = await response.json();
         // Decodifica l'audio da base64 e crea un URL
-        const audioBlob = new Blob([Uint8Array.from(atob(audio), c => c.charCodeAt(0))], { type: 'audio/mpeg' });
+        const audioBlob = new Blob(
+          [Uint8Array.from(atob(audio), (c) => c.charCodeAt(0))],
+          { type: "audio/mpeg" }
+        );
         const audioUrl = URL.createObjectURL(audioBlob);
         setAudioUrl(audioUrl);
       } else {
-        console.error('Errore nel recuperare l\'audio da ElevenLabs:', await response.json());
+        console.error(
+          "Errore nel recuperare l'audio da ElevenLabs:",
+          await response.json()
+        );
       }
     } catch (error) {
-      console.error('Errore nel recuperare l\'audio da ElevenLabs:', error);
+      console.error("Errore nel recuperare l'audio da ElevenLabs:", error);
     }
   };
   const playWaitingPhrase = async () => {
@@ -194,14 +228,28 @@ const ChatWithGP = () => {
     <div>
       {isWait && (
         <div className="Nuvoletta">
-          <Image src="/image/loaderrombo.png" width={150} height={150} alt="Nuvoletta Loading" />
+          <Image
+            src="/image/loaderrombo.png"
+            width={150}
+            height={150}
+            alt="Nuvoletta Loading"
+          />
         </div>
       )}
       <Tippy content="Clicca per parlare con me" className="fs-5 bg-black">
         <button onClick={toggleListening} className="Call-Button text-center">
-          {isListening ? <FiMic className="text-danger" /> : <FiMic className="" />}
+          {isListening ? (
+            <FiMic className="text-danger" />
+          ) : (
+            <FiMic className="" />
+          )}
         </button>
       </Tippy>
+      {isAudioPlaying && (
+        <button onClick={stopAudioPlayback}>
+          <FiStopCircle /> Interrompi audio
+        </button>
+      )}
       <div>
         <AudioVisualizer audioUrl={audioUrl} />
       </div>

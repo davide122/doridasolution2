@@ -737,7 +737,9 @@ tr:hover {
 	border-radius: 100%
 }
 .albumphoto {
-	cursor: pointer
+	cursor: pointer;
+	
+
 }
 .PositionBottomImage {
 	position: relative;

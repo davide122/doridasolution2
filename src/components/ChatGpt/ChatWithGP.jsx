@@ -131,7 +131,7 @@ const ChatWithGP = () => {
       const runRes = await fetch(`/api/openai/runs/${threadId}`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ assistantId: "asst_ryDX834UsWaMAUSVrk80X1Th" }),
+        // body: JSON.stringify({ assistantId: "asst_ryDX834UsWaMAUSVrk80X1Th" }),
       });
 
       const runData = await runRes.json();

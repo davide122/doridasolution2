@@ -15,16 +15,10 @@ const ChatWithGP = () => {
   const [threadId, setThreadId] = useState(null);
   const [isWait, setIsWait] = useState(false);
   const recognitionRef = useRef(null);
-  const [currentPhrase, setCurrentPhrase] = useState(0);
   const [responseReceived, setResponseReceived] = useState(false);
   const [audioUrl, setAudioUrl] = useState(null);
   const [isAudioPlaying, setIsAudioPlaying] = useState(false);
 
-  const phrases = [
-    "Sto pensando...",
-    "Sto cercando la risposta migliore",
-    "Un momento, per favore",
-  ];
 
   useEffect(() => {
     const savedThreadId = localStorage.getItem("threadId");
@@ -59,7 +53,6 @@ const ChatWithGP = () => {
       recognitionRef.current = null;
     }
     setIsListening(false);
-    setCurrentPhrase(0);
   };
 
   const startListening = () => {
@@ -131,7 +124,7 @@ const ChatWithGP = () => {
       const runRes = await fetch(`/api/openai/runs/${threadId}`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        // body: JSON.stringify({ assistantId: "asst_ryDX834UsWaMAUSVrk80X1Th" }),
+        body: JSON.stringify({ assistantId: "asst_ryDX834UsWaMAUSVrk80X1Th" }),
       });
 
       const runData = await runRes.json();
@@ -220,9 +213,7 @@ const ChatWithGP = () => {
       console.error("Errore nel recuperare l'audio da ElevenLabs:", error);
     }
   };
-  const playWaitingPhrase = async () => {
-    // Implementa qui la logica per riprodurre una frase di attesa
-  };
+ 
 
   return (
     <div>

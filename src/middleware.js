@@ -5,7 +5,7 @@ import { NextRequest } from 'next/server';
 function isWebAppReady() {
   // Inserisci qui la tua logica per verificare se la web app è pronta
   // Ad esempio, potresti controllare se tutti i servizi sono stati inizializzati correttamente
-  return true; // Ritorna true se la web app è pronta, altrimenti false
+  return false; // Ritorna true se la web app è pronta, altrimenti false
 }
 
 // Middleware per gestire le richieste

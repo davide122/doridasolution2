@@ -80,7 +80,7 @@ const MainContent = () => {
       <div className="text-overlay">
         <p className="fs-5 text-primary my-0 ms-md-3 ms-0">Dorida Music</p>
         <h1 className="text-white text-start fw">Arte musicale</h1>
-        <Link href={"/createsongs"} passHref className="text-primary text-decoration-none my-2 fs-5 btn-link rounded-3 ms-1">Crea la tua canzone</Link>
+        <Link href={"/createsongs"} passHref className="text-primary text-decoration-none my-2 fs-5 btn-link rounded-3 ms-1 p-md-2 fs-3">Crea la tua canzone</Link>
       </div>
     </div>
   );

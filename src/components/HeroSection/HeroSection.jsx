@@ -13,7 +13,7 @@ import "./herosection.css"
 // Attiva il plugin ScrollTrigger
 gsap.registerPlugin(ScrollTrigger);
 
-const HeroSection = () => {
+const HeroSection = ({iswait}) => {
   const [showSpline, setShowSpline] = useState(true);
   const [isMobile, setIsMobile] = useState(false);
 
@@ -67,6 +67,16 @@ const HeroSection = () => {
         </div>
 
         <div className="col-12 col-md-6">
+        {iswait && (
+        <div className="Nuvoletta">
+          <Image
+            src="/image/loaderrombo.png"
+            width={100}
+            height={100}
+            alt="Nuvoletta Loading"
+          />
+        </div>
+      )}
           <div className="spline-object vh-100 d-none d-md-block rounded-circle">
             <Spline
               scene="https://prod.spline.design/fG63sTT4o138JOix/scene.splinecode"

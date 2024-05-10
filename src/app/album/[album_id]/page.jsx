@@ -76,6 +76,7 @@ const AlbumDetailsPage = () => {
 
   return (
     <>
+   
       {loading ? (
         <div className="vh-100 bg-black d-flex justify-content-center align-items-center flex-column position-absolute top-0 zmusic ">
           <Image
@@ -88,7 +89,7 @@ const AlbumDetailsPage = () => {
           <h1 className="Title text-white">La tua musica, Sempre!</h1>
         </div>
       ) : (
-        <div className="w-100 ">
+        <div className="w-100">
           <Image
             src={albumDetails[0].cover_url}
             alt={`Copertina dell'album ${albumDetails[0].album_title}`} // Aggiungi il nome dell'album se disponibile
@@ -96,17 +97,17 @@ const AlbumDetailsPage = () => {
             height={400} // Imposta l'altezza desiderata
             className="blurra2" // Se hai bisogno di classi personalizzate per ulteriori stili
           />
-          <MyNavbar className={"position-absolute trasparent w-100 top-0 mb-3"} />
-          <div className="container my-5 d-flex align-items-center d-flex justify-content-center flex-column flex-md-row ">
+          <MyNavbar className={"position-relative trasparent w-100 top-0 mb-2 "} />
+          <div className="container d-flex align-items-center d-flex  flex-column flex-md-row ">
             <Image
               src={albumDetails[0].cover_url} // Usa l'URL dell'immagine dell'album
               alt={`Copertina dell'album di ${albumDetails[0].username}`} // Descrivi l'immagine, ad esempio "Copertina dell'album di [Artista]"
-              width={350} // Larghezza dell'immagine
-              height={350} // Altezza dell'immagine
-              className="rounded-5 position-relative img-fluid mt-3 " // Applica classi per stili come l'arrotondamento
+              width={300} // Larghezza dell'immagine
+              height={300} // Altezza dell'immagine
+              className="rounded-5 position-relative img-fluid my-3 " // Applica classi per stili come l'arrotondamento
             />
             <div className="mt-3">
-              <h1 className="text-white mx-4 position-relative text-center text-md-start Title fs-1">
+              <h1 className="text-white mx-4 position-relative text-center text-md-start Title my-0">
                 {albumDetails[0].username}
               </h1>
               <p className="text-white mx-4 position-relative  fs-6 fs-md-5 my-2  text-center text-md-start">
@@ -126,13 +127,17 @@ const AlbumDetailsPage = () => {
             onSelectSong={handleSelectSong}
           />
        
-            <div className="position-sticky bottom-0 w-100">
+           
+              <div className="player-fixed">
+
               <Player
                 song={activeSong}
                 onNextSong={handleNextSong}
                 onPreviousSong={handlePreviousSong}
               />
+
               </div>
+             
           
         </div>
       )}

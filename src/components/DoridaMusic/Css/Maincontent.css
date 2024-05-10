@@ -77,14 +77,17 @@
       height: 70vh; /* o puoi mantenere 330px se vuoi una altezza fissa */
       z-index: 0;
       position: relative;
+      
     }
-    .text-overlay{
-      position:absolute;
-      top: 270px;
-    left: -34px;
-      z-index: 1000;
-      font-weight: 800; 
-
+    .text-overlay {
+      position: absolute;
+      top: 60%; /* Posiziona il testo verticalmente al centro dello schermo */
+      left: -20px; /* Distanza dal lato sinistro dello schermo */
+      transform: translateY(-60%); /* Centra il testo verticalmente */
+      z-index: 1000; /* Assicurati che il testo rimanga sopra al carosello */
+      max-width: 50%;
+      color: white;
+   
     }
    
     
@@ -147,7 +150,7 @@ height: 50vh !important;
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgb(0, 0, 0)), /* Primo gradiente */
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.88)), /* Primo gradiente */
   linear-gradient(to top, rgba(0, 0, 0, 0.708), transparent); /* Secondo gradiente */
 background-position: top, bottom; /* Posizionamento dei gradienti */
   z-index: 2; /* Assicurati che sia sopra le immagini ma sotto il contenuto testuale se presente */

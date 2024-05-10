@@ -1,7 +1,7 @@
 "use client";
 import React, { useState, useRef, useEffect } from "react";
 import axios from "axios";
-import { FiMic, FiStopCircle } from "react-icons/fi";
+import { FiMic } from "react-icons/fi";
 import Loader from "../Loader/Loader";
 import Image from "next/image";
 import "tippy.js/dist/tippy.css"; // Questo importa gli stili di base
@@ -15,10 +15,15 @@ const ChatWithGP = () => {
   const [threadId, setThreadId] = useState(null);
   const [isWait, setIsWait] = useState(false);
   const recognitionRef = useRef(null);
+  const [currentPhrase, setCurrentPhrase] = useState(0);
   const [responseReceived, setResponseReceived] = useState(false);
   const [audioUrl, setAudioUrl] = useState(null);
-  const [isAudioPlaying, setIsAudioPlaying] = useState(false);
 
+  const phrases = [
+    "Sto pensando...",
+    "Sto cercando la risposta migliore",
+    "Un momento, per favore",
+  ];
 
   useEffect(() => {
     const savedThreadId = localStorage.getItem("threadId");
@@ -53,6 +58,7 @@ const ChatWithGP = () => {
       recognitionRef.current = null;
     }
     setIsListening(false);
+    setCurrentPhrase(0);
   };
 
   const startListening = () => {
@@ -86,23 +92,6 @@ const ChatWithGP = () => {
       setIsListening(true);
     } else {
       console.error("Speech recognition not supported.");
-    }
-  };
-
-
-  const stopAudioPlayback = () => {
-    if (audioRef.current) {
-      audioRef.current.pause();
-      audioRef.current.currentTime = 0;
-      setIsAudioPlaying(false);
-    }
-  };
-
-  const playAudio = (audioUrl) => {
-    if (audioUrl && audioRef.current) {
-      audioRef.current.src = audioUrl;
-      audioRef.current.play();
-      setIsAudioPlaying(true);
     }
   };
 
@@ -213,22 +202,27 @@ const ChatWithGP = () => {
       console.error("Errore nel recuperare l'audio da ElevenLabs:", error);
     }
   };
- 
+  const playWaitingPhrase = async () => {
+    // Implementa qui la logica per riprodurre una frase di attesa
+  };
 
   return (
     <div>
       {isWait && (
         <div className="Nuvoletta">
-          <Image
+          {/* <Image
             src="/image/loaderrombo.png"
-            width={150}
-            height={150}
+            width={100}
+            height={100}
             alt="Nuvoletta Loading"
-          />
+          /> */}
         </div>
       )}
       <Tippy content="Clicca per parlare con me" className="fs-5 bg-black">
-        <button onClick={toggleListening} className="Call-Button text-center">
+      <button
+          onClick={toggleListening}
+          className={`Call-Button text-center ${isWait ? 'is-loading' : ''}`}
+        >
           {isListening ? (
             <FiMic className="text-danger" />
           ) : (
@@ -236,11 +230,6 @@ const ChatWithGP = () => {
           )}
         </button>
       </Tippy>
-      {isAudioPlaying && (
-        <button onClick={stopAudioPlayback}>
-          <FiStopCircle /> Interrompi audio
-        </button>
-      )}
       <div>
         <AudioVisualizer audioUrl={audioUrl} />
       </div>

@@ -95,7 +95,7 @@ const Player = ({ song, onNextSong, onPreviousSong }) => {
   };
 
   return (
-    <div className="player-container d-flex justify-content-between ">
+    <div className="player-container d-flex justify-content-between bg-black ">
       <div className="track-info">
         {song && (
           <Image
@@ -103,9 +103,10 @@ const Player = ({ song, onNextSong, onPreviousSong }) => {
             alt="Album cover"
             width={64}
             height={64}
-            className="album-cover d-none d-md-block"
+            className="album-cover"
           />
         )}
+        
         <div>
           <div className="song-title d-none d-md-block">
             {song ? song.title : "Seleziona una canzone"}
@@ -138,7 +139,7 @@ const Player = ({ song, onNextSong, onPreviousSong }) => {
           </button>
         </div>
         <div>
-          <div className="d-flex">
+          <div className="d-flex time">
             {formatTime(currentTime)}
             <input
               type="range"

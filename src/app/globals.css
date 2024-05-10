@@ -943,3 +943,15 @@ button img{
   .hour {
 	animation: rotate 43200s infinite linear;
   }
+
+  /* PaymentForm.css */
+
+  .player-fixed {
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	z-index: 100; /* Assicurati che il valore sia abbastanza alto da far sì che appaia sopra gli altri contenuti */
+	width: 100%;
+	
+  }
+  

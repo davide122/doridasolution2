@@ -14,7 +14,7 @@
     "title": "Produzione di Jingle Musicali",
     "description": "Creiamo jingle musicali accattivanti e originali per promuovere i tuoi prodotti o servizi in modo memorabile.",
     "category": "Audio Production",
-    "averagePrice": 500,
+    "averagePrice": 50,
     "icon": "https://doridasolutionbucket.s3.eu-north-1.amazonaws.com/Service/jingle.png",
     "color": "#FFD700",
     "person": "Rino"
@@ -24,7 +24,7 @@
     "title": "Design Grafico",
     "description": "Realizziamo grafiche accattivanti e creative per loghi, brochure, banner pubblicitari e altro ancora.",
     "category": "Graphic Design",
-    "averagePrice": 500,
+    "averagePrice": 25,
     "icon": "https://doridasolutionbucket.s3.eu-north-1.amazonaws.com/Service/GRAPICH.png",
     "color": "#FF6347",
     "person": "Dorin"
@@ -54,7 +54,7 @@
     "title": "E-commerce Solutions",
     "description": "Creiamo e-commerce su misura per le esigenze del tuo business, garantendo un'esperienza utente intuitiva e sicura.",
     "category": "E-commerce",
-    "averagePrice": 2500,
+    "averagePrice": 1000,
     "icon": "https://doridasolutionbucket.s3.eu-north-1.amazonaws.com/Service/ecommerce.png",
     "color": "#32CD32",
     "person": "Davide"
@@ -64,7 +64,7 @@
     "title": "Creazione di libri",
     "description": "Aiutiamo a trasformare le tue memorie e le tue storie in libri pubblicabili, offrendo servizi di scrittura, editing e pubblicazione.",
     "category": "Book Publishing",
-    "averagePrice": 3500,
+    "averagePrice": 1000,
     "icon": "https://doridasolutionbucket.s3.eu-north-1.amazonaws.com/Service/libri.png",
     "color": "#FF4500",
     "person": "Rino"
@@ -74,7 +74,7 @@
     "title": "Gestione dei Social Media",
     "description": "Gestiamo i tuoi account sui social media, curando la creazione di contenuti, la gestione delle interazioni e la crescita organica dell'audience.",
     "category": "Social Media",
-    "averagePrice": 1000,
+    "averagePrice": 500,
     "icon": "https://doridasolutionbucket.s3.eu-north-1.amazonaws.com/Service/Social+Media.png",
     "color": "#00FFFF",
     "person": "Dorin"
@@ -84,7 +84,7 @@
     "title": "SEO (Search Engine Optimization)",
     "description": "Ottimizziamo il tuo sito web per i motori di ricerca, aumentando la visibilità online e migliorando il posizionamento nei risultati di ricerca.",
     "category": "SEO",
-    "averagePrice": 1800,
+    "averagePrice": 1000,
     "icon": "https://doridasolutionbucket.s3.eu-north-1.amazonaws.com/Service/seo.png",
     "color": "#9932CC",
     "person": "Dorin"
@@ -94,7 +94,7 @@
     "title": "PPC (Pay-Per-Click) Advertising",
     "description": "Gestiamo campagne pubblicitarie pay-per-click su piattaforme come Google Ads e Facebook Ads per massimizzare il ritorno sull'investimento.",
     "category": "Advertising",
-    "averagePrice": 2200,
+    "averagePrice": 100,
     "icon": "https://doridasolutionbucket.s3.eu-north-1.amazonaws.com/Service/ads.png",
     "color": "#FF1493",
     "person": "Dorin"
@@ -104,7 +104,7 @@
     "title": "Email Marketing",
     "description": "Creiamo strategie di email marketing efficaci per coinvolgere e fidelizzare i tuoi clienti, aumentando le conversioni e il valore del cliente.",
     "category": "Marketing",
-    "averagePrice": 900,
+    "averagePrice": 100,
     "icon": "https://doridasolutionbucket.s3.eu-north-1.amazonaws.com/Service/email+mark.png",
     "color": "#6495ED",
     "person": "Dorin"
@@ -114,7 +114,7 @@
     "title": "Content Writing",
     "description": "Forniamo servizi di scrittura di contenuti di alta qualità per blog, siti web, newsletter e altro ancora, per attrarre e coinvolgere il tuo pubblico.",
     "category": "Content Creation",
-    "averagePrice": 500,
+    "averagePrice": 50,
     "icon": "https://doridasolutionbucket.s3.eu-north-1.amazonaws.com/Service/content+writing.png",
     "color": "#FFA500",
     "person": "Rino"
@@ -124,7 +124,7 @@
     "title": "Video Production",
     "description": "Realizziamo video promozionali e tutorial di alta qualità per presentare i tuoi prodotti o servizi in modo coinvolgente e professionale.",
     "category": "Video Production",
-    "averagePrice": 2600,
+    "averagePrice": 1000,
     "icon": "https://doridasolutionbucket.s3.eu-north-1.amazonaws.com/Service/Video.png",
     "color": "#008000",
     "person": "Rino"
@@ -134,7 +134,7 @@
     "title": "Fotografia Professionale",
     "description": "Offriamo servizi fotografici professionali per catturare immagini di alta qualità dei tuoi prodotti, servizi o eventi aziendali.",
     "category": "Photography",
-    "averagePrice": 1500,
+    "averagePrice": 350,
     "icon": "https://doridasolutionbucket.s3.eu-north-1.amazonaws.com/Service/fotografia.png",
     "color": "#B22222",
     "person": "Rino"
@@ -144,7 +144,7 @@
     "title": "Consulenza Strategica",
     "description": "Forniamo consulenza strategica personalizzata per aiutare le aziende a identificare opportunità di crescita e a sviluppare piani d'azione efficaci.",
     "category": "Consulting",
-    "averagePrice": 5000,
+    "averagePrice": 2000,
     "icon": "https://doridasolutionbucket.s3.eu-north-1.amazonaws.com/Service/Consulenza+Strategica.png",
     "color": "#DAA520",
     "person": "Davide"
@@ -154,7 +154,7 @@
     "title": "Fotografia Aerea",
     "description": "Utilizziamo droni e tecnologie avanzate per catturare immagini aeree mozzafiato per progetti immobiliari, eventi speciali e altro ancora.",
     "category": "Aerial Photography",
-    "averagePrice": 2000,
+    "averagePrice": 300,
     "icon": "https://doridasolutionbucket.s3.eu-north-1.amazonaws.com/Service/drone.png",
     "color": "#FF6347",
     "person": "Rino"
@@ -164,7 +164,7 @@
     "title": "Video per Compleanni",
     "description": "Creiamo video personalizzati per celebrare compleanni speciali, includendo messaggi di auguri, momenti memorabili e altro ancora.",
     "category": "Event Videography",
-    "averagePrice": 800,
+    "averagePrice": 30,
     "icon": "https://doridasolutionbucket.s3.eu-north-1.amazonaws.com/Service/compleanni.png",
     "color": "#FFB6C1",
     "person": "Rino"
@@ -174,7 +174,7 @@
     "title": "Jingle Personalizzati",
     "description": "Realizziamo jingle personalizzati e orecchiabili per promuovere il tuo marchio, prodotto o servizio in modo unico e memorabile.",
     "category": "Audio Production",
-    "averagePrice": 1300,
+    "averagePrice": 50,
     "icon": "https://doridasolutionbucket.s3.eu-north-1.amazonaws.com/Service/jingle.png",
     "color": "#FFA07A",
     "person": "Rino"
@@ -184,7 +184,7 @@
     "title": "Voci Narranti",
     "description": "Offriamo voci narranti professionisti e uniche per spot pubblicitari, video aziendali, audiolibri e altro ancora, per dare vita alle tue storie.",
     "category": "Voice Over",
-    "averagePrice": 600,
+    "averagePrice": 100,
     "icon": "https://doridasolutionbucket.s3.eu-north-1.amazonaws.com/Service/voce+narrante.png",
     "color": "#6B8E23",
     "person": "Rino"
@@ -194,7 +194,7 @@
     "title": "Bot Personalizzati",
     "description": "Sviluppiamo bot personalizzati per rispondere alle domande frequenti, automatizzare processi e migliorare l'esperienza utente sui tuoi canali digitali.",
     "category": "Tech",
-    "averagePrice": 1800,
+    "averagePrice": 550,
     "icon": "https://doridasolutionbucket.s3.eu-north-1.amazonaws.com/Service/bot.png",
     "color": "#4682B4",
     "person": "Davide"
@@ -204,7 +204,7 @@
     "title": "Consulenze sull'Intelligenza Artificiale",
     "description": "Offriamo consulenze specializzate sull'intelligenza artificiale per aiutare le aziende a implementare soluzioni AI avanzate e ottenere vantaggi competitivi.",
     "category": "AI Consulting",
-    "averagePrice": 7000,
+    "averagePrice": 200,
     "icon": "https://doridasolutionbucket.s3.eu-north-1.amazonaws.com/Service/AI.png",
     "color": "#800080",
     "person": "Davide"
@@ -214,7 +214,7 @@
     "title": "Consulenze su Criptovalute",
     "description": "Forniamo consulenze esperte su criptovalute, blockchain e tecnologie finanziarie decentralizzate, aiutando i clienti a navigare nel complesso mondo delle criptovalute.",
     "category": "Crypto Consulting",
-    "averagePrice": 3000,
+    "averagePrice": 200,
     "icon": "https://doridasolutionbucket.s3.eu-north-1.amazonaws.com/Service/cripto.png",
     "color": "#B8860B",
     "person": "Davide"

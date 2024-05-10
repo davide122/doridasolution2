@@ -4,7 +4,7 @@ function SongListComponent({ songs }) {
     return (
       <div className="w-100 list">
         {songs.map((song) => (
-          <div key={song.id} className="song-item d-flex align-items-center justify-content-between mb-3">
+          <div key={song.id} className="song-item d-flex align-items-center justify-content-between">
             <div className="song-details d-flex align-items-center">
               <Image
               src={song.cover_url}

@@ -36,6 +36,7 @@ const Playlist = () => {
 
     fetchPlaylists();
   }, []);
+  
 
   if (error) return <div>Error: {error}</div>;
 

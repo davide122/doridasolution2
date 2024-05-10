@@ -35,10 +35,28 @@ const authenticate = async (_e, data) => {
     
   
 };
-
+const rememberMe = data.target[2].checked;
+if (rememberMe) {
+  localStorage.setItem("savedEmail", data.target[0].value);
+  localStorage.setItem("savedPassword", data.target[1].value);
+} else {
+  localStorage.removeItem("savedEmail");
+  localStorage.removeItem("savedPassword");
+}
 export default function LoginForm() {
   // Use useFormState hook to manage form submission and state
   const [code, action] = useFormState(authenticate, undefined);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  useEffect(() => {
+    const savedEmail = localStorage.getItem("savedEmail");
+    const savedPassword = localStorage.getItem("savedPassword");
+    if (savedEmail && savedPassword) {
+      setEmail(savedEmail);
+      setPassword(savedPassword);
+    }
+  }, []);
 
   return (
     <form
@@ -55,12 +73,14 @@ export default function LoginForm() {
           <div className="mb-4">
             <label className="form-label mb-2 mt-3" htmlFor="email">Email</label>
             <div className="position-relative">
-              <input
+            <input
                 className="form-control"
                 id="email"
                 type="email"
                 name="email"
                 placeholder="Enter your email address"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
                 required
               />
             </div>
@@ -68,12 +88,14 @@ export default function LoginForm() {
           <div className="mb-4">
             <label className="form-label mb-2 mt-3" htmlFor="password">Password</label>
             <div className="position-relative">
-              <input
+            <input
                 className="form-control"
                 id="password"
                 type="password"
                 name="password"
                 placeholder="Enter password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
                 required
                 minLength={6}
               />

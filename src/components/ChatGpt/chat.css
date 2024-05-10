@@ -59,8 +59,6 @@
 
   .Nuvoletta {
     position: absolute;
-    right: 230px;
-bottom: 260px;
     animation: scale-animation 1s infinite ease-in-out;
     display: flex;
     align-items: center;
@@ -70,7 +68,6 @@ bottom: 260px;
     z-index: 0;
   opacity: 0.8;
   transform-origin: center; /* Imposta il centro del rombo come punto di rotazione */
-
   }
   
   @keyframes scale-animation {
@@ -83,42 +80,42 @@ bottom: 260px;
   }
 
   
+
+
+  .Call-Button {
+    position: relative;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    background-color: transparent;
+    padding: 15px;
+    font-size: 17px;
+
+  }
   
 
-  @media (max-width:400px) {
-    .Nuvoletta {
-      position: absolute;
-  bottom: 200px;
-  right: -16px;
-    
+  @keyframes gradient-rotation {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
     }
   }
 
-  @media (min-width:400px) {
-    .Nuvoletta {
-      position: absolute;
-  bottom: 200px;
-  right: 10px;
-    
-    }
-
-
+  .Call-Button::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    border-radius: 50%;
+    background: linear-gradient(45deg, #ff0000, #00ff00, #0000ff);
+    z-index: -1;
+    animation: gradient-rotation 1s linear infinite;
+    display: none; /* Nasconde l'effetto per default */
   }
-
-
-  @media (min-width:1000px) {
-    .Nuvoletta {
-      position: absolute;
-  bottom: 250px;
-  right: 72px;
-    
-    }
+  .Call-Button.is-loading::before {
+    display: block; /* Mostra l'effetto quando `is-loading` è presente */
   }
-
-  @media (min-width:1200px) {
-    .Nuvoletta {
-      position: absolute;
-      right: 230px;
-  bottom: 260px;
-    
-    }}

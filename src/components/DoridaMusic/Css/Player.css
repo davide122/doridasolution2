@@ -101,23 +101,61 @@ border-radius: 10px 10px 10px 10px;
 /* Media Queries */
 @media (max-width: 768px) {
   .player-container {
-    flex-direction: column;
+    flex-direction: row; /* Mantiene gli elementi in orizzontale */
+    justify-content: center;
+    align-items: center;
+    gap: 10px; /* Spazio tra immagine e controlli */
     padding: 10px;
+    width: 100%; /* Utilizza l'intera larghezza disponibile */
+ 
+    background-color: rgba(0, 0, 0, 0.8); /* Sfondo semitrasparente per maggiore visibilità */
   }
 
   .track-info {
-    margin-bottom: 10px; /* Distanza tra le informazioni della traccia e i controlli del player */
+    display: flex;
+    flex-direction: row; /* Mantiene il layout in orizzontale */
+    align-items: center;
+    gap: 10px;
+  }
+
+  .album-cover {
+    width: 64px;
+    height: 64px;
+    border-radius: 8px; /* Arrotonda gli angoli */
+  }
+
+  .song-title,
+  .song-artist {
+    display: block; /* Rende visibili titolo e artista */
+    font-size: 1rem;
+    color: white;
+    text-align: left;
+  }
+
+  .player-controls {
+    flex-direction: row; /* Mantiene i controlli in una riga */
+    align-items: center;
+    gap: 5px;
   }
 
   .player-controls button {
-    font-size: 20px; /* Riduci la dimensione delle icone per dispositivi più piccoli */
+    font-size: 20px; /* Riduce la dimensione delle icone per schermi piccoli */
   }
 
-  .volume-slider, .progress-bar {
-    width: 100%; /* Adatta la larghezza della barra di progresso e del volume all'intera larghezza disponibile */
-  }
-
+  .volume-slider,
   .progress-bar {
-    width: 100%; /* Full width in mobile */
+    width: 100%; /* Adatta la larghezza all'intera disponibilità */
+    display: block;
+  }
+
+  .time {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    font-size: 0.8rem;
+    color: #b3b3b3;
   }
 }
+
+/* Stile specifico per dispositivi mobili */
+

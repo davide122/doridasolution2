@@ -21,5 +21,5 @@ export function middleware(request) {
 
 // Configurazione del middleware per i percorsi corrispondenti
 export const config = {
-  matcher: ["/music", "/admin", "/profile", "/services"],
+  matcher: [ "/admin", "/profile", "/services","/album/10", "/album/19","/music"],
 };

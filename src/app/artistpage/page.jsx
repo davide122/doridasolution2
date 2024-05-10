@@ -14,6 +14,7 @@ import AddAlbumForm from "../../components/album/AddAlbumForm";
 import ConfirmModal from "../../components/modal/ConfirmModal";
 import Image from "next/image";
 import Player from "../../components/DoridaMusic/Player";
+import WrappedPaymentForm from "../../components/Payments/PaymentForm";
 
 function ArtistPage() {
   const { showAlert } = useAlert();
@@ -177,14 +178,16 @@ function ArtistPage() {
           </Col>
 
           {/* Add Album Form and Add Songs to Album */}
-          <Col md={3} className="">
-            <AddAlbumForm />
+          <Col md={3} className="mt-4">
+            {/* <AddAlbumForm /> */}
             {selectedAlbum && (
               <AddSongsToAlbum
                 albumId={selectedAlbum}
                 userId={userProfile.user_id}
               />
             )}
+  <WrappedPaymentForm onPaymentSuccess={() => console.log('Pagamento completato')} />
+
             {!selectedAlbum && (
               <h2 className="text-white text-center">
                 Seleziona un album per aggiungere delle canzoni

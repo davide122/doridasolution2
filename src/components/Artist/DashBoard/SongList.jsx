@@ -10,18 +10,23 @@ const SongsList = ({ songs, onDeleteSong, onSelectSong }) => {
   const [showConfirmModal, setShowConfirmModal] = useState(false);
   const [songToDelete, setSongToDelete] = useState(null);
   const [currentTime, setCurrentTime] = useState(0);
+  const [activeSong, setActiveSong] = useState(null);
 
   const formatTime = (time) => {
     const minutes = Math.floor(time / 60);
     const seconds = Math.floor(time % 60);
     return `${minutes}:${seconds < 10 ? "0" : ""}${seconds}`;
   };
+  const handleSelectSong = (song) => {
+    setActiveSong(song);
+    onSelectSong(song);
+  };
 
   return (
-    <div className='songs-list my-3 mb-5 h-100'>
+    <div className='songs-list mb-5 pb-5'>
       {songs.map((song, index) => (
         <ListGroup.Item key={song.id}  onClick={() => onSelectSong(song)}  className=" d-flex justify-content-between align-items-center w-100 ">
-          <div className="container-fluid mx-5 d-flex justify-content-between my-2 song-item">
+          <div className="container-fluid d-flex mx-5 justify-content-between  song-item">
             <div className="d-flex align-items-center">
               <span className="track-number">{index + 1}</span>
               <Image src={song.image_songs?song.image_songs:song.cover_url} alt={`${song.title} Cover`} className="cover me-3 text-white my-2 rounded-1" />

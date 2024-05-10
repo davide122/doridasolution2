@@ -5,11 +5,11 @@
   .song-item {
     border-bottom: 1px solid rgba(255, 255, 255, 0.657) !important; /* rimuove il bordo di default */
     background-color: transparent !important; /* colore di sfondo degli elementi della lista */
-    margin-bottom: 2px; /* spazio tra gli elementi */
   }
   
   .song-item:hover {
-    background-color: rgba(255, 53, 53, 0.203) !important;; /* colore di sfondo al hover */
+    background-color:rgba(255, 255, 255, 0.128) !important; /* colore di sfondo al hover */
+    
   }
   
   .track-number {
@@ -19,8 +19,8 @@
   }
   
   .cover {
-    width: 48px; /* larghezza della copertina */
-    height: 48px; /* altezza della copertina */
+    width: 55px; /* larghezza della copertina */
+    height: 55px; /* altezza della copertina */
     object-fit: cover; /* assicura che la copertina mantenga le proporzioni */
   }
   

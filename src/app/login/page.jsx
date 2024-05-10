@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { useAlert } from "../../components/AlertComponent/AlertContext";
@@ -12,9 +12,22 @@ function LoginPage() {
   const { showAlert } = useAlert();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [rememberMe, setRememberMe] = useState(false);
   const [error, setError] = useState("");
 
-  const route = useRouter();
+  const router = useRouter();
+
+  // Recupera le credenziali salvate in localStorage
+  useEffect(() => {
+    const savedEmail = localStorage.getItem("savedEmail");
+    const savedPassword = localStorage.getItem("savedPassword");
+    if (savedEmail && savedPassword) {
+      setEmail(savedEmail);
+      setPassword(savedPassword);
+      setRememberMe(true); // Se sono salvate, il checkbox è attivato
+    }
+  }, []);
+
   const handleLogin = async (event) => {
     event.preventDefault();
     const response = await fetch("/api/user/login", {
@@ -29,8 +42,17 @@ function LoginPage() {
     if (response.ok) {
       dispatch(loginSuccess({ user: data.user, token: data.token }));
       localStorage.setItem("token", data.token);
-      // window.location.href = data.redirectUrl; // Imposta direttamente l'URL, causando un refresh completo della pagina.
-      route.push(data.redirectUrl); // Usa next/router per navigare senza refresh
+
+      // Salva le credenziali se "Ricordati di me" è selezionato
+      if (rememberMe) {
+        localStorage.setItem("savedEmail", email);
+        localStorage.setItem("savedPassword", password);
+      } else {
+        localStorage.removeItem("savedEmail");
+        localStorage.removeItem("savedPassword");
+      }
+
+      router.push(data.redirectUrl);
     } else {
       setError(data.message);
       showAlert(data.message, "danger");
@@ -40,7 +62,7 @@ function LoginPage() {
   return (
     <div className="container-fluid">
       <div className="row flex-row-reverse">
-        <div className="col-md-6 d-none d-md-block fill  ">
+        <div className="col-md-6 d-none d-md-block fill">
           <Image
             src={
               "https://doridasolutionbucket.s3.eu-north-1.amazonaws.com/donna2.svg"
@@ -50,22 +72,9 @@ function LoginPage() {
             height={500}
             className="svglogin"
           />
-          <div className="vh-100 d-flex flex-column justify-content-center align-items-center  text-white position-relative z-1">
-            <h1 className="fs-1">Sei un artista emergente?</h1>
-            <h3 className="my-2">e non hai un account?</h3>
-            <div className="login-button mt-4">
-              <Link
-                href="/register "
-                className="text-decoration-none "
-                passHref
-              >
-                Registrati ora!
-              </Link>
-            </div>
-          </div>
         </div>
-        <div className="col-12 col-md-6 vh-100 d-flex justify-content-center align-items-center bg-white ">
-          <div className="w-75 ">
+        <div className="col-12 col-md-6 vh-100 d-flex justify-content-center align-items-center bg-white">
+          <div className="w-75">
             <form onSubmit={handleLogin} className="form-container">
               <h2 className="text-start ms-2 mb-4">Login</h2>
               <div className="mb-3">
@@ -98,6 +107,8 @@ function LoginPage() {
                     type="checkbox"
                     className="form-check-input"
                     id="rememberMe"
+                    checked={rememberMe}
+                    onChange={(e) => setRememberMe(e.target.checked)}
                   />
                   <label className="form-check-label" htmlFor="rememberMe">
                     Ricordati di me

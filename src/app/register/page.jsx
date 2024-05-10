@@ -4,16 +4,6 @@ import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import Image from 'next/image';
 
-/**
- * Renders the registration page for the application.
- *
- * This component handles the user registration process, including:
- * - Rendering a form with fields for username, email, password, artist status, artist bio, and profile picture URL
- * - Updating the form state as the user types
- * - Submitting the form data to the server for registration
- * - Displaying an error message if the registration fails
- * - Redirecting the user to the login page upon successful registration
- */
 function RegisterPage() {
   const Router = useRouter();
   const [formData, setFormData] = useState({
@@ -62,15 +52,7 @@ function RegisterPage() {
         alt='Uomo che canta in versione cartoon dorida solution'
         className='svglogin2'
         />
-          <div className="vh-100 d-flex flex-column justify-content-center align-items-center  text-white position-relative z-1">
-            <h1 className="fs-1">Sei un artista emergente?</h1>
-            <h3 className="my-2">e non hai un account?</h3>
-            <div className="login-button mt-4">
-              <Link href="/login " className="text-decoration-none " passHref>
-                Login
-              </Link>
-            </div>
-          </div>
+        
         </div>
         <div className="col-12 col-md-6 vh-100 d-flex justify-content-center align-items-center bg-white">
           <div className="w-100">

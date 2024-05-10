@@ -108,21 +108,7 @@ export default function Home( ) {
       <AboutUs />
       <ChangeColor />
       <VideoPresentazione />
-      {showImage && (
-          <Image
-            src="/image/rodeo.png"
-            alt="Immagine di nova, un ai di dorida solution"
-            width={300}
-            height={300}
-            className="d-md-block d-none sticky-bottom-image"
-          />
-      )}
       <MyFooter />
-      {showTooltip && (
-        <Tooltip id="tooltip" place="top" effect="solid">
-          Clicca per parlare con me
-        </Tooltip>
-      )}
     </>
   );
 }

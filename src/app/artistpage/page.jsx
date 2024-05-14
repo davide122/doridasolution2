@@ -16,7 +16,7 @@ import Image from "next/image";
 import Player from "../../components/DoridaMusic/Player";
 import WrappedPaymentForm from "../../components/Payments/PaymentForm";
 
-function ArtistPage() {
+function ArtistPage({song}) {
   const { showAlert } = useAlert();
   const userProfile = useUserProfile();
   const [loading, setLoading] = useState(true);
@@ -28,11 +28,31 @@ function ArtistPage() {
   const [showAlbumConfirmModal, setShowAlbumConfirmModal] = useState(false);
   const [showSongConfirmModal, setShowSongConfirmModal] = useState(false);
   const [activeSong, setActiveSong] = useState(null); // Stato per la canzone attiva
+  const [activeSongIndex, setActiveSongIndex] = useState(0); // Stato per gestire l'indice della canzone attiva
 
   useArtistCheck();
 
+  const handleNextSong = () => {
+    const nextSongIndex = (activeSongIndex + 1) % songs.length;
+    setActiveSongIndex(nextSongIndex);
+    setActiveSong(songs[nextSongIndex]);
+  };
+
+  const handlePreviousSong = () => {
+    const previousSongIndex =
+      (activeSongIndex - 1 + songs.length) %  songs.length;
+    setActiveSongIndex(previousSongIndex);
+    setActiveSong(songs[previousSongIndex]);
+  };
+
+  const handleSelectSong = (song) => {
+    setActiveSong(song);
+    console.log(song);
+  };
+
   useEffect(() => {
     async function fetchAlbums() {
+      setLoading(true)
       try {
         const token = localStorage.getItem("token");
         const response = await fetch("/api/songs/album", {
@@ -137,16 +157,16 @@ function ArtistPage() {
       ) : (
         <Row>
           {/* Sidebar */}
-          <Col md={2} sm={12} className="d-flex flex-row flex-md-column d-none d-md-block text-white">
-            <div className="p-3 d-flex align-items-center">
+          <Col md={2} sm={12} className="d-flex flex-row flex-md-column d-none d-md-block text-white pb-2">
+            <div className="p-3 d-flex align-items-center p-2">
               <Image
                 src="/logo.png"
                 alt="Dorida Solution Logo"
                 width={60}
                 height={60}
-                className=" "
+                className=""
               />
-              <h4>Music</h4>
+              <h4 className="my-2">Music</h4>
             </div>
             <Nav className="flex-column mt-4">
               <MenuComponent />
@@ -165,10 +185,14 @@ function ArtistPage() {
                   onAlbumSelect={setSelectedAlbum}
                   onDeleteAlbum={openConfirmModal}
                 />
+              <div className="w-100 border-bottom border-1 mb-3 mt-2">
+
+              </div>
                 <div className="colnav">
                   <SongsList
                     songs={songs}
                     onDeleteSong={openSongConfirmModal}
+                    onSelectSong={handleSelectSong}
                   />
                 </div>
               </>
@@ -178,7 +202,7 @@ function ArtistPage() {
           </Col>
 
           {/* Add Album Form and Add Songs to Album */}
-          <Col md={3} className="mt-4">
+          <Col md={3} className="mt-0 pb-5">
             {/* <AddAlbumForm /> */}
             {selectedAlbum && (
               <AddSongsToAlbum
@@ -196,6 +220,14 @@ function ArtistPage() {
           </Col>
         </Row>
       )}
+      <div className="player-fixed">
+     <Player
+       song={activeSong}
+       onNextSong={handleNextSong}
+       onPreviousSong={handlePreviousSong}
+     />
+        
+      </div>
 
       {/* Modal for confirming album deletion */}
       <ConfirmModal
@@ -216,7 +248,6 @@ function ArtistPage() {
       >
         Sei sicuro di voler eliminare questa canzone?
       </ConfirmModal>
-     
     </Container>
   );
 }

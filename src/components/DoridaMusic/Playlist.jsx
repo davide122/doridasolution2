@@ -4,6 +4,7 @@ import "./Css/playlist.css";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import SkeletonLoader from "../Loader/SkeletonLoader/SkeletonLoader";
+import Link from "next/link";
 
 const Playlist = () => {
   const [playlists, setPlaylists] = useState([]);
@@ -52,6 +53,7 @@ const Playlist = () => {
         </h3>
         <div className="carousel ms-3 shadow2">
           {playlists.map((playlist, index) => (
+<Link href={`/album/${playlist.album_id}`} key={playlist.album_id || index}>
             <div
               key={playlist.album_id || index}
               className="playlist-card"
@@ -71,6 +73,8 @@ const Playlist = () => {
                 <SkeletonLoader />
               )}
             </div>
+</Link>
+
           ))}
         </div>
       </div>

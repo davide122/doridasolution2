@@ -4,6 +4,7 @@ import { FiPlay } from "react-icons/fi";
 import "./Css/Maincontent.css";
 import Image from "next/image";
 import Link from "next/link";
+import useAuth from "../../components/Hook/useAuth"
 
 const immagini = [
   {
@@ -38,9 +39,12 @@ const immagini = [
   },
 ];
 const MainContent = () => {
+
+
   const [currentImage, setCurrentImage] = useState(0);
   const [opacity, setOpacity] = useState(1);
-
+  const { isAuthenticated, user_id, isLoading } = useAuth();
+  console.log(user_id);
   useEffect(() => {
     const intervalId = setInterval(() => {
       setOpacity(0); // Imposta l'opacità a 0
@@ -78,9 +82,9 @@ const MainContent = () => {
       />
       <div className="blur-overlay"></div>
       <div className="text-overlay">
-        <p className="fs-5 text-primary my-0 ms-md-3 ms-0">Dorida Music</p>
-        <h1 className="text-white text-start fw">Arte musicale</h1>
-        <Link href={"/createsongs"} passHref className="text-primary text-decoration-none my-2 fs-5 btn-link rounded-3 ms-1 p-md-2 fs-3">Crea la tua canzone</Link>
+        <p className="fs-5 Lilla2  my-0 ms-md-3 ms-0">Dorida Music</p>
+        <h1 className="text-white text-start fw ">Arte musicale</h1>
+        <Link href={"/createsongs"} passHref className="text-decoration-none  p-0  btn rounded-2 ms-1 p-md-2 fs-4 LillaBG">Crea la tua canzone</Link>
       </div>
     </div>
   );

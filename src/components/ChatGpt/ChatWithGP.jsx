@@ -15,10 +15,11 @@ const ChatWithGP = () => {
   const [threadId, setThreadId] = useState(null);
   const [isWait, setIsWait] = useState(false);
   const recognitionRef = useRef(null);
-  const [currentPhrase, setCurrentPhrase] = useState(0);
   const [responseReceived, setResponseReceived] = useState(false);
   const [audioUrl, setAudioUrl] = useState(null);
-
+const [finish, setfinish] = useState(false);
+const [domanda,setdomanda] = useState("");
+const [tip,settip]=useState(false)
   const phrases = [
     "Sto pensando...",
     "Sto cercando la risposta migliore",
@@ -26,11 +27,11 @@ const ChatWithGP = () => {
   ];
 
   useEffect(() => {
-    const savedThreadId = localStorage.getItem("threadId");
-    if (savedThreadId) {
-      setThreadId(savedThreadId);
-    } else {
+    // Imposta un threadId nuovo per ogni sessione del browser
+    if (!sessionStorage.getItem("threadId")) {
       createNewThread();
+    } else {
+      setThreadId(sessionStorage.getItem("threadId"));
     }
   }, []);
 
@@ -41,10 +42,11 @@ const ChatWithGP = () => {
 
     const newThread = await res.json();
     setThreadId(newThread.id);
-    localStorage.setItem("threadId", newThread.id);
+    sessionStorage.setItem("threadId", newThread.id);
   };
 
   const toggleListening = () => {
+    settip(true)
     if (isListening) {
       stopListening();
     } else {
@@ -72,14 +74,17 @@ const ChatWithGP = () => {
 
       recognition.onresult = async (event) => {
         const speechToText = event.results[0][0].transcript;
+
         handleSpeechToTextResult(speechToText);
+        setdomanda(speechToText)
+        handleSendQuestion(speechToText)
       };
 
       recognition.onend = () => {
         setIsListening(false);
         setTimeout(() => {
           if (!responseReceived) {
-            playWaitingPhrase();
+            // playWaitingPhrase();
           }
         }, 10000);
       };
@@ -145,7 +150,7 @@ const ChatWithGP = () => {
       }
     } catch (error) {
       console.error("Errore nel verificare il completamento:", error);
-      setIsWait(false);
+      setIsWait(true);
     }
   };
 
@@ -192,6 +197,9 @@ const ChatWithGP = () => {
         );
         const audioUrl = URL.createObjectURL(audioBlob);
         setAudioUrl(audioUrl);
+        audio.onended = () => {
+          setfinish(true)
+        }
       } else {
         console.error(
           "Errore nel recuperare l'audio da ElevenLabs:",
@@ -202,23 +210,31 @@ const ChatWithGP = () => {
       console.error("Errore nel recuperare l'audio da ElevenLabs:", error);
     }
   };
-  const playWaitingPhrase = async () => {
-    // Implementa qui la logica per riprodurre una frase di attesa
-  };
+ 
+  const handleSendQuestion = async (userQuestion) => {
+    try {
+        const response = await fetch('/api/openai/savedata', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ domanda: userQuestion })
+        });
+
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+
+        const result = await response.json();
+        setDomanda(result); // Supponendo che l'API restituisca l'oggetto intero salvato
+    } catch (error) {
+        console.error("Failed to fetch: ", error);
+    }
+};
 
   return (
     <div>
-      {isWait && (
-        <div className="Nuvoletta">
-          {/* <Image
-            src="/image/loaderrombo.png"
-            width={100}
-            height={100}
-            alt="Nuvoletta Loading"
-          /> */}
-        </div>
-      )}
-      <Tippy content="Clicca per parlare con me" className="fs-5 bg-black">
+      <Tippy content="Parla con nova" className={`fs-6 bg-black ${tip && "d-none"}`} animateFill={true} animation="scale" placement="bottom" duration={100} visible hideOnClick={true} inertia moveTransition="10px"  >
       <button
           onClick={toggleListening}
           className={`Call-Button text-center ${isWait ? 'is-loading' : ''}`}

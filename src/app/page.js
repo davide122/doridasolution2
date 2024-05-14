@@ -14,8 +14,30 @@ import gsap from "gsap";
 import Tippy from "@tippyjs/react";
 import { Tooltip } from "react-bootstrap";
 import { useRouter } from "next/navigation";
+import WhyUs from "../components/whyus/WhyUs";
+import { RiWhatsappFill } from "react-icons/ri";
+import Link from "next/link";
 
 export default function Home( ) {
+
+
+
+  const WhatsAppButton = () => {
+    const whatsappNumber = "3923171968"; // Sostituisci con il tuo numero in formato internazionale senza "+"
+    const defaultMessage = "Ciao, vorrei avere più informazioni!";
+    const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(defaultMessage)}`;
+  
+    return (
+      <Link
+        href={whatsappURL}
+        target="_blank"
+        rel="noopener noreferrer"
+        className=""
+      >
+     <RiWhatsappFill className="fs-1 What"></RiWhatsappFill>
+      </Link>
+    );
+  };
   const [showTooltip, setShowTooltip] = useState(false);
   const router = useRouter();
 
@@ -100,6 +122,9 @@ export default function Home( ) {
 
   return (
     <>
+<div className="position-fixed bottom-0 end-0 zz p-3">
+ <WhatsAppButton></WhatsAppButton>
+</div>
       <MyNavbar />
       <HeroSection />
       <Carouseltext />
@@ -108,6 +133,7 @@ export default function Home( ) {
       <AboutUs />
       <ChangeColor />
       <VideoPresentazione />
+      {/* <WhyUs/> */}
       <MyFooter />
     </>
   );

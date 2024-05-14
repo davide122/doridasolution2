@@ -120,7 +120,7 @@ html {
 	z-index: 100
 }
 .Utilies {
-	bottom: 14%;
+	bottom: 3%;
 	right: 10%;
 	z-index: 100
 }
@@ -354,7 +354,7 @@ html {
 	padding: .8em 1.5em .8em 1.2em;
 	color: #fff;
 	background: #ad5389;
-	background: linear-gradient(0deg, #4d36d0 0, #8474fe 100%);
+	background: linear-gradient(0deg, rgb(77, 54, 208) 0, #8474fe 100%);
 	border: none;
 	box-shadow: 0 .7em 1.5em -.5em #4d36d0be;
 	border-radius: 20em
@@ -446,7 +446,10 @@ html {
 	margin: 10px 10px 20px
 }
 .Lilla {
-	color: #ec6aff
+	color: #ec6aff;
+}
+.Lilla2 {
+	color: #ec6aff;
 }
 .Blu {
 	color: #05024d
@@ -955,3 +958,13 @@ button img{
 	
   }
   
+  .zz{
+	z-index: 100;
+	cursor: pointer;
+  }
+
+
+
+  .What{
+	color:rgb(57, 208, 54)!important;
+  }

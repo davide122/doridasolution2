@@ -13,7 +13,7 @@ export async function POST() {
         headers: {
           Authorization: `Bearer ${openAIKey}`,
           'Content-Type': 'application/json',
-          'OpenAI-Beta': 'assistants=v1',
+          'OpenAI-Beta': 'assistants=v2',
         },
       }
     );

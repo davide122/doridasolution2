@@ -16,7 +16,7 @@ import Image from "next/image";
 import Player from "../../components/DoridaMusic/Player";
 import WrappedPaymentForm from "../../components/Payments/PaymentForm";
 
-function ArtistPage({song}) {
+function ArtistPage() {
   const { showAlert } = useAlert();
   const userProfile = useUserProfile();
   const [loading, setLoading] = useState(true);

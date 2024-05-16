@@ -9,7 +9,7 @@ export async function POST(request) {
     }
 
     try {
-        const { username, email, password, is_artist, artist_bio, profile_picture_url, isAdmin } = await request.json();
+        const { username, email, password, is_artist, artist_bio, profile_picture_url, isAdmin, assistant_id } = await request.json();
 
         // Controllo che tutti i campi richiesti siano presenti
         if (!username || !email || !password) {
@@ -21,11 +21,11 @@ export async function POST(request) {
 
         // Inserimento dell'utente nel database
         const queryText = `
-            INSERT INTO users (username, email, hashed_password, is_artist, artist_bio, profile_picture_url, is_admin)
-            VALUES ($1, $2, $3, $4, $5, $6, $7)
+            INSERT INTO users (username, email, hashed_password, is_artist, artist_bio, profile_picture_url, is_admin, assistant_id)
+            VALUES ($1, $2, $3, $4, $5, $6, $7, $8)
             RETURNING user_id, username, email, is_artist, is_admin;
         `;
-        const queryParams = [username, email, hashedPassword, is_artist || false, artist_bio, profile_picture_url, isAdmin || false];
+        const queryParams = [username, email, hashedPassword, is_artist || false, artist_bio, profile_picture_url, isAdmin,assistant_id|| false];
         const { rows } = await pool.query(queryText, queryParams);
 
         // Restituzione della risposta

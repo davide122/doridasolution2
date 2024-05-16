@@ -1,11 +1,12 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Slider from "react-slick";
 import ServiceModal from "./ServiceModal";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Image from "next/image";
-
+import { motion, useAnimation } from "framer-motion";
+import { throttle } from "lodash";
 const ServicesExplain = () => {
   const Orizzontalesx1 =
     "https://doridasolutionbucket.s3.eu-north-1.amazonaws.com/Image/Graficheexplain/BRANDING.png";
@@ -25,6 +26,46 @@ const ServicesExplain = () => {
     "https://doridasolutionbucket.s3.eu-north-1.amazonaws.com/Image/Graficheexplain/SVILUPPO+WEB.png";
   const [modalContent, setModalContent] = useState(null);
   const [modalShow, setModalShow] = useState(false);
+  const [isCarouselFixed, setIsCarouselFixed] = useState(false);
+  const carouselRef = useRef(null);
+  const [scrollY, setScrollY] = useState(0);
+  const controls = useAnimation();
+
+  
+  const checkCarouselVisibility = () => {
+    const rect = carouselRef.current.getBoundingClientRect();
+    setIsCarouselFixed(rect.top <= 0 && rect.bottom >= window.innerHeight);
+  };
+
+  useEffect(() => {
+    window.addEventListener('scroll', checkCarouselVisibility, { passive: true });
+    return () => window.removeEventListener('scroll', checkCarouselVisibility);
+  }, []);
+
+  useEffect(() => {
+    const handleScroll = (event) => {
+      if (isCarouselFixed) {
+        event.preventDefault(); // Blocca lo scroll della pagina
+        // Aggiungi qui logica per scorrere gli slide se necessario
+      }
+    };
+
+    window.addEventListener('wheel', handleScroll, { passive: false });
+
+    return () => {
+      window.removeEventListener('wheel', handleScroll);
+    };
+  }, [isCarouselFixed]);
+
+ 
+  
+  useEffect(() => {
+    controls.start({
+      x: -scrollY / 2,
+      transition: { type: "spring", stiffness: 300 },
+    });
+  }, [scrollY, controls]);
+
   const settings = {
     dots: true, // continua a mostrare i puntini di navigazione in basso, se li vuoi ancora
     infinite: true,
@@ -160,13 +201,18 @@ const ServicesExplain = () => {
 
   return (
     <div className="container-fluid slide mb-5">
-      {/* Carosello visibile solo su dispositivi mobili */}
-      <div className="d-md-none">
+    {/* Carosello visibile solo su dispositivi mobili */}
+    <div className="d-md-none">
+      <motion.div
+        animate={controls}
+        style={{
+          width: "100%",
+          height: "80vh", // Altezza aumentata per i dispositivi mobili
+        }}
+      >
         <Slider {...settings} className="my-3">
           {columnData
-            .flatMap((column) =>
-              column.images.filter((image) => !image.vertical)
-            )
+            .flatMap((column) => column.images.filter((image) => !image.vertical))
             .map((image) => (
               <div
                 key={image.id}
@@ -185,7 +231,8 @@ const ServicesExplain = () => {
               </div>
             ))}
         </Slider>
-      </div>
+      </motion.div>
+    </div>
 
       {/* Layout griglia per dispositivi non mobili */}
       <div className="d-none d-md-flex row cursor">

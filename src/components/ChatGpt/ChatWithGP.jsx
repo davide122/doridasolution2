@@ -146,7 +146,7 @@ const [tip,settip]=useState(false)
         alert("L'assistente ha riscontrato un errore.");
         setIsWait(false);
       } else {
-        setTimeout(() => checkRunCompletion(runId), 2000);
+        setTimeout(() => checkRunCompletion(runId), 700);
       }
     } catch (error) {
       console.error("Errore nel verificare il completamento:", error);

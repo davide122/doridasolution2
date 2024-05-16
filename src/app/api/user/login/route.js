@@ -21,6 +21,7 @@ export async function POST(request) {
         if (!isMatch) {
             return new NextResponse(JSON.stringify({ message: 'Password errata' }), { status: 401 });
         }
+        
         const token = jwt.sign({
             user_id: user.user_id,
             is_artist: user.is_artist,
@@ -36,11 +37,14 @@ export async function POST(request) {
             redirectUrl = '/';
         }
 
-        // Restituisci il token e l'URL di redirect
-        return new NextResponse(JSON.stringify({ token, redirectUrl }), { status: 200, headers: { 'Content-Type': 'application/json' } });
+        return new NextResponse(JSON.stringify({
+            token,
+            redirectUrl,
+            assistant_id: user.assistant_id // Include assistant_id nella risposta
+        }), { status: 200 });
     } catch (error) {
-        console.error('Login error:', error);
-        return new NextResponse(JSON.stringify({ message: 'Errore durante il login', error: error.message }), { status: 500 });
+        console.error(error);
+        return new NextResponse(JSON.stringify({ message: 'Errore del server' }), { status: 500 });
     }
 }
 

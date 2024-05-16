@@ -1,4 +1,3 @@
-// Funzione che recupera i dettagli dell'album, incluso l'elenco delle canzoni
 async function fetchAlbumDetails(album_id) {
   const response = await fetch(`https://www.doridasolution.com/api/songs/album/${album_id}`, {
     cache: "no-store",
@@ -19,21 +18,19 @@ export async function generateMetadata({ params }) {
     throw new Error("Album not found");
   }
 
-  // Estrai le informazioni dell'album (il primo elemento dell'array)
   const album = albumDetails[0];
 
   // Recupera tutti i titoli delle canzoni nell'album
   const songTitles = albumDetails.map((song) => song.title);
-  const firstFewSongs = songTitles.slice(0, 3).join(", "); // Mostra solo le prime 3 canzoni
+  const firstFewSongs = songTitles.slice(0, 3).join(", ");
 
-  // Genera un elenco più ampio di parole chiave
   const keywords = [
     "album",
     album.album_title,
     album.username,
     "musica",
     "artisti",
-    ...songTitles, // Aggiungi i titoli delle canzoni come parole chiave
+    ...songTitles, 
   ];
 
   return {

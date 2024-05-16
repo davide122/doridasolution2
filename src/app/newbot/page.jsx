@@ -17,7 +17,15 @@ const WebBot = () => {
   const [isWait, setIsWait] = useState(false);
   const messagesEndRef = useRef(null);
   const [loadingDots, setLoadingDots] = useState(''); // Stato per i pallini di caricamento
-  const audioRef = useRef(new Audio('/Notification.mp3')); // Path to your audio file
+  const audioRef = useRef();
+
+
+  useEffect(() => {
+    // This ensures Audio is only defined in browser environments
+    if (typeof window !== "undefined") {
+      audioRef.current = new Audio('/Notification.mp3');
+    }
+  }, []);
 
   useEffect(() => {
     const token = localStorage.getItem('token');

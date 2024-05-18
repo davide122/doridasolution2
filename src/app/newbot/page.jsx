@@ -254,7 +254,7 @@ const WebBot = () => {
   }
 
   return (
-    <div className="chat-container">
+    <div className="chat-container w-100">
       <div className="chat-window">
         <div className='NavChat d-flex justify-content-between align-items-center'>
           <Image src={"https://doridasolutionbucket.s3.eu-north-1.amazonaws.com/logobot/BotAvvocato.webp"} alt='Icona del bot avvocatura' width={80} height={80} className='img-fluid rounded-circle'></Image>
@@ -269,7 +269,7 @@ const WebBot = () => {
           )}
           <div ref={messagesEndRef} />
         </div>
-        <div className="chat-input container d-flex justify-content-center">
+        <div className="chat-input container d-flex justify-content-center w-100 mx-2">
           <input
             type="text"
             value={inputMessage}

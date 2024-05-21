@@ -1084,7 +1084,7 @@ button img{
   .custom-heading {
 	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 	font-weight: bold;
-	color: #333;
+	color: #ffffff;
 	margin-top: 1.5em;
 	margin-bottom: 0.5em;
   }
@@ -1162,4 +1162,7 @@ button img{
 
 
 
-  
+  .card-footer{
+	background-color: transparent !important;
+	width: 100%;
+  }

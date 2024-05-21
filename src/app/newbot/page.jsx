@@ -2,11 +2,15 @@
 import React, { useState, useEffect, useRef } from "react";
 import axios from "axios";
 import { FiCopy } from "react-icons/fi";
-import { jsPDF } from "jspdf"; // Importa jsPDF
-import formatText from "../../components/Hook/formatText"; // Importa la funzione di formattazione
+import { jsPDF } from "jspdf";
+import formatText from "../../components/Hook/formatText";
 import Image from "next/image";
 import { FaMicrophoneAlt } from "react-icons/fa";
 import { parseDocument } from 'htmlparser2';
+import styles from "../../app/page.module.css" // Aggiungi questa riga per importare lo stile
+import { Dropdown, DropdownButton } from "react-bootstrap";
+import { IoSend } from "react-icons/io5";
+
 const WebBot = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -17,7 +21,7 @@ const WebBot = () => {
   const [threadId, setThreadId] = useState(null);
   const [isWait, setIsWait] = useState(false);
   const messagesEndRef = useRef(null);
-  const [loadingDots, setLoadingDots] = useState(""); // Stato per i pallini di caricamento
+  const [loadingDots, setLoadingDots] = useState("");
   const audioRef = useRef();
   const [iframeCode, setIframeCode] = useState("");
 
@@ -59,7 +63,6 @@ const WebBot = () => {
   };
 
   useEffect(() => {
-    // This ensures Audio is only defined in browser environments
     if (typeof window !== "undefined") {
       audioRef.current = new Audio("/Notification.mp3");
     }
@@ -76,7 +79,6 @@ const WebBot = () => {
   }, []);
 
   useEffect(() => {
-    // Play sound only when the last message is from the assistant
     if (
       messages.length > 1 &&
       messages[messages.length - 2].role === "assistant"
@@ -250,11 +252,8 @@ const WebBot = () => {
   };
 
   const handleCopyMessage = (htmlContent) => {
-    // Create a new div element
     const tempDiv = document.createElement("div");
-    // Set the HTML content to the div
     tempDiv.innerHTML = htmlContent;
-    // Use the textContent property to get the raw text without HTML tags
     const textContent = tempDiv.textContent || tempDiv.innerText || "";
 
     navigator.clipboard
@@ -268,60 +267,52 @@ const WebBot = () => {
       });
   };
 
+  const handleExportMessagePDF = (message) => {
+    const doc = new jsPDF();
 
+    const content = convertHtmlToText(message.content);
 
-const handleExportMessagePDF = (message) => {
-  const doc = new jsPDF();
+    const margins = {
+      top: 20,
+      bottom: 20,
+      left: 20,
+      width: 170,
+    };
 
-  const content = convertHtmlToText(message.content);
+    doc.setFont("helvetica", "normal");
+    doc.setFontSize(15);
 
-  const margins = {
-    top: 20,
-    bottom: 20,
-    left: 20,
-    width: 170,
+    doc.text("Messaggio dell'Assistente", margins.left, margins.top - 10);
+
+    doc.text(content, margins.left, margins.top, {
+      maxWidth: margins.width,
+    });
+
+    doc.save("MessaggioAssistente.pdf");
   };
 
-  doc.setFont("helvetica", "normal");
-  doc.setFontSize(15);
+  const convertHtmlToText = (html) => {
+    const document = parseDocument(html);
 
-  // Aggiungi il titolo
-  doc.text("Messaggio dell'Assistente", margins.left, margins.top - 10);
+    const traverse = (node) => {
+      let text = '';
+      if (node.type === 'text') {
+        text += node.data;
+      } else if (node.children && node.children.length) {
+        node.children.forEach(child => {
+          text += traverse(child);
+        });
+      }
+      if (node.name === 'br') {
+        text += '\n';
+      } else if (node.name === 'p') {
+        text += '\n\n';
+      }
+      return text;
+    };
 
-  // Aggiungi il contenuto del messaggio
-  doc.text(content, margins.left, margins.top, {
-    maxWidth: margins.width,
-  });
-
-  doc.save("MessaggioAssistente.pdf");
-};
-
-const convertHtmlToText = (html) => {
-  const document = parseDocument(html);
-
-  const traverse = (node) => {
-    let text = '';
-    if (node.type === 'text') {
-      text += node.data;
-    } else if (node.children && node.children.length) {
-      node.children.forEach(child => {
-        text += traverse(child);
-      });
-    }
-    if (node.name === 'br') {
-      text += '\n';
-    } else if (node.name === 'p') {
-      text += '\n\n';
-    }
-    return text;
+    return traverse(document);
   };
-
-  return traverse(document);
-};
-
-
-
-
 
   const handleExportChatPDF = () => {
     const doc = new jsPDF();
@@ -339,7 +330,7 @@ const convertHtmlToText = (html) => {
 
     messages.forEach((msg) => {
       const role = msg.role === "user" ? "User" : "Assistant";
-      const content = msg.content.split().reverse(); // Remove HTML tags
+      const content = msg.content.split().reverse();
 
       y += 5;
 
@@ -348,7 +339,6 @@ const convertHtmlToText = (html) => {
       y += splitText.length * 10;
 
       if (y >= 280) {
-        // Se si avvicina al fondo della pagina
         doc.addPage();
         y = margins.top;
       }
@@ -362,23 +352,23 @@ const convertHtmlToText = (html) => {
       (a, b) => a.timestamp - b.timestamp
     );
     return sortedMessages.map((msg) => (
-      <div className={`chat-message ${msg.role}-message`} key={msg.id}>
+      <div className={`${styles.chatMessage} ${msg.role === 'user' ? styles.userMessage : styles.assistantMessage}`} key={msg.id}>
         <div
-          className="message-content"
+          className={styles.messageContent}
           dangerouslySetInnerHTML={{ __html: msg.content }}
         />
-        <div className="message-info">
-          <span className="timestamp">
+        <div className={styles.messageInfo}>
+          <span className={styles.timestamp}>
             {new Date(msg.timestamp).toLocaleTimeString()}
           </span>
           <FiCopy
-            className="copy-icon"
+            className={styles.copyIcon}
             onClick={() => handleCopyMessage(msg.content)}
           />
           {msg.role === "assistant" && (
             <button
               onClick={() => handleExportMessagePDF(msg)}
-              className="btn btn-secondary"
+              className={`btn btn-secondary ${styles.exportButton}`}
             >
               Esporta PDF
             </button>
@@ -390,13 +380,14 @@ const convertHtmlToText = (html) => {
 
   if (!isLoggedIn) {
     return (
-      <form onSubmit={handleLogin} className="login-form">
+      <form onSubmit={handleLogin} className={styles.loginForm}>
         <input
           type="email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           placeholder="Email"
           required
+          className={styles.inputField}
         />
         <input
           type="password"
@@ -404,69 +395,68 @@ const convertHtmlToText = (html) => {
           onChange={(e) => setPassword(e.target.value)}
           placeholder="Password"
           required
+          className={styles.inputField}
         />
-        <button type="submit">Login</button>
-        {error && <p>{error}</p>}
+        <button type="submit" className="btn btn-primary">Login</button>
+        {error && <p className={styles.errorText}>{error}</p>}
       </form>
     );
   }
 
   return (
-    <div className="chat-container container-fluid">
-    <div className="row">
-      <div className="col-4 chat-list bg-light p-3">
+    <div className={`container-fluid ${styles.chatContainer}`}>
+    <div className={`row ${styles.fullHeight}`}>
+      <div className={`col-md-2 col-0 d-none d-md-block ${styles.chatList} vh-100`}>
         <h3 className="text-center">Chat Disponibili</h3>
-        <div className="chat-placeholder p-3 my-2 border rounded">
-          {/* Placeholder per le chat disponibili */}
+        <div className={`p-3 my-2 border rounded ${styles.chatPlaceholder}`}>
           Nessuna chat disponibile
         </div>
-        {/* Aggiungere qui la logica per visualizzare le chat disponibili */}
       </div>
-      <div className="col-8 chat-window-container">
-        <div className="chat-window card shadow-sm">
-          <div className="card-header d-flex justify-content-between align-items-center">
+      <div className={`col-md-10 col-12${styles.chatWindowContainer} vh-100`}>
+        <div className={`card shadow-sm ${styles.chatWindow} vh-100`}>
+          <div className={`card-header ${styles.cardHeader} d-flex justify-content-between align-items-center`}>
             <Image
               src="https://doridasolutionbucket.s3.eu-north-1.amazonaws.com/logobot/BotAvvocato.webp"
               alt="Icona del bot avvocatura"
               width={50}
               height={50}
-              className="img-fluid rounded-circle"
+              className={`img-fluid rounded-circle ${styles.botIcon}`}
             />
-            <h2 className="Title fs-4 text-primary m-0">Assistente Avvocato</h2>
+            <h2 className={`fs-4 m-0 ${styles.title}`}>Assistente Avvocato</h2>
+            <DropdownButton
+              id="dropdown-basic-button"
+              title="Impostazioni"
+              className="text-black bg-black"
+            >
+              <Dropdown.Item className="text-black" onClick={handleNewChat}>Nuova Chat</Dropdown.Item>
+              <Dropdown.Item className="text-black" onClick={handleExportChatPDF}>Esporta Chat</Dropdown.Item>
+              <Dropdown.Item className="text-black" onClick={handleShowIframeCode}>Includi nel tuo sito</Dropdown.Item>
+            </DropdownButton>
           </div>
-          <div className="card-body chat-messages overflow-auto">
+          <div className={`card-body ${styles.chatMessages}`}>
             {renderMessages()}
             {isWait && (
-              <div className="loading-dots">
-                {/* Aggiungi qui i pallini di caricamento */}
+              <div className={styles.loadingDots}>
+                {loadingDots}
               </div>
             )}
             <div ref={messagesEndRef} />
           </div>
-          <div className="card-footer chat-input d-flex justify-content-between align-items-center">
+          <div className={`card-footer ${styles.chatInput} d-flex justify-content-center align-items-center flex-row`}> 
             <input
               type="text"
               value={inputMessage}
               onChange={handleInputChange}
               onKeyDown={handleKeyDown}
               placeholder="Scrivi un messaggio..."
-              className="form-control me-2"
+              className={`form-control ${styles.inputField}`}
             />
-            <button onClick={handleSendMessage} disabled={isWait} className="btn btn-primary">
-              Invia
-            </button>
-            <button onClick={handleNewChat} className="btn btn-warning mx-2">
-              Nuova Chat
-            </button>
-            <button onClick={handleExportChatPDF} className="btn btn-secondary mx-2">
-              Esporta Chat
-            </button>
-            <button onClick={handleShowIframeCode} className="btn btn-primary mx-2">
-              Includi nel tuo sito
+            <button onClick={handleSendMessage} disabled={isWait} className={`${styles.button} ${styles.sendButton} `}>
+              <IoSend className="fs-4"></IoSend>
             </button>
           </div>
           {iframeCode && (
-            <div className="iframe-code-container mt-3">
+            <div className={`mt-3 ${styles.iframeContainer}`}>
               <h3>Codice per includere nel tuo sito web:</h3>
               <textarea readOnly value={iframeCode} rows="10" cols="80" className="form-control" />
             </div>
@@ -476,6 +466,6 @@ const convertHtmlToText = (html) => {
     </div>
   </div>
   );
-}; 
+};
 
 export default WebBot;

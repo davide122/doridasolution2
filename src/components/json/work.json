@@ -1,72 +1,83 @@
-{
-    "lavori": [
-      {
-        "id": 1,
-        "nome": "Dorin",
-        "titolo": "Strategie Avanzate di Ottimizzazione Lead",
-        "sottotitolo": "Successo di Marketing per Osteria del Colosseo",
-        "descrizione": "Dorin ha rivoluzionato l'approccio ai lead di Osteria del Colosseo attraverso sponsorizzazioni mirate e una landing page ottimizzata per massimizzare le conversioni.",
-        "image":"https://doridasolutionbucket.s3.eu-north-1.amazonaws.com/Portfolio/ottimizz.+lead.png"
-      
-      },
-      {
-        "id": 2,
-        "nome": "Dorin",
-        "titolo": "Analisi di Mercato Approfondita",
-        "sottotitolo": "Ottimizzazione del Sito Web Bartender Academy",
-        "descrizione": "Dorin ha eseguito un'analisi di mercato approfondita per la Bartender Academy, identificando opportunità chiave e implementando miglioramenti strategici al sito web.",
-        "image":"https://doridasolutionbucket.s3.eu-north-1.amazonaws.com/Portfolio/bartender.png"
-      },
-      {
-        "id": 3,
-        "nome": "Dorin",
-        "titolo": "Gestione dei Social Media",
-        "sottotitolo": "Progetto Il Bentornato Emigrato",
-        "descrizione": "Dorin ha curato la gestione dei social media per il progetto 'Il Bentornato Emigrato', promuovendo attivamente l'iniziativa e coinvolgendo la comunità.",
-        "image":"https://doridasolutionbucket.s3.eu-north-1.amazonaws.com/Portfolio/gestione+social.png"
-      },
-      {
-        "id": 4,
-        "nome": "Davide",
-        "titolo": "Creazione di E-commerce",
-        "sottotitolo": "Piattaforma Innovativa di Shopping Online per Abbigliamento Rizzo",
-        "descrizione": "Davide ha sviluppato un sito e-commerce per Abbigliamento Rizzo, introducendo una piattaforma intuitiva e accattivante per l'acquisto online.",
-        "image":"https://doridasolutionbucket.s3.eu-north-1.amazonaws.com/Portfolio/rizzo.png"
-      },
-      {
-        "id": 5,
-        "nome": "Davide",
-        "titolo": "Sviluppo di Gestionale Aziendale",
-        "sottotitolo": "Automazione e Efficienza per Energy Service",
-        "descrizione": "Davide ha progettato e implementato un sistema gestionale aziendale personalizzato per Energy Service, migliorando l'efficienza operativa.",
-        "image":"https://doridasolutionbucket.s3.eu-north-1.amazonaws.com/Portfolio/gestionale.png"
-      },
-      {
-        "id": 6,
-        "nome": "Davide",
-        "titolo": "Sviluppo di Web App per Streaming",
-        "sottotitolo": "Streamtron con Integrazione AI",
-        "descrizione": "Davide ha creato una web app rivoluzionaria per Streamtron, integrando tecnologie di intelligenza artificiale per personalizzare e migliorare l'esperienza di streaming.",
-        "image":"https://doridasolutionbucket.s3.eu-north-1.amazonaws.com/Portfolio/streamtron.png"
-      
-      },
-      {
-        "id": 7,
-        "nome": "Davide & Dorin",
-        "titolo": "Lancio E-commerce Tesori di Caltagirone",
-        "sottotitolo": "Innovazione Digitale nel Commercio di Artigianato",
-        "descrizione": "Davide e Dorin hanno collaborato nella creazione di un sito e-commerce per 'Tesori di Caltagirone', specializzato nella vendita di ceramiche artigianali.",
-        "image":"https://doridasolutionbucket.s3.eu-north-1.amazonaws.com/Portfolio/ecommerce+ceram..png"
-      
-      },
-      {
-        "id": 8,
-        "nome": "Rino",
-        "titolo": "Produzione di Jingle Musicali",
-        "sottotitolo": "Resort Scala dei Turchi",
-        "descrizione": "Rino ha composto e prodotto jingle musicali unici per il Resort Scala dei Turchi, catturando l'essenza del luogo con melodie ispirate.",
-        "image":"https://doridasolutionbucket.s3.eu-north-1.amazonaws.com/Portfolio/Jingle.png"
-      
-      }
-    ]
-  }
+
+     [   {
+            "id": 1,
+            "title": "Gestione Social",
+            "subtitle": "Bentornato Emigrato",
+            "description": "Un progetto volto a celebrare e sostenere gli emigrati di ritorno, fornendo un'esperienza unica di gestione social per condividere le loro storie, esperienze e successi. Questo lavoro mira a creare una comunità forte e unita, promuovendo l'inclusione e il supporto reciproco.",
+            "image": "https://doridasolutionbucket.s3.eu-north-1.amazonaws.com/Portfolio/gestione+social.png",
+            "color": "#3498db",
+            "creator": "Dorin"
+        },
+        {
+            "id": 2,
+            "title": "E-commerce",
+            "subtitle": "Rizzo Abbigliamento",
+            "description": "Un e-commerce progettato per Rizzo Abbigliamento che offre una piattaforma intuitiva e coinvolgente per i clienti, facilitando l'acquisto di capi di alta qualità. Il progetto include un design accattivante e un'esperienza utente fluida, assicurando la massima soddisfazione dei clienti.",
+            "image": "https://doridasolutionbucket.s3.eu-north-1.amazonaws.com/Portfolio/rizzo.png",
+            "color": "#e74c3c",
+            "creator": "Davide"
+        },
+        {
+            "id": 3,
+            "title": "Creazione Jingle Musicali",
+            "subtitle": "Resort Scala dei Turchi",
+            "description": "Creazione di jingle musicali unici per il Resort Scala dei Turchi, progettati per evocare l'atmosfera rilassante e sofisticata della destinazione. Ogni jingle è personalizzato per riflettere la personalità del resort, migliorando l'esperienza degli ospiti.",
+            "image": "https://doridasolutionbucket.s3.eu-north-1.amazonaws.com/Portfolio/Jingle.png",
+            "color": "#2ecc71",
+            "creator": "Rino"
+        },
+        {
+            "id": 4,
+            "title": "Analisi di Mercato",
+            "subtitle": "Bartender Academy",
+            "description": "Un'approfondita analisi di mercato per Bartender Academy, finalizzata a comprendere le tendenze e le esigenze del settore. Questo lavoro ha fornito dati strategici cruciali per migliorare le offerte educative e le strategie di marketing dell'accademia.",
+            "image": "https://doridasolutionbucket.s3.eu-north-1.amazonaws.com/Portfolio/bartender.png",
+            "color": "#f1c40f",
+            "creator": "Dorin"
+        },
+        {
+            "id": 5,
+            "title": "Creazione Web App Streaming",
+            "subtitle": "StreamTron",
+            "description": "Sviluppo di una web app di streaming per StreamTron che offre un'interfaccia user-friendly e contenuti personalizzati per gli utenti. La piattaforma fornisce un'esperienza di streaming fluida, supportando vari dispositivi e assicurando una navigazione senza intoppi.",
+            "image": "https://doridasolutionbucket.s3.eu-north-1.amazonaws.com/Portfolio/streamtron.png",
+            "color": "#9b59b6",
+            "creator": "Davide"
+        },
+        {
+            "id": 6,
+            "title": "E-commerce Ceramiche",
+            "subtitle": "Tesori di Caltagirone",
+            "description": "Un elegante e-commerce per Tesori di Caltagirone, specializzato in ceramiche artigianali. Il sito web unisce tradizione e modernità, presentando le opere in modo accattivante e facilitando l'acquisto con un sistema di pagamento sicuro.",
+            "image": "https://doridasolutionbucket.s3.eu-north-1.amazonaws.com/Portfolio/ecommerce+ceram..png",
+            "color": "#16a085",
+            "creator": "Davide & Dorin"
+        },
+        {
+            "id": 7,
+            "title": "Gestionale Aziendale",
+            "subtitle": "Energy Service",
+            "description": "Un software gestionale aziendale progettato per Energy Service, ottimizzato per la gestione delle operazioni quotidiane e il monitoraggio delle prestazioni. Offre un'interfaccia intuitiva, report dettagliati e strumenti di analisi per migliorare la produttività aziendale.",
+            "image": "https://doridasolutionbucket.s3.eu-north-1.amazonaws.com/Portfolio/gestionale.png",
+            "color": "#e67e22",
+            "creator": "Davide"
+        },
+        {
+            "id": 8,
+            "title": "Ottimizzazione Lead",
+            "subtitle": "Osteria del Colosseo",
+            "description": "Un progetto di ottimizzazione dei lead per Osteria del Colosseo, che include strategie di marketing e analisi dei dati per aumentare l'acquisizione di nuovi clienti e migliorare la fidelizzazione. La soluzione personalizzata permette all'osteria di massimizzare la conversione delle visite in prenotazioni.",
+            "image": "https://example.com/osteria-del-colosseo.jpg",
+            "color": "#34495e",
+            "creator": "Dorin"
+        },
+        {
+            "id": 9,
+            "title": "Direttore Artistico",
+            "subtitle": "Progetto Bentornato Emigrato",
+            "description": "Un'iniziativa che mette in luce la visione creativa di Rino come direttore artistico, curando la rappresentazione visiva e narrativa del progetto. Questo lavoro si concentra sull'accoglienza degli emigrati, evidenziando storie di successo e momenti significativi attraverso una gestione artistica raffinata.",
+            "image": "https://doridasolutionbucket.s3.eu-north-1.amazonaws.com/Image/Graficheexplain/Direttore+artistico.png",
+            "color": "#1abc9c",
+            "creator": "Rino"
+        }
+     ]

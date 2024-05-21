@@ -15,14 +15,14 @@ export async function POST(req) {
   try {
     // Richiesta a ElevenLabs per la sintesi vocale
     const response = await axios.post(
-      'https://api.elevenlabs.io/v1/text-to-speech/eUyfQOl1LW94ySVToNWD',
+      'https://api.elevenlabs.io/v1/text-to-speech/NV0kRZacN3dP803gOpXa',
       {
         text: body.text,
         model_id: 'eleven_multilingual_v2',
         voice_settings: {
-          stability: 0.7,
+          stability: 0.5,
           similarity_boost: 0.7,
-          style: 0.0,
+          style: 0.1,
           use_speaker_boost: true,
         },
       },

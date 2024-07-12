@@ -10,6 +10,8 @@
     "seed": "node -r dotenv/config ./scripts/seed.js"
   },
   "dependencies": {
+    "@aws-sdk/client-s3": "^3.592.0",
+    "@aws-sdk/s3-presigned-post": "^3.592.0",
     "@mailchimp/mailchimp_marketing": "^3.0.80",
     "@reduxjs/toolkit": "^2.2.3",
     "@splinetool/react-spline": "^2.2.6",
@@ -24,9 +26,12 @@
     "bcrypt": "^5.1.1",
     "bcryptjs": "^2.4.3",
     "bootstrap": "^5.3.3",
+    "crypto": "^1.0.1",
     "daisyui": "^4.11.1",
+    "docx": "^8.5.0",
     "dotenv": "^16.4.5",
     "express-rate-limit": "^7.2.0",
+    "file-saver": "^2.0.5",
     "formidable": "^3.5.1",
     "framer-motion": "^11.2.2",
     "gsap": "^3.12.5",
@@ -61,8 +66,10 @@
     "slick-carousel": "^1.8.1",
     "stripe": "^15.5.0",
     "tailwindcss": "^3.4.3",
+    "uuid": "^9.0.1",
     "validator": "^13.11.0",
     "wavesurfer.js": "^7.7.13",
+    "xlsx": "^0.18.5",
     "zod": "^3.22.4"
   },
   "devDependencies": {

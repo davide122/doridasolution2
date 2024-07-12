@@ -1,6 +1,6 @@
 "use client"
 import React, { useState, useEffect } from 'react';
-import AddSongForm from './AddSongForm'; // Assumi che questo componente sia quello che abbiamo definito prima
+import AddSongForm from './AddSongForm'; // Assumi che questo componente sia definito altrove
 
 function AlbumSelector() {
     const [albums, setAlbums] = useState([]);
@@ -31,9 +31,9 @@ function AlbumSelector() {
             {albums.length > 0 ? (
                 <ul className="list-group">
                     {albums.map(album => (
-                        <li key={album.id} className="list-group-item">
+                        <li key={album.id} className="list-group-item d-flex justify-content-between align-items-center">
                             {album.title} - {album.release_date}
-                            <button onClick={() => handleSelectAlbum(album)} className="btn btn-small btn-primary ml-2">Select</button>
+                            <button onClick={() => handleSelectAlbum(album)} className="btn btn-small btn-primary">Select</button>
                         </li>
                     ))}
                 </ul>
@@ -42,7 +42,7 @@ function AlbumSelector() {
             )}
 
             {selectedAlbum && (
-                <div>
+                <div className="mt-4">
                     <h3>Add a Song to: {selectedAlbum.title}</h3>
                     <AddSongForm albumId={selectedAlbum.id} />
                 </div>

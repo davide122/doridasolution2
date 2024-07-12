@@ -31,6 +31,26 @@
   },
   {
     "id": 4,
+    "title": "Automazione B&B",
+    "description": "Implementiamo soluzioni di automazione per B&B, inclusi tastierini elettronici per accesso sicuro, sistemi di prenotazione automatizzati e controllo intelligente degli ambienti.",
+    "category": "Automazione",
+    "averagePrice": 1200,
+    "icon": "https://doridasolutionbucket.s3.eu-north-1.amazonaws.com/Service/BB_illustrazione-1024x842.png",
+    "color": "#FF5733",
+    "person": "Davide"
+  },
+  {
+    "id": 5,
+    "title": "Integrazione API",
+    "description": "Forniamo soluzioni per la comunicazione tra più sistemi tramite API, facilitando l'integrazione e l'interoperabilità dei servizi.",
+    "category": "Integrazione Sistemi",
+    "averagePrice": 1500,
+    "icon": "https://doridasolutionbucket.s3.eu-north-1.amazonaws.com/Service/api-interface.png",
+    "color": "#00FF7F",
+    "person": "Davide"
+  },
+  {
+    "id": 6,
     "title": "Sviluppo Web Full-Stack",
     "description": "Siamo esperti nello sviluppo di siti web performanti e intuitivi, utilizzando le ultime tecnologie e best practices nel settore.",
     "category": "Web Development",
@@ -40,7 +60,7 @@
     "person": "Davide"
   },
   {
-    "id": 5,
+    "id": 7,
     "title": "Sviluppo di Software Gestionali",
     "description": "Realizziamo software gestionali personalizzati per ottimizzare i processi aziendali e migliorare l'efficienza operativa.",
     "category": "Software Development",
@@ -50,7 +70,7 @@
     "person": "Davide"
   },
   {
-    "id": 6,
+    "id": 8,
     "title": "E-commerce Solutions",
     "description": "Creiamo e-commerce su misura per le esigenze del tuo business, garantendo un'esperienza utente intuitiva e sicura.",
     "category": "E-commerce",
@@ -60,7 +80,7 @@
     "person": "Davide"
   },
   {
-    "id": 7,
+    "id": 9,
     "title": "Creazione di libri",
     "description": "Aiutiamo a trasformare le tue memorie e le tue storie in libri pubblicabili, offrendo servizi di scrittura, editing e pubblicazione.",
     "category": "Book Publishing",
@@ -70,7 +90,7 @@
     "person": "Rino"
   },
   {
-    "id": 8,
+    "id": 10,
     "title": "Gestione dei Social Media",
     "description": "Gestiamo i tuoi account sui social media, curando la creazione di contenuti, la gestione delle interazioni e la crescita organica dell'audience.",
     "category": "Social Media",
@@ -80,7 +100,7 @@
     "person": "Dorin"
   },
   {
-    "id": 9,
+    "id": 11,
     "title": "SEO (Search Engine Optimization)",
     "description": "Ottimizziamo il tuo sito web per i motori di ricerca, aumentando la visibilità online e migliorando il posizionamento nei risultati di ricerca.",
     "category": "SEO",
@@ -90,7 +110,7 @@
     "person": "Dorin"
   },
   {
-    "id": 10,
+    "id": 12,
     "title": "PPC (Pay-Per-Click) Advertising",
     "description": "Gestiamo campagne pubblicitarie pay-per-click su piattaforme come Google Ads e Facebook Ads per massimizzare il ritorno sull'investimento.",
     "category": "Advertising",
@@ -100,7 +120,7 @@
     "person": "Dorin"
   },
   {
-    "id": 11,
+    "id": 13,
     "title": "Email Marketing",
     "description": "Creiamo strategie di email marketing efficaci per coinvolgere e fidelizzare i tuoi clienti, aumentando le conversioni e il valore del cliente.",
     "category": "Marketing",
@@ -110,7 +130,7 @@
     "person": "Dorin"
   },
   {
-    "id": 12,
+    "id": 14,
     "title": "Content Writing",
     "description": "Forniamo servizi di scrittura di contenuti di alta qualità per blog, siti web, newsletter e altro ancora, per attrarre e coinvolgere il tuo pubblico.",
     "category": "Content Creation",
@@ -120,7 +140,7 @@
     "person": "Rino"
   },
   {
-    "id": 13,
+    "id": 15,
     "title": "Video Production",
     "description": "Realizziamo video promozionali e tutorial di alta qualità per presentare i tuoi prodotti o servizi in modo coinvolgente e professionale.",
     "category": "Video Production",
@@ -130,7 +150,7 @@
     "person": "Rino"
   },
   {
-    "id": 14,
+    "id": 16,
     "title": "Fotografia Professionale",
     "description": "Offriamo servizi fotografici professionali per catturare immagini di alta qualità dei tuoi prodotti, servizi o eventi aziendali.",
     "category": "Photography",
@@ -140,7 +160,7 @@
     "person": "Rino"
   },
   {
-    "id": 15,
+    "id": 17,
     "title": "Consulenza Strategica",
     "description": "Forniamo consulenza strategica personalizzata per aiutare le aziende a identificare opportunità di crescita e a sviluppare piani d'azione efficaci.",
     "category": "Consulting",
@@ -150,7 +170,7 @@
     "person": "Davide"
   },
   {
-    "id": 16,
+    "id": 18,
     "title": "Fotografia Aerea",
     "description": "Utilizziamo droni e tecnologie avanzate per catturare immagini aeree mozzafiato per progetti immobiliari, eventi speciali e altro ancora.",
     "category": "Aerial Photography",
@@ -160,7 +180,7 @@
     "person": "Rino"
   },
   {
-    "id": 17,
+    "id": 19,
     "title": "Video per Compleanni",
     "description": "Creiamo video personalizzati per celebrare compleanni speciali, includendo messaggi di auguri, momenti memorabili e altro ancora.",
     "category": "Event Videography",
@@ -170,7 +190,7 @@
     "person": "Rino"
   },
   {
-    "id": 18,
+    "id": 20,
     "title": "Jingle Personalizzati",
     "description": "Realizziamo jingle personalizzati e orecchiabili per promuovere il tuo marchio, prodotto o servizio in modo unico e memorabile.",
     "category": "Audio Production",
@@ -180,7 +200,7 @@
     "person": "Rino"
   },
   {
-    "id": 19,
+    "id": 21,
     "title": "Voci Narranti",
     "description": "Offriamo voci narranti professionisti e uniche per spot pubblicitari, video aziendali, audiolibri e altro ancora, per dare vita alle tue storie.",
     "category": "Voice Over",
@@ -190,7 +210,7 @@
     "person": "Rino"
   },
   {
-    "id": 20,
+    "id": 22,
     "title": "Bot Personalizzati",
     "description": "Sviluppiamo bot personalizzati per rispondere alle domande frequenti, automatizzare processi e migliorare l'esperienza utente sui tuoi canali digitali.",
     "category": "Tech",
@@ -200,7 +220,7 @@
     "person": "Davide"
   },
   {
-    "id": 21,
+    "id": 23,
     "title": "Consulenze sull'Intelligenza Artificiale",
     "description": "Offriamo consulenze specializzate sull'intelligenza artificiale per aiutare le aziende a implementare soluzioni AI avanzate e ottenere vantaggi competitivi.",
     "category": "AI Consulting",
@@ -210,7 +230,7 @@
     "person": "Davide"
   },
   {
-    "id": 22,
+    "id": 24,
     "title": "Consulenze su Criptovalute",
     "description": "Forniamo consulenze esperte su criptovalute, blockchain e tecnologie finanziarie decentralizzate, aiutando i clienti a navigare nel complesso mondo delle criptovalute.",
     "category": "Crypto Consulting",

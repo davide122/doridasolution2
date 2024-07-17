@@ -132,7 +132,7 @@ export default function Home( ) {
       <ServicesExplain />
       <AboutUs />
       <ChangeColor />
-      <VideoPresentazione />
+      {/* <VideoPresentazione /> */}
       {/* <WhyUs/> */}
       <MyFooter />
     </>

@@ -5,7 +5,7 @@
             "subtitle": "Bentornato Emigrato",
             "description": "Un progetto volto a celebrare e sostenere gli emigrati di ritorno, fornendo un'esperienza unica di gestione social per condividere le loro storie, esperienze e successi. Questo lavoro mira a creare una comunità forte e unita, promuovendo l'inclusione e il supporto reciproco.",
             "image": "https://doridasolutionbucket.s3.eu-north-1.amazonaws.com/Portfolio/gestione+social.png",
-            "color": "#3498db",
+            "color": "#9b59b6",
             "creator": "Dorin"
         },
         {
@@ -14,7 +14,7 @@
             "subtitle": "Rizzo Abbigliamento",
             "description": "Un e-commerce progettato per Rizzo Abbigliamento che offre una piattaforma intuitiva e coinvolgente per i clienti, facilitando l'acquisto di capi di alta qualità. Il progetto include un design accattivante e un'esperienza utente fluida, assicurando la massima soddisfazione dei clienti.",
             "image": "https://doridasolutionbucket.s3.eu-north-1.amazonaws.com/Portfolio/rizzo.png",
-            "color": "#e74c3c",
+            "color": "#9b59b6",
             "creator": "Davide"
         },
         {
@@ -23,7 +23,7 @@
             "subtitle": "Resort Scala dei Turchi",
             "description": "Creazione di jingle musicali unici per il Resort Scala dei Turchi, progettati per evocare l'atmosfera rilassante e sofisticata della destinazione. Ogni jingle è personalizzato per riflettere la personalità del resort, migliorando l'esperienza degli ospiti.",
             "image": "https://doridasolutionbucket.s3.eu-north-1.amazonaws.com/Portfolio/Jingle.png",
-            "color": "#2ecc71",
+            "color": "#9b59b6",
             "creator": "Rino"
         },
         {
@@ -32,7 +32,7 @@
             "subtitle": "Bartender Academy",
             "description": "Un'approfondita analisi di mercato per Bartender Academy, finalizzata a comprendere le tendenze e le esigenze del settore. Questo lavoro ha fornito dati strategici cruciali per migliorare le offerte educative e le strategie di marketing dell'accademia.",
             "image": "https://doridasolutionbucket.s3.eu-north-1.amazonaws.com/Portfolio/bartender.png",
-            "color": "#f1c40f",
+            "color": "#9b59b6",
             "creator": "Dorin"
         },
         {
@@ -50,7 +50,7 @@
             "subtitle": "Tesori di Caltagirone",
             "description": "Un elegante e-commerce per Tesori di Caltagirone, specializzato in ceramiche artigianali. Il sito web unisce tradizione e modernità, presentando le opere in modo accattivante e facilitando l'acquisto con un sistema di pagamento sicuro.",
             "image": "https://doridasolutionbucket.s3.eu-north-1.amazonaws.com/Portfolio/ecommerce+ceram..png",
-            "color": "#16a085",
+            "color": "#9b59b6",
             "creator": "Davide & Dorin"
         },
         {
@@ -59,7 +59,7 @@
             "subtitle": "Energy Service",
             "description": "Un software gestionale aziendale progettato per Energy Service, ottimizzato per la gestione delle operazioni quotidiane e il monitoraggio delle prestazioni. Offre un'interfaccia intuitiva, report dettagliati e strumenti di analisi per migliorare la produttività aziendale.",
             "image": "https://doridasolutionbucket.s3.eu-north-1.amazonaws.com/Portfolio/gestionale.png",
-            "color": "#e67e22",
+            "color": "#9b59b6",
             "creator": "Davide"
         },
         {
@@ -68,7 +68,7 @@
             "subtitle": "Osteria del Colosseo",
             "description": "Un progetto di ottimizzazione dei lead per Osteria del Colosseo, che include strategie di marketing e analisi dei dati per aumentare l'acquisizione di nuovi clienti e migliorare la fidelizzazione. La soluzione personalizzata permette all'osteria di massimizzare la conversione delle visite in prenotazioni.",
             "image": "https://example.com/osteria-del-colosseo.jpg",
-            "color": "#34495e",
+            "color": "#9b59b6",
             "creator": "Dorin"
         },
         {
@@ -77,7 +77,7 @@
             "subtitle": "Progetto Bentornato Emigrato",
             "description": "Un'iniziativa che mette in luce la visione creativa di Rino come direttore artistico, curando la rappresentazione visiva e narrativa del progetto. Questo lavoro si concentra sull'accoglienza degli emigrati, evidenziando storie di successo e momenti significativi attraverso una gestione artistica raffinata.",
             "image": "https://doridasolutionbucket.s3.eu-north-1.amazonaws.com/Image/Graficheexplain/Direttore+artistico.png",
-            "color": "#1abc9c",
+            "color": "#9b59b6",
             "creator": "Rino"
         }
      ]

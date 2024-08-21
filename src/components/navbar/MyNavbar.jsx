@@ -27,36 +27,42 @@ const MyNavbar = ({ className }) => {
 
                 <div className="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
                     <div className="navbar-nav">
-                        <Link href="/" passHref className='text-decoration-none'>
-                            <div className="nav-item nav-link d-flex align-items-center">
-                                <FaHome className="me-2" />Home
+                        <Link href="/" passHref className='text-decoration-none  '>
+                            <div className="nav-item nav-link d-flex align-items-center swhite">
+                              Home
                             </div>
                         </Link>
+                      
                         <Link href="/music" passHref className='text-decoration-none'>
-                            <div className="nav-item nav-link d-flex align-items-center">
-                                <FaMusic className="me-2" />Dorida Music
+                            <div className="nav-item nav-link d-flex align-items-center swhite">
+                              Dorida Music
                             </div>
                         </Link>
                         <Link href="/services" passHref className='text-decoration-none'>
-                            <div className="nav-item nav-link d-flex align-items-center">
-                                <FaBriefcase className="me-2" />Servizi
+                            <div className="nav-item nav-link d-flex align-items-center swhite">
+                              Servizi
+                            </div>
+                        </Link>
+                        <Link href="/portfoliopage" passHref className='text-decoration-none'>
+                            <div className="nav-item nav-link d-flex align-items-center swhite">
+                              Portfolio
                             </div>
                         </Link>
                         <Link href="/contact" passHref className='text-decoration-none'>
-                            <div className="nav-item nav-link d-flex align-items-center">
-                                <FaPhone className="me-2" />Contatti
+                            <div className="nav-item nav-link d-flex align-items-center swhite">
+                             Contatti
                             </div>
                         </Link>
                         <Link href="/About" passHref className='text-decoration-none'>
-                            <div className="nav-item nav-link d-flex align-items-center">
-                                <FaInfoCircle className="me-2" />Chi siamo
+                            <div className="nav-item nav-link d-flex align-items-center swhite">
+                                Chi siamo
                             </div>
                         </Link>
                     </div>
                 </div>
 
                 <Link href="/login" passHref className='text-decoration-none'>
-                    <div className="d-none d-lg-block ms-3">
+                    <div className="d-none d-lg-block ms-3 swhite">
                         <FaUserCircle size={30} color="white" />
                     </div>
                 </Link>
@@ -68,27 +74,27 @@ const MyNavbar = ({ className }) => {
                         <ul className="navbar-nav text-center">
                             <Link href="/" passHref className='text-decoration-none'>
                                 <div className="nav-link" onClick={toggleOffcanvas}>
-                                    <FaHome className="me-2" />Home
+                                Home
                                 </div>
                             </Link>
                             <Link href="/music" passHref  className='text-decoration-none'>
                                 <div className="nav-link" onClick={toggleOffcanvas}>
-                                    <FaMusic className="me-2" />Dorida Music
+                                  Dorida Music
                                 </div>
                             </Link>
                             <Link href="/services" passHref  className='text-decoration-none'>
                                 <div className="nav-link" onClick={toggleOffcanvas}>
-                                    <FaBriefcase className="me-2" />Servizi
+                                 Servizi
                                 </div>
                             </Link>
                             <Link href="/contact" passHref  className='text-decoration-none'>
                                 <div className="nav-link" onClick={toggleOffcanvas}>
-                                    <FaPhone className="me-2" />Contatti
+                                  Contatti
                                 </div>
                             </Link>
                             <Link href="/About" passHref  className='text-decoration-none'>
                                 <div className="nav-link" onClick={toggleOffcanvas}>
-                                    <FaInfoCircle className="me-2" />Chi siamo
+                                   Chi siamo
                                 </div>
                             </Link>
                         </ul>

@@ -270,3 +270,7 @@
       transform: rotate(-1turn);
     }
   }
+
+  .btncolorblue{
+    background-color: #514ACF !important;
+  }

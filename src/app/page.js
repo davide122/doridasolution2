@@ -17,7 +17,7 @@ import { useRouter } from "next/navigation";
 import WhyUs from "../components/whyus/WhyUs";
 import { RiWhatsappFill } from "react-icons/ri";
 import Link from "next/link";
-
+import Musicvis from "../components/MusicVisualizer/Musicvis";
 export default function Home( ) {
 
 
@@ -131,6 +131,7 @@ export default function Home( ) {
       <ServicesSection />
       <ServicesExplain />
       <AboutUs />
+      <Musicvis/>
       <ChangeColor />
       {/* <VideoPresentazione /> */}
       {/* <WhyUs/> */}

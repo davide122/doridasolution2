@@ -200,14 +200,15 @@ const ServicesExplain = () => {
   };
 
   return (
-    <div className="container-fluid slide mb-5">
+    <div className="container-fluid slide">
+      
     {/* Carosello visibile solo su dispositivi mobili */}
     <div className="d-md-none">
       <motion.div
         animate={controls}
         style={{
           width: "100%",
-          height: "80vh", // Altezza aumentata per i dispositivi mobili
+          height: "50vh", // Altezza aumentata per i dispositivi mobili
         }}
       >
         <Slider {...settings} className="my-3">

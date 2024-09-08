@@ -48,10 +48,8 @@ const Playlist = () => {
   return (
     <div>
       <div className="carousel-container mt-2 mb-5">
-        <h3 className="text-white ms-md-5 ms-4 text-start">
-          Scopri le nostre Playlist
-        </h3>
-        <div className="carousel ms-3 shadow2">
+       
+        <div className="carousel ms-3 shadow2 my-2">
           {playlists.map((playlist, index) => (
 <Link href={`/album/${playlist.album_id}`} key={playlist.album_id || index}>
             <div

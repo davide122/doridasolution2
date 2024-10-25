@@ -4,7 +4,6 @@ import Image from "next/image";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import styles from "../CreateSongForm.module.css"; // Importa gli stili personalizzati
 
 const CreateSongForm = () => {
   const [formData, setFormData] = useState({
@@ -17,6 +16,7 @@ const CreateSongForm = () => {
     onlineDistribution: false,
     sheetMusic: false,
     category: "",
+    comment: "",
   });
   const [isGenreSelected, setIsGenreSelected] = useState(false);
 
@@ -25,7 +25,7 @@ const CreateSongForm = () => {
       ...prev,
       genre,
     }));
-    setIsGenreSelected(true); // Passa al modulo dettagliato
+    setIsGenreSelected(true);
   };
 
   const handleChange = (e) => {
@@ -39,6 +39,7 @@ const CreateSongForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log("Form submitted:", formData);
+    // Implementa la logica di invio del form qui
   };
 
   // Impostazioni per lo slider
@@ -46,171 +47,201 @@ const CreateSongForm = () => {
     dots: true,
     infinite: true,
     speed: 500,
-    slidesToShow: 3,
+    slidesToShow: 1, // Adatto per mobile
     slidesToScroll: 1,
     arrows: true,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          infinite: true,
+        },
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          initialSlide: 1,
+        },
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
+      },
+    ],
   };
 
-  // Controlla se la categoria selezionata è "Professionista"
+  // Verifica se la categoria selezionata è "Professionista"
   const isProfessional = formData.category === "Professionista";
 
   return (
-    <div className={`container vh-100 justify-content-center d-flex flex-column ${styles.container}`}>
+    <div className="csf-container">
       {!isGenreSelected ? (
         <>
-          <h1 className={`text-center Title text-white`}>Crea la tua canzone!</h1>
-          <h2 className="text-center text-white">Iniziamo dal genere</h2>
-          <Slider {...settings} className={`w-100 ${styles.slider}`}>
-            <div className={`text-center ${styles.slide}`}>
-              <button onClick={() => handleGenreSelect("Rap")} className={styles.btn}>
+          <header className="csf-header">
+            <h1 className="csf-title">Create Your Song!</h1>
+            <h2 className="csf-subtitle">Lets start by selecting the genre.</h2>
+          </header>
+          <Slider {...settings} className="csf-slider">
+            <div className="csf-slide">
+              <button onClick={() => handleGenreSelect("Rap")} className="csf-genre-button">
                 <Image
                   src="https://doridasolutionbucket.s3.eu-north-1.amazonaws.com/Image/Album/Caraibico/Copertina+Caraibico.png"
                   alt="Rap"
                   width={500}
                   height={500}
-                  className={`img-fluid rounded-5 ${styles.image}`}
+                  className="csf-genre-image"
                 />
-                <p>Rap</p>
+                <p className="csf-genre-label">Rap</p>
               </button>
             </div>
-            <div className={`text-center ${styles.slide}`}>
-              <button onClick={() => handleGenreSelect("Pop")} className={styles.btn}>
+            <div className="csf-slide">
+              <button onClick={() => handleGenreSelect("Pop")} className="csf-genre-button">
                 <Image
                   src="https://doridasolutionbucket.s3.eu-north-1.amazonaws.com/Image/Album/Rap/ALBUM+RAP.png"
                   alt="Pop"
                   width={500}
                   height={500}
-                  className={`img-fluid rounded-5 ${styles.image}`}
+                  className="csf-genre-image"
                 />
-                <p>Pop</p>
+                <p className="csf-genre-label">Pop</p>
               </button>
             </div>
-            <div className={`text-center ${styles.slide}`}>
-              <button onClick={() => handleGenreSelect("Classica")} className={styles.btn}>
+            <div className="csf-slide">
+              <button onClick={() => handleGenreSelect("Classica")} className="csf-genre-button">
                 <Image
                   src="https://doridasolutionbucket.s3.eu-north-1.amazonaws.com/Image/Album/Reggaeton/Samira+Hadi+(3).png"
                   alt="Classica"
                   width={500}
                   height={500}
-                  className={`img-fluid rounded-5 ${styles.image}`}
+                  className="csf-genre-image"
                 />
-                <p>Classica</p>
+                <p className="csf-genre-label">Classica</p>
               </button>
             </div>
           </Slider>
         </>
       ) : (
         <>
-          <h1 className={`${styles.title} text-center Titolo text-white`}>Informazioni</h1>
-          <div className="container-fluid vh-100 justify-content-center align-items-center">
-            <div className="row">
-              <div className="col-md-6">
-                <form onSubmit={handleSubmit} className="w-100 mt-4">
-                  <div className="mb-3">
-                    <label className="form-label">Durata:</label>
-                    <input
-                      type="number"
-                      name="songLength"
-                      value={formData.songLength}
-                      onChange={handleChange}
-                      min="1"
-                      className="form-control"
-                    />
-                  </div>
-                  <div className="mt-4">
-                    <label className="form-label">Categoria di appartenenza:</label>
-                    <select
-                      name="category"
-                      value={formData.category}
-                      onChange={handleChange}
-                      className="form-select"
-                    >
-                      <option value="">Seleziona Categoria</option>
-                      <option value="Amatore">Amatore</option>
-                      <option value="Professionista">Professionista</option>
-                    </select>
-                  </div>
-                  <div className="form-check d-flex justify-content-between mb-2">
-                    <label className="form-check-label">Richiedo la creazione della grafica</label>
-                    <input
-                      type="checkbox"
-                      name="graphicRequested"
-                      checked={formData.graphicRequested}
-                      onChange={handleChange}
-                      className="form-check-input"
-                    />
-                  </div>
-                  <div className="form-check d-flex justify-content-between mb-2">
-                    <label className="form-check-label">Richiedo la creazione del visualizer</label>
-                    <input
-                      type="checkbox"
-                      name="visualizerRequested"
-                      checked={formData.visualizerRequested}
-                      onChange={handleChange}
-                      className="form-check-input"
-                    />
-                  </div>
-                  {isProfessional && (
-                    <>
-                      <div className="form-check d-flex justify-content-between mt-1 mb-2">
-                        <label className="form-check-label">Arrangiamento musicale diverso</label>
-                        <input
-                          type="checkbox"
-                          name="musicArrangement"
-                          checked={formData.musicArrangement}
-                          onChange={handleChange}
-                          className="form-check-input"
-                        />
-                      </div>
-                      <div className="form-check d-flex justify-content-between mb-2">
-                        <label className="form-check-label">Inserimento brani piattaforme online</label>
-                        <input
-                          type="checkbox"
-                          name="onlineDistribution"
-                          checked={formData.onlineDistribution}
-                          onChange={handleChange}
-                          className="form-check-input"
-                        />
-                      </div>
-                      <div className="form-check d-flex justify-content-between mb-2">
-                        <label className="form-check-label">Partitura</label>
-                        <input
-                          type="checkbox"
-                          name="sheetMusic"
-                          checked={formData.sheetMusic}
-                          onChange={handleChange}
-                          className="form-check-input"
-                        />
-                      </div>
-                    </>
-                  )}
-                </form>
+          <header className="csf-header">
+            <h1 className="csf-title">Song Details</h1>
+          </header>
+          <form onSubmit={handleSubmit} className="csf-form">
+            <div className="csf-form-group">
+              <label className="csf-form-label">Song Length (minutes):</label>
+              <input
+                type="number"
+                name="songLength"
+                value={formData.songLength}
+                onChange={handleChange}
+                min="1"
+                className="csf-form-control"
+                required
+              />
+            </div>
+            <div className="csf-form-group">
+              <label className="csf-form-label">Category:</label>
+              <select
+                name="category"
+                value={formData.category}
+                onChange={handleChange}
+                className="csf-form-select"
+                required
+              >
+                <option value="">Select Category</option>
+                <option value="Amatore">Amatore</option>
+                <option value="Professionista">Professionista</option>
+              </select>
+            </div>
+            <div className="csf-form-group">
+              <div className="csf-form-check">
+                <input
+                  type="checkbox"
+                  name="graphicRequested"
+                  checked={formData.graphicRequested}
+                  onChange={handleChange}
+                  className="csf-form-check-input"
+                />
+                <label className="csf-form-check-label">Request Graphic Design</label>
               </div>
-              <div className="col-md-6">
-                <div className="form-check d-flex justify-content-end mb-2">
-                  <label className="form-check-label">Fornirò il testo</label>
-                  <input
-                    type="checkbox"
-                    name="lyricsProvided"
-                    checked={formData.lyricsProvided}
-                    onChange={handleChange}
-                    className="form-check-input mx-2"
-                  />
-                </div>
-                <div className="mb-3">
-                  <label htmlFor="comment">Testo:</label>
-                  <textarea
-                    id="comment"
-                    name="comment"
-                    rows="7"
-                    cols="40"
-                    placeholder="Scrivi qui il tuo testo..."
-                    className="form-control"
-                  />
-                </div>
+              <div className="csf-form-check">
+                <input
+                  type="checkbox"
+                  name="visualizerRequested"
+                  checked={formData.visualizerRequested}
+                  onChange={handleChange}
+                  className="csf-form-check-input"
+                />
+                <label className="csf-form-check-label">Request Visualizer</label>
+              </div>
+              {isProfessional && (
+                <>
+                  <div className="csf-form-check">
+                    <input
+                      type="checkbox"
+                      name="musicArrangement"
+                      checked={formData.musicArrangement}
+                      onChange={handleChange}
+                      className="csf-form-check-input"
+                    />
+                    <label className="csf-form-check-label">Different Music Arrangement</label>
+                  </div>
+                  <div className="csf-form-check">
+                    <input
+                      type="checkbox"
+                      name="onlineDistribution"
+                      checked={formData.onlineDistribution}
+                      onChange={handleChange}
+                      className="csf-form-check-input"
+                    />
+                    <label className="csf-form-check-label">Online Distribution</label>
+                  </div>
+                  <div className="csf-form-check">
+                    <input
+                      type="checkbox"
+                      name="sheetMusic"
+                      checked={formData.sheetMusic}
+                      onChange={handleChange}
+                      className="csf-form-check-input"
+                    />
+                    <label className="csf-form-check-label">Sheet Music</label>
+                  </div>
+                </>
+              )}
+            </div>
+            <div className="csf-form-group">
+              <div className="csf-form-check">
+                <input
+                  type="checkbox"
+                  name="lyricsProvided"
+                  checked={formData.lyricsProvided}
+                  onChange={handleChange}
+                  className="csf-form-check-input"
+                />
+                <label className="csf-form-check-label">Provide Lyrics</label>
+              </div>
+              <div className="csf-form-group">
+                <label htmlFor="comment" className="csf-form-label">Lyrics:</label>
+                <textarea
+                  id="comment"
+                  name="comment"
+                  rows="4"
+                  placeholder="Write your lyrics here..."
+                  className="csf-form-control"
+                  value={formData.comment}
+                  onChange={handleChange}
+                  required={formData.lyricsProvided}
+                ></textarea>
               </div>
             </div>
-          </div>
+            <button type="submit" className="csf-submit-button">Create My Song!</button>
+          </form>
         </>
       )}
     </div>

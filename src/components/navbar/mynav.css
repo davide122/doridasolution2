@@ -1,80 +1,112 @@
-/* Stili di base per la navbar */
+/* Navbar base */
 .navbar {
-    background-color: #000;/* Sostituisci con un gradiente o un colore solido se preferisci */
-    padding: 1rem 0; /* Aumenta il padding verticale per un aspetto più "aerato" */
-    transition: all 0.3s ease-in-out; /* Transizione morbida per gli effetti di hover e focus */
-    padding: 0px 10px 10px 10px;
-    z-index: 1000;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  background-color: rgba(0, 0, 0, 0.3); /* Navbar inizialmente trasparente */
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  padding: 0.8rem 1rem ;
+  
+
 }
 
-/* Logo e branding */
+/* Navbar quando scorre */
+.navbar-scrolled {
+  background-color: rgba(0, 0, 0, 0.95); /* Colore pieno quando si scorre */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Aggiungi ombra durante lo scorrimento */
+}
+
+/* Navbar link */
+.navbar-brand {
+  display: flex;
+  align-items: center;
+}
+
 .navbar-brand img {
-    height: auto;
-    width: 60px; /* Adatta la dimensione del logo alle tue necessità */
-    transition: transform 0.3s ease-in-out; /* Effetto zoom al passaggio del mouse */
+  margin-right: 10px;
 }
 
-.navbar-brand:hover img {
-    transform: scale(1.1);
+.navbar .nav-link {
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 500;
+  padding: 0.8rem 1rem;
+  transition: color 0.3s ease;
 }
 
-/* Collegamenti della navbar */
-.nav-link {
-    color: #fff;
-    margin-right: 15px; /* Distanza tra i link */
-    transition: color 0.3s ease-in-out; /* Transizione morbida per cambiamenti di colore */
-    text-decoration: none;
+.navbar .nav-link:hover {
+  color: #ec6aff; /* Colore viola brillante per Dorida Solution */
 }
 
-.nav-link:hover, .nav-link:focus {
-    color: #e0e0e0; /* Cambia il colore al passaggio del mouse */
-    text-decoration: none; /* Rimuove il sottolineamento */
-}
-
-/* Icona del profilo nel navbar */
-.fa-user-circle {
-    font-size: 24px; /* Dimensione dell'icona del profilo */
-    cursor: pointer; /* Rende l'icona cliccabile con effetto cursore */
-}
-
-/* Pulsante di toggle per dispositivi mobili */
+/* Navbar icon button */
 .navbar-toggler {
-    border: none; /* Rimuove il bordo del pulsante */
-    outline: none; /* Rimuove l'outline al focus */
+  border: none;
+  padding: 0;
+  transition: transform 0.3s ease;
 }
 
-/* Navbar collapse */
-.collapse.show {
-    display: flex;
-    justify-content: flex-end; /* Allinea i link a destra quando il menu è aperto */
+.navbar-toggler:hover {
+  transform: scale(1.1);
 }
 
-/* Responsive design per le icone del menu a comparsa */
-@media (max-width: 991px) {
-    .navbar-collapse {
-        background-color: #000; /* Sfondo per il menu a tendina su dispositivi mobili */
-        margin-top: 0.5rem;
-    }
+/* Offcanvas (menu mobile) migliorato */
+.offcanvas {
+  background-color: #111; /* Sfondo scuro per il menu mobile */
+  color: white;
+  padding: 2rem 1rem;
+  border-radius: 10px;
+  z-index: 10000000;
 }
 
-/* Sfondo gradiente (opzionale) */
-
-
-.Offcanvas{
-    background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgb(8, 8, 33) 35%, rgb(30, 15, 55) 80%) !important;
+.offcanvas-header .btn-close {
+  filter: invert(1); /* Rende bianco il pulsante di chiusura */
 }
 
-.gradient{
-    background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgb(8, 8, 33) 35%, rgb(30, 15, 55) 80%) !important;
+.offcanvas-body .nav-link {
+  font-size: 1.5rem; /* Ingrandire il testo per dispositivi mobili */
+  color: #fff;
+  padding: 0.8rem 0;
+  text-transform: uppercase;
+  letter-spacing: 0.05rem;
+  transition: color 0.3s ease;
+}
+
+.offcanvas-body .nav-link:hover {
+  color: #ec6aff; /* Cambia colore durante l'hover */
+}
+
+/* Animazioni per il testo del menu */
+.nav-animated {
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.nav-animated:hover {
+  transform: translateY(-3px);
+  opacity: 0.8;
+}
+
+/* Icona utente più grande e visibile */
+.swhite {
+  color: white;
+}
+
+.swhite:hover {
+  transform: scale(1.2);
+  transition: transform 0.3s ease-in-out;
+}
+
+@media (max-width: 768px) {
+/* Navbar base */
+.navbar {
+  position: relative;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  background-color: rgba(0, 0, 0, 0.3); /* Navbar inizialmente trasparente */
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  padding: 0.8rem 1rem ;
 
 }
 
-.swhite{
-    opacity: 0.7 !important;
 }
-.swhite:hover{
-    opacity: 1 !important;
-}
-.swhite:focus{
-    color: rgb(187, 144, 208) !important;
-} 

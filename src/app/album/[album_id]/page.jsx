@@ -78,7 +78,7 @@ const AlbumDetailsPage = () => {
     <>
    
       {loading ? (
-        <div className="vh-100 bg-black d-flex justify-content-center align-items-center flex-column position-absolute top-0 zmusic ">
+        <div className="vh-100  d-flex justify-content-center align-items-center flex-column position-absolute top-0 zmusic ">
           <Image
             src="/logo.png"
             alt="Dorida Solution Logo"

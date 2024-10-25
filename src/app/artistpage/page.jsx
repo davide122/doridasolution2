@@ -144,7 +144,7 @@ function ArtistPage() {
   return (
     <Container fluid className="d-flex flex-column">
       {loading ? (
-        <div className="vh-100 bg-black d-flex justify-content-center align-items-center flex-column">
+        <div className="vh-100 d-flex justify-content-center align-items-center flex-column">
           <Image
             src="/logo.png"
             alt="Dorida Solution Logo"
@@ -174,7 +174,7 @@ function ArtistPage() {
           </Col>
 
           {/* Album and Song Lists */}
-          <Col md={7} className="bg-black  ">
+          <Col md={7} className=" ">
             <ArtistNavbar username={userProfile.username} />
             {loading ? (
               <Loader />

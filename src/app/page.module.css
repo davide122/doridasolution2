@@ -174,9 +174,7 @@
   color: #d4a5f4;
 }
 
-.exportButton {
-  margin-left: 10px;
-}
+
 
 .loadingDots {
   color: #d4a5f4;
@@ -212,29 +210,9 @@ padding: 20px 20px 20px 20px;
 }
 
 
-.button {
- 
-  border: none;
-  border-radius: 5px;
-  font-size: 16px;
-  cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.3s ease;
-}
 
-.button:hover {
-  transform: translateY(-2px);
-}
 
-.sendButton {
-  background-color: #ec6aff;
-  padding: 10px 10px 10px 10px;
-  transform: rotate(270deg);
-  border-radius: 100%;
-  color: #ffffff;
-  position: absolute;
-  right: 0%;
-  margin-right: 17px;
-}
+
 
 .sendButton:hover {
   background-color: #0056b3;

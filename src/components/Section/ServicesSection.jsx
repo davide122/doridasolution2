@@ -57,7 +57,7 @@ const ServicesSection = () => {
 
   return (
     <div ref={sectionRef}>
-      <div className="bg-black position-relative">
+      <div className="position-relative">
         <div className="container-fluid">
           <div className="row align-items-center mt-md-5">
             <div className="col-md-6 d-none d-md-flex justify-content-center">
@@ -75,7 +75,7 @@ const ServicesSection = () => {
         <div className="container">
           <div className="row align-items-center">
             <div className="col-md-6">
-              <div className="community-text">
+              <div className="">
                 <video src="https://doridasolutionbucket.s3.eu-north-1.amazonaws.com/video/Palla.mp4" className='imgPalla' muted autoPlay loop></video>
                 <h2 className='Title fs-1 posizionetitolo text-white BasicTitle'>Perché Scegliere Dorida</h2>
               </div>

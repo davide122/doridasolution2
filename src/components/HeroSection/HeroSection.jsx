@@ -42,25 +42,29 @@ const HeroSection = ({iswait}) => {
   };
 
   return (
-    <div className="container">
-      <div className="row vh-100">
-        <div className="col-12 col-md-6 d-flex flex-column justify-content-center align-items-center align-items-md-start text-center text-md-left bg-black hero-text vh-50">
-          <h1 className="text-white Title mt-3">
+    <div className="container my-4 ">
+      <div className="row vh-100  ">
+        <div className="col-12 col-md-6 d-flex flex-column justify-content-center align-items-center align-items-md-start text-center text-md-left  hero-text   ">
+          <h1 className="text-white intro Title mb-0">
             La Dorida Solution{" "}
-            <span className="d-none d-xl-block">è qui per te.</span>
+            <span className="d-none d-xl-block mb-3 textlill">è qui per te.</span>
           </h1>
-          <h2 className="text-white Title2 d-md-none">è qui per aiutarvi</h2>
-          <Tippy
-            content="Offriamo un preventivo gratuito"
-            className="fs-5 bg-black"
-          >
+          <h2 className="text-white Title2 d-md-none textlill ">è qui per aiutarvi</h2>
+        
+           
             <Link
               href="/contact"
-              className="Call-Button text-decoration-none my-2"
+              className="btn-glassmorphism btn-large  my-2 text-decoration-none my-4 d-none d-md-block "
             >
-              Preventivo Gratuito
+              Richiedi una consulenza gratuita 
             </Link>
-          </Tippy>
+          
+            <Link
+              href="/contact"
+              className="btn-glassmorphism btn-large  my-2 text-decoration-none my-4 d-md-none  "
+            >
+              Richiedi una consulenza  
+            </Link>
           <div className="Utilies mb-4">
             <ChatWithGPT className="buttontalk" />
           </div>

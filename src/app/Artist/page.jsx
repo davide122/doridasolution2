@@ -58,7 +58,7 @@ const Artist = () => {
       </Container>
 
       {selectedArtist && (
-        <Modal className="bg-black" show={showModal} onHide={() => setShowModal(false)} centered>
+        <Modal className="" show={showModal} onHide={() => setShowModal(false)} centered>
           <Modal.Header closeButton>
             <Modal.Title>{selectedArtist.username}</Modal.Title>
           </Modal.Header>

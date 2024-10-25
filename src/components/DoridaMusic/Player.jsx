@@ -95,7 +95,7 @@ const Player = ({ song, onNextSong, onPreviousSong }) => {
   };
 
   return (
-    <div className="player-container d-flex justify-content-between bg-black ">
+    <div className="player-container d-flex justify-content-between ">
       <div className="track-info">
         {song && (
           <Image

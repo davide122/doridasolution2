@@ -234,7 +234,7 @@ const [tip,settip]=useState(false)
 
   return (
     <div>
-      <Tippy content="Parla con nova" className={`fs-6 bg-black ${tip && "d-none"}`} animateFill={true} animation="scale" placement="bottom" duration={100} visible hideOnClick={true} inertia moveTransition="10px"  >
+      <Tippy content="Parla con nova" className={`fs-6  ${tip && "d-none"}`} animateFill={true} animation="scale" placement="bottom" duration={100} visible hideOnClick={true} inertia moveTransition="10px"  >
       <button
           onClick={toggleListening}
           className={`Call-Button text-center ${isWait ? 'is-loading' : ''}`}

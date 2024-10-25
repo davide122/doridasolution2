@@ -19,7 +19,7 @@ function MyFooter() {
       animate="visible"
       variants={footerVariants}
       transition={{ duration: 0.5 }}
-      className="bg-black text-white pt-1 Offcanvas"
+      className=" text-white pt-1 Offcanvas"
     >
       <div className="container-fluid p-5 bor d-flex ">
         <div className="row">

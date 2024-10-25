@@ -18,8 +18,14 @@ import WhyUs from "../components/whyus/WhyUs";
 import { RiWhatsappFill } from "react-icons/ri";
 import Link from "next/link";
 import Musicvis from "../components/MusicVisualizer/Musicvis";
+import Cursor from "../components/custom/CustomCursor";
+import VoiceNarrators from "../components/VoiceNarrators"
+import Review from "../components/Review"
+import SmartAnimation from "../components/SmartAnimation"
+import IntroOverlay from "../components/IntroOverlay"
+import BigCarousel from "../components/Carousel/BigCarousel"
 export default function Home( ) {
-
+ 
 
 
   const WhatsAppButton = () => {
@@ -48,7 +54,7 @@ export default function Home( ) {
     const originalLog = console.log;
     const originalError = console.error;
     const originalWarn = console.warn;
-    console.clear()
+    // console.clear()
 
     console.log = function(...args) {
       originalLog('%c' + warnMessage + warnMessage + warnMessage + warnMessage, cssWarning);
@@ -122,16 +128,23 @@ export default function Home( ) {
 
   return (
     <>
+      <Cursor></Cursor>
 <div className="position-fixed bottom-0 end-0 zz p-3">
  <WhatsAppButton></WhatsAppButton>
+ 
 </div>
       <MyNavbar />
+      <IntroOverlay></IntroOverlay>
       <HeroSection />
-      <Carouseltext />
       <ServicesSection />
       <ServicesExplain />
-      <AboutUs />
+      {/* <BigCarousel /> */}
       <Musicvis/>
+      {/* <BigCarousel/> */}
+      {/* <VoiceNarrators></VoiceNarrators> */}
+      <Review></Review>
+      {/* <SmartAnimation></SmartAnimation> */}
+      <AboutUs />
       <ChangeColor />
       {/* <VideoPresentazione /> */}
       {/* <WhyUs/> */}

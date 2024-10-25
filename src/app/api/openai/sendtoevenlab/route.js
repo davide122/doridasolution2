@@ -15,7 +15,7 @@ export async function POST(req) {
   try {
     // Richiesta a ElevenLabs per la sintesi vocale
     const response = await axios.post(
-      'https://api.elevenlabs.io/v1/text-to-speech/NV0kRZacN3dP803gOpXa',
+      'https://api.elevenlabs.io/v1/text-to-speech/iP95p4xoKVk53GoZ742B',
       {
         text: body.text,
         model_id: 'eleven_multilingual_v2',

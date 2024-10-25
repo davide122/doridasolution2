@@ -37,12 +37,12 @@ const Carouseltext = () => {
         {ExtendedServices.map((service, index) => (
           <motion.div 
             key={index} 
-            className="service-box "
+            className="service-box  "
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5, delay: (index % Services.length) * 0.2 }}
           >
-            <p className='fs-4'>{service}</p>
+            <p className='fs-4 textlill'>{service}</p>
           </motion.div>
         ))}
       </div>

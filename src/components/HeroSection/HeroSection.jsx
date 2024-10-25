@@ -42,7 +42,7 @@ const HeroSection = ({iswait}) => {
   };
 
   return (
-    <div className="container my-4 ">
+    <div className="container my-4 hero-section">
       <div className="row vh-100  ">
         <div className="col-12 col-md-6 d-flex flex-column justify-content-center align-items-center align-items-md-start text-center text-md-left  hero-text   ">
           <h1 className="text-white intro Title mb-0">

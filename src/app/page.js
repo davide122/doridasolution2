@@ -134,7 +134,6 @@ export default function Home( ) {
  
 </div>
       <MyNavbar />
-      <IntroOverlay></IntroOverlay>
       <HeroSection />
       <ServicesSection />
       <ServicesExplain />
@@ -142,7 +141,7 @@ export default function Home( ) {
       <Musicvis/>
       {/* <BigCarousel/> */}
       {/* <VoiceNarrators></VoiceNarrators> */}
-      <Review></Review>
+      {/* <Review></Review> */}
       {/* <SmartAnimation></SmartAnimation> */}
       <AboutUs />
       <ChangeColor />

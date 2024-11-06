@@ -74,7 +74,7 @@ const Music = () => {
             <h1 className="Title text-white">
               Vuoi diventare un&apos;artista di<span className="textlill"> successo?</span>
             </h1>
-            <Link href={"/music"} className="btn-glassmorphism btn-large text-decoration-none">
+            <Link href={"/music"} className="btn-glassmorphism btn-large text-decoration-none text-center w-100 ">
               Vai a Dorida Music
             </Link>
           </div>

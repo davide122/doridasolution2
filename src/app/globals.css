@@ -2554,9 +2554,12 @@ transition: all 0.5s ease;
 
 /* Altezza dinamica per la Hero Section */
 .hero-section {
-    overflow: hidden;
-  padding-top: 30px;
-  max-width: 1400px;
+  width: 100vw;
+  min-height: 100vh; /* Altezza minima basata sull'altezza del viewport */
+  padding: 0;
+  max-width: 1200px; /* Limita la larghezza massima della sezione */
+  margin: 0 auto;
+  overflow: hidden;
 
 }
 @media (min-width: 1400px) {

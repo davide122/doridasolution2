@@ -75,10 +75,10 @@ const ServicesSection = () => {
         <div className="container">
           <div className="row align-items-center">
             <div className="col-md-6">
-              <div className="">
+              {/* <div className="">
                 <video src="https://doridasolutionbucket.s3.eu-north-1.amazonaws.com/video/Palla.mp4" className='imgPalla' muted autoPlay loop></video>
                 <h2 className='Title fs-1 posizionetitolo text-white BasicTitle'>Perché Scegliere Dorida</h2>
-              </div>
+              </div> */}
             </div>
             <div className="col-md-6">
               <div className="stats-container d-flex flex-column">
